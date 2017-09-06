@@ -1,11 +1,11 @@
 //some globl methods which mounted vue prototype
 import axios from './libs/axios'
-import Loadding from './components/loadding'
+import Loading from './components/loading'
 
 //components
 import Hello from './components/hello/Hello'
 
-//loadding css
+//loading css
 import 'rest-css'
 
 const components = {
@@ -21,8 +21,8 @@ const install = function (Vue, options = {}) {
 
     //regsiter methods
     Vue.use(axios);
-    Vue.use(Loadding);
-    // Vue.prototype.$loadding = Loadding;
+    Vue.use(Loading);
+    // Vue.prototype.$loading = Loading;
 };
 
 //mount Vue to gobol when use it through script tag
