@@ -1,26 +1,27 @@
 import Loadding from './loadding.vue';
 
-let loaddingInstance;
+Loadding.created = (Vue, properties) => {
+    const _props = properties || {};
 
-const install = (Vue, options) => {
+    const Instance = new Vue({
+        data: _props,
+        render (h) {
+            return h(Loadding, { props: _props })
+        }
+    });
 
-    function getloaddingInstance (o) {
-        o = o || Loadding.created( Vue, {} );
-        return o;
-    }
+    const component = Instance.$mount();
+    document.body.appendChild(component.$el);
+    const loading = Instance.$children[0];
 
-    loaddingInstance = getloaddingInstance();
-
-    const loadding = {
-        show(){
-            loaddingInstance.show();
+    return {
+        show () {
+            loading.show();
         },
         close(){
-            loaddingInstance.close();
+            loading.close();
         }
-    }
+    };
+};
 
-    //挂在一些全局方法
-    Vue.prototype.$loadding = loadding;
-}
-export default { install }
+export default Loadding;

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import loadding from '../components/loadding'
+import loadding from '../components/loadding/loadding.js'
 
 const install = (Vue, options) => {
     const instance = axios.create({});

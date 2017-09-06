@@ -1,6 +1,8 @@
+//some globl methods which mounted vue prototype
 import axios from './libs/axios'
-import Loadding from './components/loadding/loadding.js'
+import Loadding from './components/loadding'
 
+//components
 import Hello from './components/hello/Hello'
 
 //loadding css
@@ -12,17 +14,18 @@ const components = {
 
 const install = function (Vue, options = {}) {
 
-    //注册组件
+    //regsiter componnets
     Object.keys(components).forEach((key) => {
         Vue.component(key, components[key]);
     });
 
+    //regsiter methods
     Vue.use(axios);
     Vue.use(Loadding);
     // Vue.prototype.$loadding = Loadding;
 };
 
-//通过script方式等引入自动注册全局变量
+//mount Vue to gobol when use it through script tag
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
