@@ -11,17 +11,17 @@ const install = (Vue, options) => {
     }
 
     //doc https://www.kancloud.cn/yunye/axios/234845
-    //请求拦截操作
+    //interceptors request
     instance.interceptors.request.use(function(config){
-        //统一method方法为大写
+        //change to toUpperCase
         config.method = config.method.toUpperCase();
-        //是否加载loadding动画
+        //showLoadding
         showLoadding = typeof config.loadding === 'undefined' || !!config.loadding;
         if(showLoadding){
             loaddingInstance = getloaddingInstance();
             loaddingInstance.show();
         };
-        //矫正method与data，params
+        //fixed method and data/params
         //'PUT', 'POST', 和 'PATCH'方法时不允许存在params会报错???
         //非'PUT', 'POST', 和 'PATCH'方法时，如果data不为空会请求两次
         if(config.method == 'GET') {
@@ -35,7 +35,7 @@ const install = (Vue, options) => {
         return Promise.reject(error);
     })
     
-    //响应拦截
+    //interceptors response
     instance.interceptors.response.use(function(response){
         const result = { 
             status: response.status,
@@ -51,7 +51,7 @@ const install = (Vue, options) => {
         return Promise.reject(error.response.data) 
     })
 
-    //挂在一些全局方法
+    //mount $https to vue prototype
     Vue.prototype.$https = instance;
 }
 

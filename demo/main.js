@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 
-//引入框架
+//impoet vui 
 import Vui from '../src'
 
 Vue.use(Vui)
