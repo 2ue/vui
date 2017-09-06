@@ -12,8 +12,9 @@ const install = (Vue, options) => {
     loadingInstance = getloadingInstance();
 
     const loading = {
-        show(){
-            loadingInstance.show();
+        show(options){
+          console.log(options)
+            loadingInstance.show(options);
         },
         close(){
             loadingInstance.close();

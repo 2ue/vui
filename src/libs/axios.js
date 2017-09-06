@@ -10,7 +10,7 @@ const install = (Vue, options) => {
     return o;
   }
 
-  function closeLoading() {
+  function tocloseLoading() {
     if(showLoading) {
       setTimeout(function () {
         loadingInstance.close();
@@ -19,17 +19,22 @@ const install = (Vue, options) => {
     }
   }
 
+  function toShowLoading() {
+    if(showLoading) {
+      loadingInstance = getloadingInstance();
+      loadingInstance.show();
+    }
+  }
+
   //doc https://www.kancloud.cn/yunye/axios/234845
   //interceptors request
   instance.interceptors.request.use(function(config){
+
     //change to toUpperCase
     config.method = config.method.toUpperCase();
     //showLoading
     showLoading = typeof config.loading === 'undefined' || !!config.loading;
-    if(showLoading){
-      loadingInstance = getloadingInstance();
-      loadingInstance.show();
-    };
+    toShowLoading()
     //fixed method and data/params
     //'PUT', 'POST', 和 'PATCH'方法时不允许存在params会报错???
     //非'PUT', 'POST', 和 'PATCH'方法时，如果data不为空会请求两次
@@ -39,13 +44,17 @@ const install = (Vue, options) => {
     }
 
     return config;
+
   },function(error){
-    closeLoading();
+
+    tocloseLoading();
     return Promise.reject(error);
+
   })
 
   //interceptors response
   instance.interceptors.response.use(function(response){
+
     const result = {
       status: response.status,
       data: ''
@@ -53,11 +62,14 @@ const install = (Vue, options) => {
     if(response.status === 200) {
       result.data = response.data;
     }
-    closeLoading();
+    tocloseLoading();
     return result;
+
   },function(error){
-    closeLoading();
+
+    tocloseLoading();
     return Promise.reject(error.response.data)
+
   })
 
   //mount $https to vue prototype

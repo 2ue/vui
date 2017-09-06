@@ -6,7 +6,8 @@ import Loading from './components/loading'
 import Hello from './components/hello/Hello'
 
 //loading css
-import 'rest-css'
+// import 'rest-css'
+import './assets/less/vui.less'
 
 const components = {
     Hello

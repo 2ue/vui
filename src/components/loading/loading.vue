@@ -1,14 +1,16 @@
 <template>
   <div class="loading-box" v-if="showLoading" @click="close">
-    <div class="loading-inner" @click="stopPropagation">
-      <h2>Loading</h2>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="loading-inner f_disselected">
+      <div @click="stopPropagation" v-if="!loadingHtml">
+        <p>{{ loadingText }}</p>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div @click="stopPropagation" v-else v-html="loadingHtml"></div>
     </div>
   </div>
 </template>
@@ -20,6 +22,11 @@
     data(){
       return{
         loading:'',
+        loadingText: 'Loading',
+        loadingHtml: '',
+        options: {
+
+        },
         showLoading: false,
         animation: ''
       }
@@ -38,8 +45,8 @@
       stopPropagation: function(event){
         event.stopPropagation();
       },
-      //给body设置样式是页面不滚动
       setStyle: function(hidden){
+        //let page don't scrolling
         document.getElementsByTagName('body')[0].style.overflow = hidden ? 'hidden' : 'auto';
       },
       //loading动画
@@ -50,7 +57,15 @@
           _this.loading += '.';
         }, t || 300)
       },
-      show: function(){
+      show: function(options){
+        if(!!options) {
+          const _html = options.html, _text = options.text;
+          if(_html) {
+            this.loadingHtml = _html;
+          }else {
+            if(_text) this.loadingText = !_text ?  this.loadingText : _text;
+          }
+        };
         this.showLoading = true;
       },
       close: function(){
@@ -69,7 +84,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(51, 51, 51, 0.3);
+    background: rgba(0, 0, 0, 0.1);
   }
 
   .loading-inner {
@@ -85,11 +100,11 @@
     span {
       display: inline-block;
       vertical-align: middle;
-      width: .6em;
-      height: .6em;
-      margin: .19em;
+      width: 10px;
+      height: 10px;
+      margin: 3px;
       background: #007DB6;
-      border-radius: .6em;
+      border-radius: 10px;
       animation: loading 1s infinite alternate;
 
       &:nth-of-type(2) {
@@ -112,10 +127,10 @@
         background: #5AB027;
         animation-delay: 1.0s;
       }
-      &:nth-of-type(7) {
-        background: #A0B61E;
-        animation-delay: 1.2s;
-      }
+      /*&:nth-of-type(7) {*/
+      /*background: #A0B61E;*/
+      /*animation-delay: 1.2s;*/
+      /*}*/
     }
 
   }

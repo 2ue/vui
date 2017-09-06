@@ -2,6 +2,7 @@
     <div id="app">
         <img src="./assets/logo.png" @click="getInfo">
         <hello></hello>
+      <textarea v-model="value"></textarea>
     </div>
 </template>
 
@@ -9,9 +10,14 @@
 
     export default {
         name: 'app',
+        data(){
+            return{
+              value: 'test'
+            }
+        },
         methods: {
             getInfo: function () {
-                this.$loading.show();
+                this.$loading.show({ html: '<p>{{ loadingText }}</p><span></span><span></span><span></span><span></span><span></span><span></span><hello></hello>' });
 //                 this.$https.get('https://api.github.com/users/2ue/repos?sort=created&per_page=100').then(function (res) {
 //                     console.log('res==>', res);
 //                 });
