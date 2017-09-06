@@ -3,6 +3,9 @@ import Loadding from './components/loadding/loadding.js'
 
 import Hello from './components/hello/Hello'
 
+//loadding css
+import 'rest-css'
+
 const components = {
     Hello
 }
