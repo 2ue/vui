@@ -1,6 +1,6 @@
 <template>
     <div class="loadding-box" v-if="showLoading" @click="close">
-        <div class="loadding-inner">
+        <div class="loadding-inner" @click="stopPropagation">
             <span>loadding{{loadding}}</span>
         </div>
     </div>
@@ -28,6 +28,9 @@
             }
         },
         methods: {
+            stopPropagation: function(event){
+                event.stopPropagation();
+            },
             //给body设置样式是页面不滚动
             setStyle: function(hidden){
                 document.getElementsByTagName('body')[0].style.overflow = hidden ? 'hidden' : 'auto';

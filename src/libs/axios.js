@@ -6,7 +6,7 @@ const install = (Vue, options) => {
     let loaddingInstance, showLoadding = true;
     
     function getloaddingInstance (o) {
-        o = o || loadding.created(Vue,{});
+        o = o || Loadding.created( Vue, {} );
         return o;
     }
 

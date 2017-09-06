@@ -1,4 +1,5 @@
 import axios from './libs/axios'
+import Loadding from './components/loadding/loadding.js'
 
 import Hello from './components/hello/Hello'
 
@@ -14,6 +15,8 @@ const install = function (Vue, options = {}) {
     });
 
     Vue.use(axios);
+    Vue.use(Loadding);
+    // Vue.prototype.$loadding = Loadding;
 };
 
 //通过script方式等引入自动注册全局变量

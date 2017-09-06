@@ -11,8 +11,8 @@ Loadding.created = (Vue, properties) => {
     });
 
     const component = Instance.$mount();
-    const loading = Instance.$children[0];
     document.body.appendChild(component.$el);
+    const loading = Instance.$children[0];
 
     return {
         show () {
