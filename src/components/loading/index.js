@@ -2,9 +2,9 @@ import Loading from "./loading.js";
 
 let loadingInstance;
 
-const install = (Vue, options) => {
+const install = (Vue, _OPTIONS) => {
   function getloadingInstance(o) {
-    o = o || Loading.created(Vue, {});
+    o = o || Loading.created(Vue, _OPTIONS || {});
     return o;
   }
   const loading = {
