@@ -1,6 +1,6 @@
 <template>
   <div class="loading-box" v-if="showLoading" @click="close">
-    <div class="loading-inner f_disselected">
+    <div class="loading-inner vui-dis-selected">
       <div @click="stopPropagation" v-if="!loadingHtml">
         <p>{{ loadingText }}</p>
         <span></span>
@@ -49,7 +49,7 @@
         //let page don't scrolling
         document.getElementsByTagName('body')[0].style.overflow = hidden ? 'hidden' : 'auto';
       },
-      //loading动画
+      //loading anmations
       makeAnimation: function(t){
         const _this = this;
         _this.animation = setInterval(function(){
@@ -84,7 +84,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.9);
   }
 
   .loading-inner {
@@ -92,11 +92,14 @@
     position: relative;
     width:300px;
     height: 100px;
-    /*background: #fff;*/
     top: 50%;
     margin: -50px auto;
     text-align: center;
 
+    p {
+        color: #fff;
+        margin-bottom: 10px;
+    }
     span {
       display: inline-block;
       vertical-align: middle;

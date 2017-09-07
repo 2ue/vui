@@ -14,14 +14,13 @@ const install = (Vue, options) => {
     if(showLoading) {
       setTimeout(function () {
         loadingInstance.close();
-        loadingInstance = undefined;
       }, 500)
     }
   }
 
   function toShowLoading() {
     if(showLoading) {
-      loadingInstance = getloadingInstance();
+      loadingInstance = getloadingInstance(loadingInstance);
       loadingInstance.show();
     }
   }
@@ -30,11 +29,12 @@ const install = (Vue, options) => {
   //interceptors request
   instance.interceptors.request.use(function(config){
 
+
+    toShowLoading()
     //change to toUpperCase
     config.method = config.method.toUpperCase();
     //showLoading
     showLoading = typeof config.loading === 'undefined' || !!config.loading;
-    toShowLoading()
     //fixed method and data/params
     //'PUT', 'POST', 和 'PATCH'方法时不允许存在params会报错???
     //非'PUT', 'POST', 和 'PATCH'方法时，如果data不为空会请求两次
