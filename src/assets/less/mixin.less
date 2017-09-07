@@ -1,7 +1,46 @@
+//base
+.vui-left {
+  float: left;
+}
+.vui-right {
+  float: right;
+}
+.vui-clear {
+  zoom: 1;
+}
+.vui-clear:before,
+.vui-clear:after {
+  display: table;
+  content: "";
+}
+.vui-clear:after {
+  clear: both;
+}
 
+//ui
 .vui-dis-selected {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.vui-shade {
+  z-index: 999999;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: @bg-shade;
+}
+
+.vui-modal {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  top: 50%;
+  margin: -100px auto;
+  background: #fff;
+  text-align: center;
+}

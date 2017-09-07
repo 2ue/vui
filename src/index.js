@@ -1,6 +1,7 @@
 //some globl methods which mounted vue prototype
 import axios from './libs/axios'
 import Loading from './components/loading'
+import Alert from './components/alert'
 
 //components
 import Hello from './components/hello/Hello'
@@ -23,6 +24,7 @@ const install = function (Vue, options = {}) {
     //regsiter methods
     Vue.use(axios);
     Vue.use(Loading);
+    Vue.use(Alert);
     // Vue.prototype.$loading = Loading;
 };
 

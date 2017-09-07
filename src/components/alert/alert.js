@@ -1,14 +1,13 @@
-import Loading from './loading.vue';
+import Alert from './alert.vue';
 
-
-Loading.created = (Vue, properties) => {
+Alert.created = (Vue, properties) => {
 
   const _props = properties || {};
 
   const instance = new Vue({
     data: _props,
     render (h) {
-      return h(Loading, { props: _props })
+      return h(Alert, { props: _props })
     }
   });
 
@@ -18,4 +17,4 @@ Loading.created = (Vue, properties) => {
 
 };
 
-export default Loading;
+export default Alert;
