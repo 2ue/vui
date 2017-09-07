@@ -34,11 +34,11 @@
     watch: {
       showLoading: function(val){
         this.setStyle(val);
-        if(val) {
-          this.makeAnimation()
-        }else{
-          clearInterval(this.animation);
-        }
+        // if(val) {
+        //   this.makeAnimation()
+        // }else{
+        //   clearInterval(this.animation);
+        // }
       }
     },
     methods: {
@@ -50,13 +50,13 @@
         document.getElementsByTagName('body')[0].style.overflow = hidden ? 'hidden' : 'auto';
       },
       //loading anmations
-      makeAnimation: function(t){
-        const _this = this;
-        _this.animation = setInterval(function(){
-          if(!!_this.loading && _this.loading.split('').length === 6) _this.loading = '';
-          _this.loading += '.';
-        }, t || 300)
-      },
+    //   makeAnimation: function(t){
+    //     const _this = this;
+    //     _this.animation = setInterval(function(){
+    //       if(!!_this.loading && _this.loading.split('').length === 6) _this.loading = '';
+    //       _this.loading += '.';
+    //     }, t || 300)
+    //   },
       show: function(options){
         if(!!options) {
           const _html = options.html, _text = options.text;
