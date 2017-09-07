@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-box" v-if="showLoading" @click="close">
+  <div class="vui-shade" v-if="showLoading" @click="close">
     <div class="loading-inner vui-dis-selected">
       <div @click="stopPropagation" v-if="!loadingHtml">
         <p>{{ loadingText }}</p>
@@ -34,11 +34,6 @@
     watch: {
       showLoading: function(val){
         this.setStyle(val);
-        // if(val) {
-        //   this.makeAnimation()
-        // }else{
-        //   clearInterval(this.animation);
-        // }
       }
     },
     methods: {
@@ -46,17 +41,8 @@
         event.stopPropagation();
       },
       setStyle: function(hidden){
-        //let page don't scrolling
         document.getElementsByTagName('body')[0].style.overflow = hidden ? 'hidden' : 'auto';
       },
-      //loading anmations
-    //   makeAnimation: function(t){
-    //     const _this = this;
-    //     _this.animation = setInterval(function(){
-    //       if(!!_this.loading && _this.loading.split('').length === 6) _this.loading = '';
-    //       _this.loading += '.';
-    //     }, t || 300)
-    //   },
       show: function(options){
         if(!!options) {
           const _html = options.html, _text = options.text;
@@ -77,15 +63,6 @@
 </script>
 
 <style lang="less">
-  .loading-box{
-    z-index: 999999;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.9);
-  }
 
   .loading-inner {
 
