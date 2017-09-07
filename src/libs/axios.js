@@ -1,12 +1,12 @@
 import axios from 'axios'
 import Loading from '../components/loading/loading.js'
 
-const install = (Vue, options) => {
-  const instance = axios.create({});
+const install = (Vue, _OPTIONS) => {
+  const instance = axios.create( _OPTIONS || {} );
   let loadingInstance, showLoading = true;
 
   function getloadingInstance (o) {
-    o = o || Loading.created( Vue, {} );
+    o = o || Loading.created(Vue);
     return o;
   }
 
