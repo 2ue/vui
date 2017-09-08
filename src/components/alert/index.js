@@ -1,4 +1,4 @@
-import Alert from './alert.js';
+import Alert from '../modal/modal.js';
 
 let instance;
 
@@ -7,17 +7,10 @@ const install = (Vue, _OPTIONS) => {
     o = o || Alert.created(Vue, _OPTIONS || {});
     return o;
   }
-//   const units = {
-//     show(options) {
-//         instance = getInstance(instance);
-//         instance.show(options);
-//     },
-//     close() {
-//         instance.close();
-//     }
-//   };
-  const show = options => {
-    instance = getInstance(instance);
+  const show = text => {
+      console.log(text)
+    instance = Alert.created(Vue, _OPTIONS || {});
+    const options = { footer: false, html: text };
     instance.show(options);
   }
 

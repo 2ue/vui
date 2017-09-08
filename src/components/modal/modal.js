@@ -1,13 +1,13 @@
-import Alert from './alert.vue';
+import Modal from './modal.vue';
 
-Alert.created = (Vue, properties) => {
+Modal.created = (Vue, properties) => {
 
   const _props = properties || {};
 
   const instance = new Vue({
     data: _props,
     render (h) {
-      return h(Alert, { props: _props })
+      return h(Modal, { props: _props })
     }
   });
 
@@ -17,4 +17,4 @@ Alert.created = (Vue, properties) => {
 
 };
 
-export default Alert;
+export default Modal;
