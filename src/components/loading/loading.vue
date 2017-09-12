@@ -1,6 +1,6 @@
 <template>
   <div class="vui-shade" v-if="showLoading" @click="close">
-    <div class="loading-inner vui-dis-selected">
+    <div class="vui-loading-inner vui-dis-selected">
       <div @click="stopPropagation" v-if="!loadingHtml">
         <p>{{ loadingText }}</p>
         <span></span>
@@ -18,7 +18,7 @@
 <script>
 
   export default {
-    name: 'loading',
+    name: 'vLoading',
     data(){
       return{
         loading:'',
@@ -64,7 +64,7 @@
 
 <style lang="less">
 
-  .loading-inner {
+  .vui-loading-inner {
 
     position: relative;
     width:300px;

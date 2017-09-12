@@ -1,14 +1,31 @@
 .vui-button{
-    display: inline-block;
-    padding: 0 10px;
-    margin-right: 10px;
-    height: 28px;
-    line-height: 28px;
-    // border: 1px solid @border-color-1;
+  display: inline-block;
+
+  button{
     background: #A385E0;
-    // font-size: @font-size-base;
     text-align: center;
     color: #fff;
     border-radius: @border-radius-button;
     cursor: pointer;
+    box-sizing: border-box;
+
+    &.vui-small{
+      padding: 0 10px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+    }
+    &.vui-middle{
+      padding: 0 15px;
+      height: 35px;
+      line-height: 35px;
+      font-size: 14px;
+    }
+    &.vui-larger{
+      padding: 0 25px;
+      height: 45px;
+      line-height: 45px;
+      font-size: 16px;
+    }
+  }
 }

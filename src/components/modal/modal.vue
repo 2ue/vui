@@ -19,9 +19,8 @@
 </template>
 
 <script>
-    import util from '../../utils/util.js'
     export default {
-        name: 'alert',
+        name: 'vModal',
         data() {
             return {
                 showModal: false,
@@ -38,7 +37,7 @@
                 event.stopPropagation();
             },
             show: function (_OPTIONS) {
-                const type = util.tryType(_OPTIONS);
+                const type = this.$util.tryType(_OPTIONS);
                 if(type === 'number' || type === 'string'){
                     this.content = _OPTIONS;
                 }else if(type === 'object'){
