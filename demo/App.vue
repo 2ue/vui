@@ -17,6 +17,8 @@
       <v-button size="middle" text="middle" disabled="true"></v-button>
       <v-button size="larger" text="larger"></v-button>
       <v-button width="100" text="small 100" @click="getInfo"></v-button>
+
+      <i class="vui-icon-font vui-icon-neiyi"></i>
     </div>
     <v-footer></v-footer>
   </div>

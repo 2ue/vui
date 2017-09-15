@@ -1,19 +1,9 @@
+//函数tint混合白色
+
 // font
 @font-size-base: 12px;
 @font-size: 14px;
 @font-family: @font-size-base/1.5 "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-
-
-//color
-@bg-shade: rgba(0, 0, 0, 0.3);
-@font-color: #333;
-
-
-@border-color-1: #ccc;
-@border-color-2: #E6E6E6;
-@border-radius-modal: 5px;
-@border-radius-button: 5px;
-
 
 //间距
 @modal-margin: 20px;
@@ -22,9 +12,18 @@
 
 //尺寸
 @title-height: 40px;
+@border-radius-modal: 5px;
+@border-radius-button: 5px;
 
 
 //color
 @primary-color: #8766FF;
 @light-color: #AF99FF;
 @dark-color: saturate(@primary-color, 80%);
+@border-color-main: #ccc;
+@border-color-less: tint(@border-color-main, 50%);
+@bg-shade: rgba(0, 0, 0, 0.3);
+@font-color-dark: #333;
+@font-color-main: #666;
+@font-color-light: #999;
+@font-color-link: #2d8cf0;

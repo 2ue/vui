@@ -1,7 +1,5 @@
 
 //----button css start ----
-@buttonBgColor: #8766FF;
-@textColor: #666;
 
 .vui-button {
   display: inline-block;
@@ -31,42 +29,42 @@
   }
   &:disabled,
   &:disabled:hover {
-    background: greyscale(lighten(@buttonBgColor, 20%));
-    border-color: greyscale(lighten(@buttonBgColor, 15%));
+    background: greyscale(lighten(@primary-color, 20%));
+    border-color: greyscale(lighten(@primary-color, 15%));
     color: #fff;
     cursor: not-allowed;
   }
 }
 .vui-button-default {
-  background: greyscale(lighten(@buttonBgColor, 27%));
-  border: 1px solid greyscale(lighten(@buttonBgColor, 15%));
-  color: @textColor;
+  background: greyscale(lighten(@primary-color, 27%));
+  border: 1px solid greyscale(lighten(@primary-color, 15%));
+  color: @font-color-main;
   &:hover {
-    border: 1px solid @buttonBgColor;
-    color: @buttonBgColor;
+    border: 1px solid @primary-color;
+    color: @primary-color;
   }
 }
 .vui-button-primary {
-  background: @buttonBgColor;
+  background: @primary-color;
   color: #fff;
   &:hover {
-    background: saturate(@buttonBgColor, 80%);
+    background: @dark-color;
   }
 }
 .vui-button-ghost {
-  border: 1px solid greyscale(lighten(@buttonBgColor, 15%));
-  color: @textColor;
+  border: 1px solid greyscale(lighten(@primary-color, 15%));
+  color: @font-color-main;
   &:hover {
-    border: 1px solid @buttonBgColor;
-    color: @buttonBgColor;
+    border: 1px solid @primary-color;
+    color: @primary-color;
   }
 }
 .vui-button-dashed {
-  border: 1px dashed greyscale(lighten(@buttonBgColor, 15%));
-  color: @textColor;
+  border: 1px dashed greyscale(lighten(@primary-color, 15%));
+  color: @font-color-main;
   &:hover {
-    border: 1px dashed @buttonBgColor;
-    color: @buttonBgColor;
+    border: 1px dashed @primary-color;
+    color: @primary-color;
   }
 }
 //----button css end ----
