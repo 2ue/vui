@@ -1,31 +1,74 @@
-.vui-button{
+@buttonBgColor: #A385E0;
+@textColor: #666;
+
+// .vui-button{
+//   display: inline-block;
+
+
+.vui-button {
   display: inline-block;
+  text-align: center;
+  border-radius: @border-radius-button;
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-sizing: border-box;
 
-  button{
-    background: #A385E0;
-    text-align: center;
+  &.vui-button-small {
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+  }
+  &.vui-button-middle {
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+  }
+  &.vui-button-larger {
+    padding: 0 25px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+  }
+  &:disabled,
+  &:disabled:hover {
+    background: greyscale(lighten(@buttonBgColor, 20%));
+    border-color: greyscale(lighten(@buttonBgColor, 15%));
     color: #fff;
-    border-radius: @border-radius-button;
-    cursor: pointer;
-    box-sizing: border-box;
-
-    &.vui-small{
-      padding: 0 10px;
-      height: 30px;
-      line-height: 30px;
-      font-size: 12px;
-    }
-    &.vui-middle{
-      padding: 0 15px;
-      height: 35px;
-      line-height: 35px;
-      font-size: 14px;
-    }
-    &.vui-larger{
-      padding: 0 25px;
-      height: 45px;
-      line-height: 45px;
-      font-size: 16px;
-    }
+    cursor: not-allowed;
   }
 }
+.vui-button-default {
+    background: greyscale(lighten(@buttonBgColor, 27%));
+    border: 1px solid greyscale(lighten(@buttonBgColor, 15%));
+    color: @textColor;
+    &:hover {
+      border: 1px solid @buttonBgColor;
+      color: @buttonBgColor;
+    }
+  }
+  .vui-button-primary {
+    background: @buttonBgColor;
+    color: #fff;
+    &:hover {
+      background: saturate(@buttonBgColor, 80%);
+    }
+  }
+  .vui-button-ghost {
+    border: 1px solid greyscale(lighten(@buttonBgColor, 15%));
+    color: @textColor;
+    &:hover {
+      border: 1px solid @buttonBgColor;
+      color: @buttonBgColor;
+    }
+  }
+  .vui-button-dashed {
+    border: 1px dashed greyscale(lighten(@buttonBgColor, 15%));
+    color: @textColor;
+    &:hover {
+      border: 1px dashed @buttonBgColor;
+      color: @buttonBgColor;
+    }
+  }
+// }

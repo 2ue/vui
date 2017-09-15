@@ -1,49 +1,65 @@
 <template>
-  <div class="vui-button">
-    <button :class="'vui-' + size" :style="{width:widthVal}">测试</button>
-  </div>
+    <!-- <div class="vui-button"> -->
+        <button  class="vui-button" :class="className" :style="{width:widthSize}" :disabled="disabled" @click="click">{{ text }}</button>
+    <!-- </div> -->
 </template>
 
 <script>
-  export default {
-    name: 'vButton',
-    data () {
-      return {
-      }
-    },
-    computed: {
-      widthVal: function () {
-          let width = this.width;
-          console.log(this.$util.isNumber(width))
-        let yy = {
-              uu: [{
-                  jjj: ['000','pppp']
-              }]
-        }
-          if(this.$util.isNumber(width)) width = width + 'px';
-        return width;
-      }
-    },
-    props: {
-        size: {
-            default: 'small'
+    export default {
+        name: 'vButton',
+        data() {
+            return {
+                sizeClass: {
+                    small: 'vui-button-small',
+                    middle: 'vui-button-middle',
+                    larger: 'vui-button-larger'
+                },
+                typeClass: {
+                    default: 'vui-button-default',
+                    primary: 'vui-button-primary',
+                    ghost: 'vui-button-ghost',
+                    dashed: 'vui-button-dashed'
+                }
+            }
         },
-      styles: {
-            type: Object
-      },
-      width: {
-            type: [String, Number],
-        value: function (val) {
-          console.log(val)
-          return val
+        computed: {
+            widthSize: function () {
+                let width = this.width;
+                if (this.$util.isNumber(width)) width = width + 'px';
+                return width;
+            },
+            className: function () {
+                return [this.sizeClass[this.size], this.typeClass[this.type]].join(' ');
+            }
+        },
+        props: {
+            size: {
+                default: 'small'
+            },
+            type: {
+                type: String,
+                default: 'default'
+            },
+            width: {
+                type: [String, Number]
+            },
+            text: {
+                default: 'Button'
+            },
+            disabled: {
+                type: [Boolean, String],
+                default: false
+            }
+        },
+        methods: {
+            click: function(event){
+                this.$emit('click', event);
+            }
         }
-      }
-    },
-    methods: {}
-  }
+    }
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>
