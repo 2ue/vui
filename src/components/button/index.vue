@@ -1,5 +1,6 @@
 <template>
-    <button class="vui-button" :class="className" :style="{ width:widthSize }" :disabled="disabled" @click="click">{{ text }}</button>
+  <!--<button class="vui-button" :class="className" :style="{ width:widthSize }" :disabled="disabled" @click="click">{{ text }}</button>-->
+  <button class="vui-button" :class="className" :style="{ width:widthSize }" @click="click">{{ text }}</button>
 </template>
 
 <script>
@@ -44,10 +45,10 @@
             text: {
                 default: 'Button'
             },
-            disabled: {
-                type: [Boolean, String],
-                default: false
-            }
+//            disabled: {
+//                type: [Boolean, String],
+//                default: false
+//            }
         },
         methods: {
             click: function(event){

@@ -3,7 +3,7 @@
     <v-header></v-header>
     <div class="vui-warper-content vui-content vui-clear">
       <div class="vui-menu">
-        <p v-for="route in RouterList" class="menu-list">
+        <p v-for="route in RouterList" class="menu-list" :class="{'menu-active': route.path == $route.path}">
           <router-link :to="route.path">{{ route.name }}</router-link>
         </p>
       </div>
@@ -87,5 +87,9 @@
     &:hover{
       text-decoration: underline;
     }
+  }
+  .menu-active{
+    background: #795da3;
+    color: #fff;
   }
 </style>

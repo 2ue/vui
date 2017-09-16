@@ -1,5 +1,5 @@
 <template>
-    <i class="vui-icon-font" :class="{}"></i>
+    <i class="vui-icon-font" :class="'vui-icon-' + type" :style="{fontSize: fontVal, color: color }"></i>
 </template>
 
 <script>
@@ -7,42 +7,34 @@
         name: 'vIcon',
         data() {
             return {
-                sizeClass: {
+                sizeVal: {
                     small: '16px',
                     middle:  '26px',
                     larger: '36px'
-                },
-                typeClass: {
-                    default: 'vui-button-default',
-                    primary: 'vui-button-primary',
-                    ghost: 'vui-button-ghost',
-                    dashed: 'vui-button-dashed'
                 }
             }
         },
         computed: {
-            widthSize: function () {
-                let width = this.width;
-                if (this.$util.isNumber(width)) width = width + 'px';
-                return width;
-            },
-            className: function () {
-                return [this.sizeClass[this.size], this.typeClass[this.type]].join(' ');
+            fontVal: function () {
+                if(!this.size) return '';
+                if(this.$util.isNumber(this.size)) return this.size + 'px';
+                if(!this.sizeVal[this.size]) return this.size;
+                return this.sizeVal[this.size];
             }
         },
         props: {
             size: {
+                type: [String, Number],
                 default: 'small'
             },
             type: {
-                type: String,
-                default: 'default'
+                type: String
+            },
+            color: {
+                type: String
             }
         },
         methods: {
-            click: function(event){
-                this.$emit('click', event);
-            }
         }
     }
 

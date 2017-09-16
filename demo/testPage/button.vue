@@ -1,7 +1,7 @@
 <template>
     <div>
       <v-button size="small"></v-button>
-      <v-button size="middle"disabled="true"></v-button>
+      <v-button size="middle"></v-button>
       <v-button size="larger"></v-button>
       <br/>
       <v-button size="small" disabled="true"></v-button>
@@ -15,9 +15,6 @@
       <v-button size="middle" text="middle" disabled="true"></v-button>
       <v-button size="larger" text="larger"></v-button>
       <v-button width="100" text="small 100" @click="getInfo"></v-button>
-
-      <i class="vui-icon-font vui-icon-neiyi"></i>
-      <a href="yy" class="vui-font-link">测试</a>
     </div>
 </template>
 
