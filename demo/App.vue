@@ -1,24 +1,15 @@
 <template>
-  <div id="app">
+  <div>
     <v-header></v-header>
-    <div class="vui-warper-content vui-content">
-      <v-button size="small"></v-button>
-      <v-button size="middle"disabled="true"></v-button>
-      <v-button size="larger"></v-button>
-      <br/>
-      <v-button size="small" disabled="true"></v-button>
-      <v-button size="middle" disabled="true"></v-button>
-      <v-button size="larger" :disabled="false"></v-button>
-      <br/>
-      <v-button size="small" type="ghost"></v-button>
-      <v-button size="middle" type="primary"></v-button>
-      <v-button size="larger" type="dashed" disabled="true"></v-button>
-      <br/>
-      <v-button size="middle" text="middle" disabled="true"></v-button>
-      <v-button size="larger" text="larger"></v-button>
-      <v-button width="100" text="small 100" @click="getInfo"></v-button>
-
-      <i class="vui-icon-font vui-icon-neiyi"></i>
+    <div class="vui-warper-content vui-content vui-clear">
+      <div class="vui-menu">
+        <p v-for="route in RouterList" class="menu-list">
+          <router-link :to="route.path">{{ route.name }}</router-link>
+        </p>
+      </div>
+      <div class="vui-main">
+        <router-view></router-view>
+      </div>
     </div>
     <v-footer></v-footer>
   </div>
@@ -27,11 +18,13 @@
 <script>
   import VHeader from './components/header'
   import VFooter from './components/footer'
+  import RouterList from  './libs/routerList'
 
   export default {
     name: 'app',
     data(){
       return{
+        RouterList,
       }
     },
     components: {
@@ -39,25 +32,6 @@
       VFooter
     },
     methods: {
-      getInfo: function (event) {
-          console.log('event==>',event)
-        this.$alert('加载失败！');
-        // this.$loading.show();
-        // this.$loading.show({ html: '<p>{{ loadingText }}</p><span></span><span></span><span></span><span></span><span></span><span></span><hello></hello>' });
-        // this.$https.get('https://api.github.com/users/2ue/repos?sort=created&per_page=100').then(function (res) {
-        //     console.log('res==>', res);
-        // });
-        // this.$https({
-        //     method: 'get',
-        //     url: 'https://api.github.com/users/2ue/repos',
-        //     loading: true,
-        //     data: {
-        //         sort: 'created',
-        //         per_page: 100,
-        //         loading: true
-        //     }
-        // });
-      }
     }
   }
 
@@ -78,6 +52,40 @@
     margin: 0 auto;
   }
   .vui-content{
-    margin: 100px auto;
+    margin: 0 auto;
+    position: relative;
+  }
+  .vui-menu{
+    position: absolute;
+    top: 0;
+    background: #DDE0E2;
+    width: 280px;
+    margin-right: 20px;
+  }
+  .vui-main{
+    padding-left: 300px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 300px;
+  }
+  .vui-clear {
+    zoom: 1;
+  }
+  .vui-clear:before,
+  .vui-clear:after {
+    display: table;
+    content: "";
+  }
+  .vui-clear:after {
+    clear: both;
+  }
+  .menu-list{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    text-indent: 1em;
+    &:hover{
+      text-decoration: underline;
+    }
   }
 </style>

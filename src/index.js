@@ -8,6 +8,8 @@ import Util from './utils/util'
 //components
 import Hello from './components/hello/Hello'
 import Button from './components/button'
+import Icon from './components/icon'
+import Input from './components/input'
 
 //loading css
 // import 'rest-css'
@@ -15,7 +17,9 @@ import './assets/less/vui.less'
 
 const components = {
   Hello,
-  Button
+  Button,
+  Icon,
+  Input
 }
 
 const install = function (Vue, options = {}) {

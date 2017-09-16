@@ -160,41 +160,42 @@
 .vui-font-title-main{
     font-weight: bold;
     font-size: 16px;
-    color: #333;
+    color: @font-color-dark;
 }
 //副标题
 .vui-font-title-less{
     font-weight: bold;
     font-size: 14px;
-    color: #333;
+    color: @font-color-dark;
 }
 //小标题
 .vui-font-title-mini{
     font-weight: bold;
     font-size: 12px;
-    color: #333;
+    color: @font-color-dark;
 }
 //正文
 .vui-font-content{
     font-size: 12px;
-    color: #333;
+    color: @font-color-dark;
 }
 //辅助文字
 .vui-font-hand{
     font-size: 12px;
-    color: #666;
+    color: @font-color-main;
 }
 //无效文字
 .vui-font-invalid{
     font-size: 12px;
-    color: #999;
+    color: @font-color-light;
 }
 //连接文字
 .vui-font-link{
-    font-size: 12px;
-    color: #2d8cf0;
+    font-size: 18px;
+    color: @font-color-link;
     &:hover{
-        color: #57a3f3;
+        color: softlight(@font-color-link, @font-color-main);
+      cursor: pointer;
     }
 }
 
