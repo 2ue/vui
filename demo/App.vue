@@ -63,7 +63,7 @@
     margin-right: 20px;
   }
   .vui-main{
-    padding-left: 300px;
+    margin-left: 300px;
     box-sizing: border-box;
     width: 100%;
     height: 300px;
@@ -91,5 +91,8 @@
   .menu-active{
     background: #795da3;
     color: #fff;
+  }
+  .vui-main{
+    padding: 20px 0;
   }
 </style>

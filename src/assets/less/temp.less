@@ -68,3 +68,20 @@
   }
 }
 //----button css end ----
+//----input css start ----
+.vui-input{
+  box-sizing: border-box;
+  width: 100px;
+  height:30px;
+  border: 1px solid @border-color-main;
+  border-radius: @border-radius;
+  padding: 0 10px;
+
+  &:disabled,
+  &:read-only{
+    background: greyscale(lighten(@primary-color, 25%));
+  }
+}
+//----input css end ----
+
+

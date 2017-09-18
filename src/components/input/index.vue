@@ -1,5 +1,5 @@
 <template>
-    <button class="vui-button" :class="className" :style="{ width:widthSize }" :disabled="disabled" @click="click">{{ text }}</button>
+    <input class="vui-input" v-model="value" :disabled="disabled" :style="{ width: widthSize }" :readonly="readonly" @click="click" @focus="focus">
 </template>
 
 <script>
@@ -7,52 +7,41 @@
         name: 'vInput',
         data() {
             return {
-                sizeClass: {
-                    small: 'vui-button-small',
-                    middle: 'vui-button-middle',
-                    larger: 'vui-button-larger'
-                },
-                typeClass: {
-                    default: 'vui-button-default',
-                    primary: 'vui-button-primary',
-                    ghost: 'vui-button-ghost',
-                    dashed: 'vui-button-dashed'
-                }
             }
         },
         computed: {
-            widthSize: function () {
-                let width = this.width;
-                if (this.$util.isNumber(width)) width = width + 'px';
-                return width;
-            },
-            className: function () {
-                return [this.sizeClass[this.size], this.typeClass[this.type]].join(' ');
-            }
+          widthSize: function () {
+            let width = this.width;
+            if (this.$util.isNumber(width)) width = width + 'px';
+            return width;
+          },
         },
         props: {
-            size: {
-                default: 'small'
-            },
-            type: {
-                type: String,
-                default: 'default'
+            value: {
+                default: ''
             },
             width: {
-                type: [String, Number]
-            },
-            text: {
-                default: 'Button'
+              type: [String, Number]
             },
             disabled: {
                 type: [Boolean, String],
                 default: false
+            },
+            readonly: {
+              type: [Boolean, String],
+              default: false
             }
         },
         methods: {
-            click: function(event){
-                this.$emit('click', event);
-            }
+          click: function(event){
+            this.$emit('click', event);
+          },
+          focus: function(event){
+            this.$emit('focus', event);
+          },
+          change: function(event){
+            this.$emit('on-change', event);
+          }
         }
     }
 
