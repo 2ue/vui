@@ -66,7 +66,7 @@
     margin-left: 300px;
     box-sizing: border-box;
     width: 100%;
-    height: 300px;
+    min-height: 300px;
   }
   .vui-clear {
     zoom: 1;
