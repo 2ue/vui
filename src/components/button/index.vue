@@ -9,7 +9,7 @@
         data() {
             return {
                 sizeClass: {
-                    small: 'vui-button-small',
+                  small: 'vui-button-small',
                     middle: 'vui-button-middle',
                     larger: 'vui-button-larger'
                 },

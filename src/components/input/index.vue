@@ -1,5 +1,5 @@
 <template>
-    <input class="vui-input" v-model="value" :disabled="disabled" :style="{ width: widthSize }" :readonly="readonly" @click="click" @focus="focus">
+    <input class="vui-input" v-model="val" :disabled="disabled" :style="{ width: widthSize }" :readonly="readonly"  @input="input">
 </template>
 
 <script>
@@ -7,6 +7,7 @@
         name: 'vInput',
         data() {
             return {
+                val: this.value
             }
         },
         computed: {
@@ -15,6 +16,11 @@
             if (this.$util.isNumber(width)) width = width + 'px';
             return width;
           },
+        },
+        watch: {
+          val: function () {
+            this.value = this.val;
+          }
         },
         props: {
             value: {
@@ -33,14 +39,11 @@
             }
         },
         methods: {
-          click: function(event){
-            this.$emit('click', event);
-          },
           focus: function(event){
             this.$emit('focus', event);
           },
-          change: function(event){
-            this.$emit('on-change', event);
+          input: function(event){
+            this.$emit('input', event);
           }
         }
     }

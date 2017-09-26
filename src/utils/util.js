@@ -18,9 +18,6 @@ export default {
   //深层取值
   getDeepData: (props, target) => {
     if (!target) target = this;
-    return props.reduce(
-      (pre, nxt) => (pre && pre[nxt] ? pre[nxt] : null),
-      target
-    );
+    return props.reduce((pre, nxt) => (typeof pre !== 'undefined' && typeof pre[nxt] !== 'undefined' ? pre[nxt] : null), target);
   }
 };

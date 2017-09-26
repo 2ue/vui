@@ -6,7 +6,7 @@
       <v-input readonly="true"></v-input><br/>
       <v-input v-model="uuuuuu"></v-input><br/>
       <v-input :value="uuuuuu"></v-input><br/>
-      <v-input @on-change="onChange" :value="testchange"></v-input><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <v-input @input="onChange" :value="testchange"></v-input><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <div class="box">
             <img src="../assets/logo.png" alt="" class="file">
       </div>
@@ -50,7 +50,7 @@
         width: 100px;
         height: 50px;
         background: #795da3;
-        
+
         img{
             width: 100%;
             height: 100%;

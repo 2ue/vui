@@ -45,10 +45,10 @@
 
   .vui-warper{
     width: 100%;
-    min-width: 1200px;
+    min-width: 80%;
   }
   .vui-warper-content{
-    width: 1200px;
+    width: 80%;
     margin: 0 auto;
   }
   .vui-content{
@@ -63,7 +63,7 @@
     margin-right: 20px;
   }
   .vui-main{
-    margin-left: 300px;
+    padding: 20px 0 20px 300px;
     box-sizing: border-box;
     width: 100%;
     min-height: 300px;
@@ -91,8 +91,5 @@
   .menu-active{
     background: #795da3;
     color: #fff;
-  }
-  .vui-main{
-    padding: 20px 0;
   }
 </style>
