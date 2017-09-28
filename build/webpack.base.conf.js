@@ -60,7 +60,9 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
+                    //http://blog.csdn.net/qq_38652603/article/details/73835153
+                    publicPath: '../'
                 }
             }
         ]
