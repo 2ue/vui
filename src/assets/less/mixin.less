@@ -5,105 +5,105 @@
 /* u_表示UI */
 
 .m_out {
-    width: 100%;
-    min-width: 1080px;
-  }
-  .m_in {
-    width:1080px;
-    margin: 0 auto;
-  }
-  .f_clear {
-    zoom: 1;
-  }
-  .f_clear:before,
-  .f_clear:after {
-    display: table;
-    content: '';
-  }
-  .f_clear:after {
-    clear: both;
-  }
-  .f_dib {
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-    _display: inline;
-  }
-  .f_dbk {
-    display: block;
-  }
-  .f_hide{
-    display: none;
-  }
-  .f_tal {
-    text-align: left;
-  }
-  .f_tac {
-    text-align: center;
-  }
-  .f_tar {
-    text-align: right;
-  }
-  .f_filter {
-    opacity: .5;
-    filter: alpha(opacity=50);
-    -moz-opacity: .5;
-    -khtml-opacity: .5;
-  }
-  .f_hdmx {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .f_float {
-    display: inline-block;
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-    _display: inline;
-    text-spacing: -3px;
-  }
-  .f_left {
-    float: left;
-  }
-  .f_right {
-    float: right;
-  }
-  /*修复margin-top被父元素‘继承’问题*/
-  .f_topbdr {
-    border-top: 1px solid transparent;
-  }
-  .f_disselected {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  .box_shadow {
-    box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
-    /*firefox*/
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
-    /*webkit*/
-  }
-  .box_shadow_2 {
-    box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
-    /*firefox*/
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
-    /*webkit*/
-  }
-  .icon {
-    vertical-align: top;
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-    _display: inline;
-  }
+  width: 100%;
+  min-width: 1080px;
+}
+.m_in {
+  width: 1080px;
+  margin: 0 auto;
+}
+.f_clear {
+  zoom: 1;
+}
+.f_clear:before,
+.f_clear:after {
+  display: table;
+  content: "";
+}
+.f_clear:after {
+  clear: both;
+}
+.f_dib {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  _display: inline;
+}
+.f_dbk {
+  display: block;
+}
+.f_hide {
+  display: none;
+}
+.f_tal {
+  text-align: left;
+}
+.f_tac {
+  text-align: center;
+}
+.f_tar {
+  text-align: right;
+}
+.f_filter {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+}
+.f_hdmx {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.f_float {
+  display: inline-block;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  _display: inline;
+  text-spacing: -3px;
+}
+.f_left {
+  float: left;
+}
+.f_right {
+  float: right;
+}
+/*修复margin-top被父元素‘继承’问题*/
+.f_topbdr {
+  border-top: 1px solid transparent;
+}
+.f_disselected {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.box_shadow {
+  box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
+  /*firefox*/
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
+  /*webkit*/
+}
+.box_shadow_2 {
+  box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
+  /*firefox*/
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
+  /*webkit*/
+}
+.icon {
+  vertical-align: top;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  _display: inline;
+}
 
-  [v-cloak] {
-    display: none;
-  }
+[v-cloak] {
+  display: none;
+}
 
 //new
 .vui-left {
@@ -132,11 +132,11 @@
   user-select: none;
 }
 
-.vui-title{
-    font-size: @font-size;
-    color: @font-color-dark;
-    height: @title-height;
-    line-height: @title-height;
+.vui-title {
+  font-size: @font-size;
+  color: @font-color-dark;
+  height: @title-height;
+  line-height: @title-height;
 }
 
 .vui-box-shadow {
@@ -154,48 +154,46 @@
   /*webkit*/
 }
 
-
 //font 设置
 //主标题
-.vui-font-title-main{
-    font-weight: bold;
-    font-size: 16px;
-    color: @font-color-dark;
+.vui-font-title-main {
+  font-weight: bold;
+  font-size: 16px;
+  color: @font-color-dark;
 }
 //副标题
-.vui-font-title-less{
-    font-weight: bold;
-    font-size: 14px;
-    color: @font-color-dark;
+.vui-font-title-less {
+  font-weight: bold;
+  font-size: 14px;
+  color: @font-color-dark;
 }
 //小标题
-.vui-font-title-mini{
-    font-weight: bold;
-    font-size: 12px;
-    color: @font-color-dark;
+.vui-font-title-mini {
+  font-weight: bold;
+  font-size: 12px;
+  color: @font-color-dark;
 }
 //正文
-.vui-font-content{
-    font-size: 12px;
-    color: @font-color-dark;
+.vui-font-content {
+  font-size: 12px;
+  color: @font-color-dark;
 }
 //辅助文字
-.vui-font-hand{
-    font-size: 12px;
-    color: @font-color-main;
+.vui-font-hand {
+  font-size: 12px;
+  color: @font-color-main;
 }
 //无效文字
-.vui-font-invalid{
-    font-size: 12px;
-    color: @font-color-light;
+.vui-font-invalid {
+  font-size: 12px;
+  color: @font-color-light;
 }
 //连接文字
-.vui-font-link{
-    font-size: 18px;
-    color: @font-color-link;
-    &:hover{
-        color: softlight(@font-color-link, @font-color-main);
-      cursor: pointer;
-    }
+.vui-font-link {
+  font-size: 18px;
+  color: @font-color-link;
+  &:hover {
+    color: softlight(@font-color-link, @font-color-main);
+    cursor: pointer;
+  }
 }
-

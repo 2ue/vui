@@ -27,7 +27,7 @@
                 showFooter: false,
                 title: '提示',
                 content: '',
-                callback:''
+                callback: ''
             }
         },
         watch: {
@@ -38,9 +38,9 @@
             },
             show: function (_OPTIONS) {
                 const type = this.$util.tryType(_OPTIONS);
-                if(type === 'number' || type === 'string'){
+                if (type === 'number' || type === 'string') {
                     this.content = _OPTIONS;
-                }else if(type === 'object'){
+                } else if (type === 'object') {
                     this.title = typeof _OPTIONS.title === 'undefined' ? this.title : _OPTIONS.title;
                     this.content = typeof _OPTIONS.html === 'undefined' ? this.content : _OPTIONS.html;
                     this.showFooter = typeof _OPTIONS.footer === 'undefined' ? true : _OPTIONS.footer;
@@ -50,7 +50,7 @@
             },
             close: function () {
                 this.showModal = false;
-                if(typeof this.callback === 'function') this.callback();
+                if (typeof this.callback === 'function') this.callback();
             }
         }
     }

@@ -1,6 +1,6 @@
 <template>
-  <!--<button class="vui-button" :class="className" :style="{ width:widthSize }" :disabled="disabled" @click="click">{{ text }}</button>-->
-  <button class="vui-button" :class="className" :style="{ width:widthSize }" @click="click">{{ text }}</button>
+    <!--<button class="vui-button" :class="className" :style="{ width:widthSize }" :disabled="disabled" @click="click">{{ text }}</button>-->
+    <button class="vui-button" :class="className" :style="{ width:widthSize }" @click="click">{{ text }}</button>
 </template>
 
 <script>
@@ -9,7 +9,7 @@
         data() {
             return {
                 sizeClass: {
-                  small: 'vui-button-small',
+                    small: 'vui-button-small',
                     middle: 'vui-button-middle',
                     larger: 'vui-button-larger'
                 },
@@ -45,13 +45,9 @@
             text: {
                 default: 'Button'
             },
-//            disabled: {
-//                type: [Boolean, String],
-//                default: false
-//            }
         },
         methods: {
-            click: function(event){
+            click: function (event) {
                 this.$emit('click', event);
             }
         }

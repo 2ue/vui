@@ -9,15 +9,15 @@ const install = (Vue, _OPTIONS) => {
   }
   const units = {
     show(options) {
-        instance = getInstance(instance);
-        instance.show(options);
+      instance = getInstance(instance);
+      instance.show(options);
     },
     close() {
-        instance.close();
+      instance.close();
     }
   };
 
   //挂在一些全局方法
-  Vue.prototype.$loading= units;
+  Vue.prototype.$loading = units;
 };
 export default { install };

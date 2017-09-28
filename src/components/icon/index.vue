@@ -9,16 +9,16 @@
             return {
                 sizeVal: {
                     small: '16px',
-                    middle:  '26px',
+                    middle: '26px',
                     larger: '36px'
                 }
             }
         },
         computed: {
             fontVal: function () {
-                if(!this.size) return '';
-                if(this.$util.isNumber(this.size)) return this.size + 'px';
-                if(!this.sizeVal[this.size]) return this.size;
+                if (!this.size) return '';
+                if (this.$util.isNumber(this.size)) return this.size + 'px';
+                if (!this.sizeVal[this.size]) return this.size;
                 return this.sizeVal[this.size];
             }
         },

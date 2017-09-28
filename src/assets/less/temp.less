@@ -1,4 +1,3 @@
-
 //----button css start ----
 
 .vui-button {
@@ -69,25 +68,25 @@
 }
 //----button css end ----
 //----input css start ----
-.vui-input{
+.vui-input {
   box-sizing: border-box;
   width: 100px;
-  height:30px;
+  height: 30px;
   border: 1px solid @border-color-main;
   border-radius: @border-radius;
   padding: 0 10px;
 
   &:disabled,
-  &:read-only{
+  &:read-only {
     background: greyscale(lighten(@primary-color, 25%));
   }
 }
 //----input css end ----
 
 //----tips css start ----
-[data-tips]{
+[data-tips] {
   position: relative;
-  &:hover{
+  &:hover {
     @left: 7px;
     @top: 10px;
     @dis: 5px;
@@ -103,7 +102,7 @@
       min-width: 100%;
       padding: 0 10px;
       pointer-events: none;
-      white-space:nowrap;
+      white-space: nowrap;
       font-size: 14px;
       color: #fff;
       background: @bg-shade-80;
@@ -113,8 +112,8 @@
       transition: all ease-in-out 1s;
     }
 
-    &:after{
-      content: '';
+    &:after {
+      content: "";
       position: absolute;
       top: -(@top + @dis);
       left: 50%;
@@ -129,5 +128,3 @@
   }
 }
 //----tips css end ----
-
-
