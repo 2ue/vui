@@ -1,49 +1,104 @@
 <template>
-    <div id="app">
-        <img src="./assets/logo.png" @click="getInfo">
-        <hello></hello>
+    <div>
+        <v-header></v-header>
+        <div class="vui-warper-content vui-content vui-clear">
+            <div class="vui-menu">
+                <p v-for="route in RouterList" class="menu-list" :class="{'menu-active': route.path == $route.path}">
+                    <router-link :to="route.path">{{ route.name }}</router-link>
+                </p>
+            </div>
+            <div class="vui-main">
+                <router-view></router-view>
+            </div>
+        </div>
+        <v-footer></v-footer>
     </div>
 </template>
 
 <script>
+    import VHeader from './components/header'
+    import VFooter from './components/footer'
+    import RouterList from './libs/routerList'
 
     export default {
         name: 'app',
-        data(){
-            return{
+        data() {
+            return {
+                RouterList,
             }
         },
+        components: {
+            VHeader,
+            VFooter
+        },
         methods: {
-            getInfo: function () {
-                this.$alert({});
-                // this.$loading.show();
-                // this.$loading.show({ html: '<p>{{ loadingText }}</p><span></span><span></span><span></span><span></span><span></span><span></span><hello></hello>' });
-                // this.$https.get('https://api.github.com/users/2ue/repos?sort=created&per_page=100').then(function (res) {
-                //     console.log('res==>', res);
-                // });
-                // this.$https({
-                //     method: 'get',
-                //     url: 'https://api.github.com/users/2ue/repos',
-                //     loading: true,
-                //     data: {
-                //         sort: 'created',
-                //         per_page: 100,
-                //         loading: true
-                //     }
-                // });
-            }
         }
     }
 
 </script>
 
-<style>
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
+<style lang="less">
+    body {
+        font: 12/1.5 "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        color: #333;
+    }
+
+    .vui-warper {
+        width: 100%;
+        min-width: 80%;
+    }
+
+    .vui-warper-content {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .vui-content {
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .vui-menu {
+        position: absolute;
+        top: 0;
+        background: #DDE0E2;
+        width: 280px;
+        margin-right: 20px;
+    }
+
+    .vui-main {
+        padding: 20px 0 20px 300px;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 300px;
+    }
+
+    .vui-clear {
+        zoom: 1;
+    }
+
+    .vui-clear:before,
+    .vui-clear:after {
+        display: table;
+        content: "";
+    }
+
+    .vui-clear:after {
+        clear: both;
+    }
+
+    .menu-list {
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+        text-indent: 1em;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .menu-active {
+        background: #795da3;
+        color: #fff;
     }
 </style>

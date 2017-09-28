@@ -1,0 +1,130 @@
+//----button css start ----
+
+.vui-button {
+  display: inline-block;
+  text-align: center;
+  border-radius: @border-radius-button;
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &.vui-button-small {
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+  }
+  &.vui-button-middle {
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+  }
+  &.vui-button-larger {
+    padding: 0 25px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+  }
+  &:disabled,
+  &:disabled:hover {
+    background: greyscale(lighten(@primary-color, 20%));
+    border-color: greyscale(lighten(@primary-color, 15%));
+    color: #fff;
+    cursor: not-allowed;
+  }
+}
+.vui-button-default {
+  background: greyscale(lighten(@primary-color, 27%));
+  border: 1px solid greyscale(lighten(@primary-color, 15%));
+  color: @font-color-main;
+  &:hover {
+    border: 1px solid @primary-color;
+    color: @primary-color;
+  }
+}
+.vui-button-primary {
+  background: @primary-color;
+  color: #fff;
+  &:hover {
+    background: @dark-color;
+  }
+}
+.vui-button-ghost {
+  border: 1px solid greyscale(lighten(@primary-color, 15%));
+  color: @font-color-main;
+  &:hover {
+    border: 1px solid @primary-color;
+    color: @primary-color;
+  }
+}
+.vui-button-dashed {
+  border: 1px dashed greyscale(lighten(@primary-color, 15%));
+  color: @font-color-main;
+  &:hover {
+    border: 1px dashed @primary-color;
+    color: @primary-color;
+  }
+}
+//----button css end ----
+//----input css start ----
+.vui-input {
+  box-sizing: border-box;
+  width: 100px;
+  height: 30px;
+  border: 1px solid @border-color-main;
+  border-radius: @border-radius;
+  padding: 0 10px;
+
+  &:disabled,
+  &:read-only {
+    background: greyscale(lighten(@primary-color, 25%));
+  }
+}
+//----input css end ----
+
+//----tips css start ----
+[data-tips] {
+  position: relative;
+  &:hover {
+    @left: 7px;
+    @top: 10px;
+    @dis: 5px;
+    &:before {
+      content: attr(data-tips);
+      position: absolute;
+      z-index: 999;
+      top: -100%;
+      left: 50%;
+      margin-left: -50%;
+      margin-top: -(@top + @dis);
+      display: block;
+      min-width: 100%;
+      padding: 0 10px;
+      pointer-events: none;
+      white-space: nowrap;
+      font-size: 14px;
+      color: #fff;
+      background: @bg-shade-80;
+      border-radius: @border-radius-button;
+      -webkit-transition: all ease-in-out 1s;
+      -moz-transition: all ease-in-out 1s;
+      transition: all ease-in-out 1s;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -(@top + @dis);
+      left: 50%;
+      margin-left: -@left;
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: @left solid transparent;
+      border-top: @top solid @bg-shade-80;
+      border-right: @left solid transparent;
+    }
+  }
+}
+//----tips css end ----

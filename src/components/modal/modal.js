@@ -1,12 +1,12 @@
-import Loading from "./loading.vue";
+import Modal from "./modal.vue";
 
-Loading.created = (Vue, properties) => {
+Modal.created = (Vue, properties) => {
     const _props = properties || {};
 
     const instance = new Vue({
         data: _props,
         render(h) {
-            return h(Loading, { props: _props });
+            return h(Modal, { props: _props });
         }
     });
 
@@ -15,4 +15,4 @@ Loading.created = (Vue, properties) => {
     return instance.$children[0];
 };
 
-export default Loading;
+export default Modal;
