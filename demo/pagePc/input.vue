@@ -2,11 +2,13 @@
     <div>
         <v-input></v-input><br/>
         <v-input width="300"></v-input><br/>
-        <v-input disabled="true"></v-input><br/>
+        <v-input disabled="true"  width="300%"> </v-input><br/>
         <v-input readonly="true"></v-input><br/>
-        <v-input v-model="uuuuuu"></v-input><br/>
-        <v-input :value="uuuuuu"></v-input><br/>
-        <v-input @input="onChange" :value="testchange"></v-input><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <v-input v-model="uuuuuu" @input="onChange"></v-input><br/>
+        <v-input v-model="uuuuuu" @focus="onChange"></v-input><br/>
+        <v-input v-model="testchange"></v-input>
+        <div>{{testchange}}</div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <div class="box">
             <img src="../assets/logo.png" alt="" class="file">
         </div>
@@ -35,8 +37,8 @@
             }
         },
         methods: {
-
-            onChange: function (event) {
+            onChange(event) {
+                console.log(this.uuuuuu)
                 console.log(this.testchange)
             }
         }

@@ -86,21 +86,25 @@
 //----tips css start ----
 [data-tips] {
     position: relative;
+    display: inline-block;
+    cursor: pointer;
     &:hover {
         @left: 7px;
         @top: 10px;
         @dis: 5px;
+        @paddingTop: 5px;
+        @paddingLeft: 10px;
         &:before {
             content: attr(data-tips);
             position: absolute;
             z-index: 999;
             top: -100%;
             left: 50%;
-            margin-left: -50%;
-            margin-top: -(@top + @dis);
+            margin-left: -(50% + @paddingLeft);
+            margin-top: -(@top + @dis + @paddingTop * 2);
             display: block;
             min-width: 100%;
-            padding: 0 10px;
+            padding: @paddingTop @paddingLeft;
             pointer-events: none;
             white-space: nowrap;
             font-size: 14px;
