@@ -8,9 +8,9 @@ import Input from "../testPage/input";
 import DataTips from "../testPage/data-tips";
 
 export default [
-  { path: "/", component: Index, name: "index" },
-  { path: "/btton", component: Button, name: "Button" },
-  { path: "/icon", component: Icon, name: "Icon" },
-  { path: "/Input", component: Input, name: "Input" },
-  { path: "/DataTips", component: DataTips, name: "DataTips" }
+    { path: "/", component: Index, name: "index" },
+    { path: "/btton", component: Button, name: "Button" },
+    { path: "/icon", component: Icon, name: "Icon" },
+    { path: "/Input", component: Input, name: "Input" },
+    { path: "/DataTips", component: DataTips, name: "DataTips" }
 ];
