@@ -2,12 +2,12 @@
     <div>
         <v-input></v-input><br/>
         <v-input width="300"></v-input><br/>
-        <v-input disabled="true"  width="300%"> </v-input><br/>
+        <v-input disabled="true"  width="30%"> </v-input><br/>
         <v-input readonly="true"></v-input><br/>
-        <v-input v-model="uuuuuu" @input="onChange"></v-input><br/>
-        <v-input v-model="uuuuuu" @focus="onChange"></v-input><br/>
-        <v-input v-model="testchange"></v-input>
-        <div>{{testchange}}</div>
+        <v-input v-model="val1" @input="changeVal1"></v-input><br/>
+        <v-input v-model="val1" @focus="changeVal1"></v-input><br/>
+        <v-input v-model="val2" @change="changeVal2"></v-input>
+        <div>{{val2}}</div>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <div class="box">
             <img src="../assets/logo.png" alt="" class="file">
@@ -29,17 +29,19 @@
 
 <script>
     export default {
-        name: 'vue',
+        name: 'input',
         data() {
             return {
-                uuuuuu: 9099009,
-                testchange: 88888
+                val1: 9099009,
+                val2: 88888
             }
         },
         methods: {
-            onChange(event) {
-                console.log(this.uuuuuu)
-                console.log(this.testchange)
+            changeVal1(event) {
+                console.log('val1==>',this.val1)
+            },
+            changeVal2(event) {
+                console.log('val1==>',this.val2)
             }
         }
     }

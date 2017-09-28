@@ -64,6 +64,12 @@
         background: #DDE0E2;
         width: 280px;
         margin-right: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        p{
+            text-decoration: none;
+            cursor: pointer;
+        }
     }
 
     .vui-main {
