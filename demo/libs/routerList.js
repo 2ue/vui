@@ -1,11 +1,11 @@
 /**
  * Created by J.2ue on 2017/9/16.
  */
-import Index from "../testPage/index";
-import Button from "../testPage/button";
-import Icon from "../testPage/icon";
-import Input from "../testPage/input";
-import DataTips from "../testPage/data-tips";
+import Index from "../pagePc/index";
+import Button from "../pagePc/button";
+import Icon from "../pagePc/icon";
+import Input from "../pagePc/input";
+import DataTips from "../pagePc/data-tips";
 
 export default [
     { path: "/", component: Index, name: "index" },

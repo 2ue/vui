@@ -1,5 +1,16 @@
 <template>
-    <input class="vui-input" v-model="val" :disabled="disabled" :style="{ width: widthSize }" :readonly="readonly" @input="input">
+    <input
+        class="vui-input"
+        type="text"
+        ref="vInput"
+        v-model="selfVal"
+        :disabled="disabled"
+        :style="{ width: widthSize }"
+        :readonly="readonly"
+        @input="eventInput"
+        @focus="eventFocus"
+        @blur="eventBlur"
+    >
 </template>
 
 <script>
@@ -7,7 +18,7 @@
         name: 'vInput',
         data() {
             return {
-                val: this.value
+                selfVal: this.value
             }
         },
         computed: {
@@ -18,12 +29,13 @@
             },
         },
         watch: {
-            val: function () {
-                this.value = this.val;
+            value(value) {
+                this.updateValue(value)
             }
         },
         props: {
             value: {
+                type: [String, Number],
                 default: ''
             },
             width: {
@@ -39,11 +51,19 @@
             }
         },
         methods: {
-            focus: function (event) {
+            eventInput: function (event) {
+                this.$emit('input', this.selfVal);
+                this.$emit('change', event);
+            },
+            eventFocus: function (event) {
                 this.$emit('focus', event);
             },
-            input: function (event) {
-                this.$emit('input', event);
+            eventBlur: function (event) {
+                this.$emit('blur', event);
+            },
+            updateValue(value) {
+                if (value === this.selfVal) return;
+                this.selfVal = value;
             }
         }
     }
