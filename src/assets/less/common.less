@@ -1,49 +1,49 @@
 //--- modal start---
 .vui-shade {
-  z-index: 999999;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: @bg-shade;
+    z-index: 999999;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: @bg-shade;
 }
 
 .vui-modal {
-  position: relative;
-  width: 350px;
-  top: 50%;
-  margin: -100px auto;
-  background: #fff;
-  text-align: center;
-  border-radius: @border-radius-modal;
-
-  .vui-modal-header {
-    border-bottom: 1px solid @border-color-less;
-    .vui-modal-title {
-      .vui-title();
-      margin-left: 20px;
-      text-align: left;
-    }
-    .vui-close {
-      text-align: center;
-      display: inline-block;
-      vertical-align: top;
-      cursor: pointer;
-      width: @title-height;
-      font-size: 18px;
-    }
-  }
-  .vui-modal-body {
-    padding: @modal-margin;
-  }
-  .vui-modal-footer {
     position: relative;
-    bottom: 0;
-    height: 60px;
-    line-height: 60px;
-    border-top: 1px solid @border-color-less;
-    padding-top: @box-padding;
-  }
+    width: 350px;
+    top: 50%;
+    margin: -100px auto;
+    background: #fff;
+    text-align: center;
+    border-radius: @border-radius-modal;
+
+    .vui-modal-header {
+        border-bottom: 1px solid @border-color-less;
+        .vui-modal-title {
+            .vui-title();
+            margin-left: 20px;
+            text-align: left;
+        }
+        .vui-close {
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+            width: @title-height;
+            font-size: 18px;
+        }
+    }
+    .vui-modal-body {
+        padding: @modal-margin;
+    }
+    .vui-modal-footer {
+        position: relative;
+        bottom: 0;
+        height: 60px;
+        line-height: 60px;
+        border-top: 1px solid @border-color-less;
+        padding-top: @box-padding;
+    }
 }
 //--- modal end---
