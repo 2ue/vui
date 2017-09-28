@@ -1,5 +1,6 @@
 # vui
-a ui framework  build with vue for pc
+a ui framework  build with vue for pc。
+[Demo](https://2ue.github.io/vui)
 
 # css变量命名规则
 ## 通用规则
