@@ -1,4 +1,12 @@
+/**
+ * Created by J.2ue on 2017/9/13.
+ */
+
 export default {
+    /*
+    * @function： 获取数据类型
+    * @param：para,要判断的数据
+    * */
     tryType: para => {
         const type = typeof para;
         if (type === "number" && isNaN(para)) return "NaN";
@@ -9,15 +17,13 @@ export default {
             .split(" ")[1]
             .toLowerCase();
     },
-    isNumber: num => {
-        if (window.isNumber) return window.isNumber(num);
-        if (Number.isNumber) return Number.isNumber(num);
-        return typeof num !== "undefined" && !isNaN(num);
-    },
-
-    //深层取值
-    getDeepData: (props, target) => {
-        if (!target) target = this;
-        return props.reduce((pre, nxt) => (typeof pre !== 'undefined' && typeof pre[nxt] !== 'undefined' ? pre[nxt] : null), target);
+    /*
+    * @function: 判断是否为数字
+    * @param： num，要判断的数据
+    * */
+    isNumber: para => {
+        if (window.isNumber) return window.isNumber(para);
+        if (Number.isNumber) return Number.isNumber(para);
+        return typeof para !== "undefined" && !isNaN(para);
     }
 };
