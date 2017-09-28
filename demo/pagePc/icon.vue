@@ -1,6 +1,6 @@
 <template>
     <div class="vue">
-        <p>测试tyoe和size</p>
+        <p>测试type和size</p>
         <v-icon type="jiahao"></v-icon>
         <v-icon type="jiahao" size="small"></v-icon>
         <v-icon type="jiahao" size="middle"></v-icon>
@@ -20,7 +20,7 @@
 
 <script>
     export default {
-        name: 'vue',
+        name: 'icon',
         data() {
             return {}
         },

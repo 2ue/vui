@@ -20,7 +20,7 @@
 
 <script>
     export default {
-        name: 'vue',
+        name: 'button',
         data() {
             return {}
         },
