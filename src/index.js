@@ -10,6 +10,7 @@ import Hello from "./components/hello/Hello";
 import Button from "./components/button";
 import Icon from "./components/icon";
 import Input from "./components/input";
+import Modal from "./components/modal/modal.vue";
 
 //loading css
 // import 'rest-css'
@@ -19,7 +20,8 @@ const components = {
     Hello,
     Button,
     Icon,
-    Input
+    Input,
+    Modal
 };
 
 const install = function(Vue, options = {}) {
