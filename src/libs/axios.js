@@ -1,7 +1,7 @@
 import axios from "axios";
 import Loading from "../components/loading/loading.js";
 
-const install = (Vue, _OPTIONS) => {
+const install = (Vue, _OPTIONS = {}) => {
     const instance = axios.create(_OPTIONS || {});
     let loadingInstance,
         showLoading = true;

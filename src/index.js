@@ -1,5 +1,5 @@
-//some globl methods which mounted vue prototype
-import axios from "./libs/axios";
+//globl methods
+import Axios from "./libs/axios";
 import Loading from "./components/loading";
 import Alert from "./components/alert";
 
@@ -11,6 +11,7 @@ import Button from "./components/button";
 import Icon from "./components/icon";
 import Input from "./components/input";
 import Modal from "./components/modal/modal.vue";
+import Checkbox from "./components/checkbox/index.vue";
 
 //loading css
 // import 'rest-css'
@@ -21,7 +22,8 @@ const components = {
     Button,
     Icon,
     Input,
-    Modal
+    Modal,
+    Checkbox
 };
 
 const install = function(Vue, options = {}) {
@@ -31,7 +33,7 @@ const install = function(Vue, options = {}) {
     });
 
     //regsiter methods
-    Vue.use(axios);
+    Vue.use(Axios);
     Vue.use(Loading);
     Vue.use(Alert);
     Vue.prototype.$util = Util;
