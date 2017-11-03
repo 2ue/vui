@@ -1,7 +1,8 @@
 <template>
-    <label class="vui-checkbox" :class="className">
-        <input type="checkbox">
-        <span></span>
+    <label class="vui-checkbox-warp" :class="className" :index="index">
+        <input type="checkbox" v-model="ownChecked" @click="click" :name="name" :value="value">
+        <span class="vui-checkbox"></span>
+        <span class="vui-checkbox-text" v-if="text">{{text}}</span>
     </label>
 </template>
 
@@ -15,42 +16,31 @@
                     middle: 'vui-checkbox-middle',
                     larger: 'vui-checkbox-larger'
                 },
-                typeClass: {
-                    default: 'vui-checkbox-default',
-                    primary: 'vui-checkbox-primary',
-                    ghost: 'vui-checkbox-ghost',
-                    dashed: 'vui-checkbox-dashed'
-                }
-            }
-        },
-        computed: {
-            widthSize: function () {
-                let width = this.width;
-                if (this.$util.isNumber(width)) width = width + 'px';
-                return width;
-            },
-            className: function () {
-                return [this.sizeClass[this.size], this.typeClass[this.type]].join(' ');
+                ownChecked: !!this.checked
             }
         },
         props: {
             size: {
                 default: 'small'
             },
-            type: {
-                type: String,
-                default: 'default'
-            },
-            width: {
+            text: {
                 type: [String, Number]
             },
-            text: {
-                default: 'Checkbox'
+            checked: {
+                default: undefined
             },
+            className: {
+                type: String
+            },
+            name: {
+                type: String
+            },
+            value: [String, Number],
+            index: [String, Number]
         },
         methods: {
             click: function (event) {
-                this.$emit('click', event);
+                this.$emit('onClick', event, this.ownChecked, this.value, this.index);
             }
         }
     }
@@ -58,5 +48,4 @@
 </script>
 
 <style scoped>
-
 </style>

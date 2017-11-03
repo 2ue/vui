@@ -1,60 +1,76 @@
 //base
-/* project style */
-/* m_表示模块 */
-/* f_表示功能 */
-/* u_表示UI */
+
+/*
+* project style
+* m_表示模块
+* f_表示功能
+* u_表示UI
+*/
 
 .m_out {
     width: 100%;
     min-width: 1080px;
 }
+
 .m_in {
     width: 1080px;
     margin: 0 auto;
 }
+
 .f_clear {
     zoom: 1;
 }
+
 .f_clear:before,
 .f_clear:after {
     display: table;
     content: "";
 }
+
 .f_clear:after {
     clear: both;
 }
+
 .f_dib {
     display: inline-block;
     zoom: 1;
     *display: inline;
     _display: inline;
 }
+
 .f_dbk {
     display: block;
 }
+
 .f_hide {
     display: none;
 }
+
 .f_tal {
     text-align: left;
 }
+
 .f_tac {
     text-align: center;
 }
+
 .f_tar {
     text-align: right;
 }
+
 .f_filter {
     opacity: 0.5;
     filter: alpha(opacity=50);
     -moz-opacity: 0.5;
     -khtml-opacity: 0.5;
 }
+
 .f_hdmx {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
 .f_float {
     display: inline-block;
     display: inline-block;
@@ -63,22 +79,29 @@
     _display: inline;
     text-spacing: -3px;
 }
+
 .f_left {
     float: left;
 }
+
 .f_right {
     float: right;
 }
+
+
 /*修复margin-top被父元素‘继承’问题*/
+
 .f_topbdr {
     border-top: 1px solid transparent;
 }
+
 .f_disselected {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
+
 .box_shadow {
     box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
     -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
@@ -86,6 +109,7 @@
     -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
     /*webkit*/
 }
+
 .box_shadow_2 {
     box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
     -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
@@ -93,6 +117,7 @@
     -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
     /*webkit*/
 }
+
 .icon {
     vertical-align: top;
     display: inline-block;
@@ -109,17 +134,21 @@
 .vui-left {
     float: left;
 }
+
 .vui-right {
     float: right;
 }
+
 .vui-clear {
     zoom: 1;
 }
+
 .vui-clear:before,
 .vui-clear:after {
     display: table;
     content: "";
 }
+
 .vui-clear:after {
     clear: both;
 }
@@ -130,6 +159,13 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.vui-can-selected {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 
 .vui-title {
@@ -146,6 +182,7 @@
     -webkit-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
     /*webkit*/
 }
+
 .vui-box-shadow-2 {
     box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
     -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
@@ -161,33 +198,39 @@
     font-size: 16px;
     color: @font-color-dark;
 }
+
 //副标题
 .vui-font-title-less {
     font-weight: bold;
     font-size: 14px;
     color: @font-color-dark;
 }
+
 //小标题
 .vui-font-title-mini {
     font-weight: bold;
     font-size: 12px;
     color: @font-color-dark;
 }
+
 //正文
 .vui-font-content {
     font-size: 12px;
     color: @font-color-dark;
 }
+
 //辅助文字
 .vui-font-hand {
     font-size: 12px;
     color: @font-color-main;
 }
+
 //无效文字
 .vui-font-invalid {
     font-size: 12px;
     color: @font-color-light;
 }
+
 //连接文字
 .vui-font-link {
     font-size: 18px;

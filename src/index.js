@@ -12,6 +12,7 @@ import Icon from "./components/icon";
 import Input from "./components/input";
 import Modal from "./components/modal/modal.vue";
 import Checkbox from "./components/checkbox/index.vue";
+import CheckboxGroup from "./components/checkbox/group.vue";
 
 //loading css
 // import 'rest-css'
@@ -23,10 +24,11 @@ const components = {
     Icon,
     Input,
     Modal,
-    Checkbox
+    Checkbox,
+    CheckboxGroup
 };
 
-const install = function(Vue, options = {}) {
+const install = function (Vue, options = {}) {
     //regsiter componnets
     Object.keys(components).forEach(key => {
         Vue.component(components[key].name, components[key]);
