@@ -2,7 +2,8 @@
     <div>
         <v-checkbox size="small" :checked="false" name="iiii"></v-checkbox>
         <v-checkbox size="small" :checked="checked" text="textCheckbox" @onClick="getInfo"></v-checkbox>
-        <v-checkbox-group :groupData="groupData" name="uuuu" :checkedItems="checkedItems"></v-checkbox-group>
+        <v-checkbox-group :checkboxData="checkboxData" checkedKey="value" name="uuuu" :checkedDatas="checkedDatas" @singleClick="singleClick"
+            @updateCheckedDatas="updateCheckedDatas"></v-checkbox-group>
     </div>
 </template>
 
@@ -12,7 +13,7 @@
         data() {
             return {
                 checked: true,
-                groupData: [{
+                checkboxData: [{
                     size: 'small',
                     checked: true,
                     value: 1,
@@ -33,17 +34,21 @@
                     value: 4,
                     text: 'tetttt4'
                 }],
-                checkedItems: [2, 3, 4],
-                // checkedItems: {
-                //     key: 'value',
-                //     checkedValue: [2, 3, 4]
-                // }
+                checkedDatas: [2, 3, 4]
             }
         },
         methods: {
             getInfo: function (event, checked) {
                 console.log('checked inner==>', checked);
                 console.log('checked==>', this.checked)
+            },
+            singleClick: function (event, checked, value, index) {
+                console.log('checked ==>', checked);
+                console.log('value ==>', value);
+                console.log('index ==>', index);
+            },
+            updateCheckedDatas: function (checkedDatas) {
+                console.log('checkedDatas=>', checkedDatas)
             }
         }
     }
