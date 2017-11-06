@@ -1,7 +1,7 @@
 <template>
     <div class="vui-checkbox-group">
-        <checkbox v-for="(item, index) in checkboxData" :key="index" :index="index" :size="item.size" :name="name" :checked="getCkeckedStatus(index, item.checked)" :text="item.text"
-            :value="item.value" @onClick="singleClick"></checkbox>
+        <checkbox v-for="(item, index) in checkboxData" :key="index" :index="index" :size="item.size" :name="name" :checked="getCkeckedStatus(index, item.checked)"
+            :text="item.text" :value="item.value" @onClick="singleClick"></checkbox>
     </div>
 </template>
 
@@ -25,7 +25,7 @@
             selfCheckedItems: {
                 deep: true,
                 handler(val) {
-                    console.log('uuuuuuuu==>',[...val])
+                    console.log('uuuuuuuu==>', [...val])
                     this.getCkeckedItems();
                 }
             }
@@ -55,19 +55,19 @@
                 const checkedItems = this.checkedItems, checkedKey = this.checkedKey;
                 if (checkedItems.length > 0) {
                     let checkedVal = index;
-                    if(checkedKey !== 'index') checkedVal = this.checkboxData[index][checkedKey];
+                    if (checkedKey !== 'index') checkedVal = this.checkboxData[index][checkedKey];
                     return checkedItems.indexOf(checkedVal) >= 0;
                 } else {
-                    if(chcked) this.selfCheckedItems.push(index);
+                    if (chcked) this.selfCheckedItems.push(index);
                     return checked
                 }
             },
             singleClick(event, checked, value, index) {
                 const checkedVal = this.checkedKey === 'index' ? index : this.checkboxData[index][this.checkedKey];
                 const checkedIndex = this.selfCheckedItems.indexOf(checkedVal);
-                if(checked) {
+                if (checked) {
                     this.selfCheckedItems.push(checkedVal);
-                }else{
+                } else {
                     this.selfCheckedItems.splice(checkedIndex, 1);
                 }
                 this.$emit('singleClick', event, checked, value, index);
