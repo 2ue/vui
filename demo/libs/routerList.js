@@ -6,11 +6,15 @@ import Button from "../pagePc/button";
 import Icon from "../pagePc/icon";
 import Input from "../pagePc/input";
 import DataTips from "../pagePc/data-tips";
+import Modal from "../pagePc/modal";
+import Chexkbox from "../pagePc/checkbox";
 
 export default [
     { path: "/", component: Index, name: "index" },
     { path: "/btton", component: Button, name: "Button" },
     { path: "/icon", component: Icon, name: "Icon" },
     { path: "/Input", component: Input, name: "Input" },
-    { path: "/DataTips", component: DataTips, name: "DataTips" }
+    { path: "/DataTips", component: DataTips, name: "DataTips" },
+    { path: "/Modal", component: Modal, name: "Modal" },
+    { path: "/Chexkbox", component: Chexkbox, name: "Chexkbox" }
 ];

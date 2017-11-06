@@ -19,34 +19,58 @@
 </template>
 
 <script>
+
+    //默认配置
+    const OPTIONS_DEFALUT = {
+        title: '提示',
+        showModal: false,
+        showFooter: false,
+        content: '',
+        callback: ''
+    };
+
     export default {
         name: 'vModal',
         data() {
             return {
-                showModal: false,
-                showFooter: false,
-                title: '提示',
-                content: '',
-                callback: ''
+                ...OPTIONS_DEFALUT,
+                optionsItem: typeof this.options === 'object' ? { ...this.options } : this.options
             }
         },
         watch: {
+            optionsItem: {
+                handler(options) {
+                    if (this.$util.tryType(options) === 'object') {
+                        const _OPTIONS = { ...OPTIONS_DEFALUT, ...options };
+                        this.title = _OPTIONS.title;
+                        this.content = _OPTIONS.content;
+                        this.showFooter = _OPTIONS.footer;
+                        this.callback = _OPTIONS.callback;
+                        this.showModal = _OPTIONS.showModal;
+                    } else {
+                        this.content = options;
+                    }
+                },
+                deep: true
+            },
+            options: {
+                handler(options) {
+                    this.optionsItem = typeof options === 'object' ? { ...options } : options;
+                },
+                deep: true
+            }
+        },
+        props: {
+            options: {
+                type: [Object, Number, String]
+            }
         },
         methods: {
             stopPropagation: function (event) {
                 event.stopPropagation();
             },
             show: function (_OPTIONS) {
-                const type = this.$util.tryType(_OPTIONS);
-                if (type === 'number' || type === 'string') {
-                    this.content = _OPTIONS;
-                } else if (type === 'object') {
-                    this.title = typeof _OPTIONS.title === 'undefined' ? this.title : _OPTIONS.title;
-                    this.content = typeof _OPTIONS.html === 'undefined' ? this.content : _OPTIONS.html;
-                    this.showFooter = typeof _OPTIONS.footer === 'undefined' ? true : _OPTIONS.footer;
-                    this.callback = typeof _OPTIONS.callback === 'undefined' ? '' : _OPTIONS.callback;
-                }
-                this.showModal = true;
+                if (!!_OPTIONS) this.optionsItem = typeof _OPTIONS === 'object' ? { ..._OPTIONS, showModal: true } : { content: _OPTIONS, showModal: true };
             },
             close: function () {
                 this.showModal = false;
@@ -58,5 +82,4 @@
 </script>
 
 <style lang="less">
-
 </style>

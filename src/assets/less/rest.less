@@ -5,6 +5,7 @@ body {
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
 }
+
 html,
 body,
 div,
@@ -41,6 +42,7 @@ button {
     padding: 0;
     outline: none;
 }
+
 body {
     /*make the font look like to smoothly*/
     -webkit-font-smoothing: antialiased;
@@ -48,7 +50,10 @@ body {
     text-rendering: optimizeLegibility;
     font: @font-family;
 }
+
+
 /*get attributes form parent*/
+
 a,
 h1,
 h2,
@@ -70,32 +75,39 @@ optgroup {
     color: inherit;
     outline: none;
 }
+
 a {
     text-decoration: none;
     cursor: pointer;
 }
+
 a:active,
 a:hover {
     outline: none;
 }
+
 a:focus {
     outline: none;
     -moz-outline: none;
 }
+
 table {
     border-spacing: 0;
     border-collapse: collapse;
 }
+
 img {
     vertical-align: middle;
     -ms-interpolation-mode: bicubic;
     border: none;
 }
+
 ul,
 li,
 ol {
     list-style: none;
 }
+
 i,
 em,
 b,
@@ -103,6 +115,7 @@ strong {
     font-weight: normal;
     font-style: normal;
 }
+
 input,
 select,
 textarea,
@@ -117,16 +130,19 @@ button {
     /*fixed Box model isn't same*/
     box-sizing: content-box;
 }
+
 input::-moz-focus-inner,
 button::-moz-focus-inner {
     /*fixed outline not work in firefox*/
     border: 0;
     padding: 0;
 }
+
 textarea {
     overflow-y: auto;
     resize: none;
 }
+
 a,
 input[type="button"],
 input[type="submit"],
@@ -134,22 +150,26 @@ input[type="reset"],
 button {
     cursor: pointer;
 }
+
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
     /* WebKit browsers */
     color: @font-color-main;
 }
+
 input:-moz-placeholder,
 textarea:-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     opacity: 1;
     color: @font-color-main;
 }
+
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
     /* Internet Explorer 10+ */
     color: @font-color-main;
 }
+
 select::-ms-expand {
     /*fixed IE*/
     display: none;

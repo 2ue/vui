@@ -8,9 +8,8 @@ const install = (Vue, _OPTIONS) => {
         return o;
     }
     const show = text => {
-        console.log(text);
         instance = Alert.created(Vue, _OPTIONS || {});
-        const options = { footer: false, html: text };
+        const options = { footer: false, content: text };
         instance.show(options);
     };
 

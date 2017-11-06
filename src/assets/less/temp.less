@@ -1,5 +1,4 @@
 //----button css start ----
-
 .vui-button {
     display: inline-block;
     text-align: center;
@@ -7,7 +6,6 @@
     border: 1px solid transparent;
     cursor: pointer;
     box-sizing: border-box;
-
     &.vui-button-small {
         padding: 0 10px;
         height: 30px;
@@ -34,6 +32,7 @@
         cursor: not-allowed;
     }
 }
+
 .vui-button-default {
     background: greyscale(lighten(@primary-color, 27%));
     border: 1px solid greyscale(lighten(@primary-color, 15%));
@@ -43,6 +42,7 @@
         color: @primary-color;
     }
 }
+
 .vui-button-primary {
     background: @primary-color;
     color: #fff;
@@ -50,6 +50,7 @@
         background: @dark-color;
     }
 }
+
 .vui-button-ghost {
     border: 1px solid greyscale(lighten(@primary-color, 15%));
     color: @font-color-main;
@@ -58,6 +59,7 @@
         color: @primary-color;
     }
 }
+
 .vui-button-dashed {
     border: 1px dashed greyscale(lighten(@primary-color, 15%));
     color: @font-color-main;
@@ -66,6 +68,7 @@
         color: @primary-color;
     }
 }
+
 //----button css end ----
 //----input css start ----
 .vui-input {
@@ -75,14 +78,13 @@
     border: 1px solid @border-color-main;
     border-radius: @border-radius;
     padding: 0 10px;
-
     &:disabled,
     &:read-only {
         background: greyscale(lighten(@primary-color, 25%));
     }
 }
-//----input css end ----
 
+//----input css end ----
 //----tips css start ----
 [data-tips] {
     position: relative;
@@ -115,7 +117,6 @@
             -moz-transition: all ease-in-out 1s;
             transition: all ease-in-out 1s;
         }
-
         &:after {
             content: "";
             position: absolute;
@@ -131,4 +132,76 @@
         }
     }
 }
+
 //----tips css end ----
+//-----checkbox start-----
+.vui-checkbox-warp {
+    margin-right: 5px;
+    .vui-dis-selected();
+    span {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .vui-checkbox-text {
+        .vui-can-selected();
+        color: #666;
+        font-size: 14px;
+    }
+    .vui-checkbox {
+        position: relative;
+        height: 20px;
+        padding-left: 22px;
+        &:before {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            background: #7B7EA2;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: background ease-in-out 0.4s;
+            -moz-transition: background ease-in-out 0.4s;
+            transition: background ease-in-out 0.4s;
+        }
+        &:after {
+            content: ' ';
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            z-index: 2;
+            width: 14px;
+            height: 14px;
+            border-radius: 2px;
+            background: #E6E6EB;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: background ease-in-out 0.4s;
+            -moz-transition: background ease-in-out 0.4s;
+            transition: background ease-in-out 0.4s;
+        }
+    }
+    [type=checkbox] {
+        &:checked~.vui-checkbox:after {
+            /*加勾*/
+            content: '\2714';
+            color: #fff;
+            line-height: 6px;
+            font-size: 20px;
+            background: #7B7EA2;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+        }
+        &:checked~.vui-checkbox:before {
+            background: #E6E6EB;
+        }
+    }
+}
+
+//------checkbox end------
