@@ -1,16 +1,6 @@
 <template>
-    <input
-        class="vui-input"
-        type="text"
-        ref="vInput"
-        v-model="selfVal"
-        :disabled="disabled"
-        :style="{ width: widthSize }"
-        :readonly="readonly"
-        @input="eventInput"
-        @focus="eventFocus"
-        @blur="eventBlur"
-    >
+    <input class="vui-input" type="text" ref="vInput" v-model="selfVal" :disabled="disabled" :style="{ width: widthSize }" :readonly="readonly"
+        @input="eventInput" @focus="eventFocus" @blur="eventBlur">
 </template>
 
 <script>
@@ -71,5 +61,4 @@
 </script>
 
 <style scoped>
-
 </style>
