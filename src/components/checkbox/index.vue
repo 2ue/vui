@@ -1,8 +1,9 @@
 <template>
-    <label class="vui-checkbox-warp" :class="className" :index="index">
+    <label class="vui-checkbox-warp" :index="index">
         <input type="checkbox" v-model="ownChecked" @click="click" :name="name" :value="value">
         <span class="vui-checkbox"></span>
         <span class="vui-checkbox-text" v-if="text">{{text}}</span>
+        <!-- <slot name="text"></slot> -->
     </label>
 </template>
 
@@ -28,9 +29,6 @@
             },
             checked: {
                 default: undefined
-            },
-            className: {
-                type: String
             },
             name: {
                 type: String

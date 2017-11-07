@@ -1,6 +1,8 @@
 <template>
     <div>
-        <v-checkbox size="small" :checked="false" name="iiii"></v-checkbox>
+        <v-checkbox size="small" :checked="false" name="iiii">
+            <span slot="text">asdas</span>
+        </v-checkbox>
         <v-checkbox size="small" :checked="checked" text="textCheckbox" @onClick="getInfo"></v-checkbox>
         <v-checkbox-group :checkboxData="checkboxData" checkedKey="value" name="uuuu" :checkedDatas="checkedDatas" @singleClick="singleClick"
             @updateCheckedDatas="updateCheckedDatas"></v-checkbox-group>

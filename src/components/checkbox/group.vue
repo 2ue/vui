@@ -1,7 +1,9 @@
 <template>
     <div class="vui-checkbox-group">
+        <slot name="before"></slot>
         <checkbox v-for="(item, index) in selfCheckboxDatas" :key="index" :index="index" :size="item.size" :name="name" :checked="item.checked"
             :text="item.text" :value="item.value" @onClick="singleClick"></checkbox>
+        <slot name="after"></slot>
     </div>
 </template>
 
