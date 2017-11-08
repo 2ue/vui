@@ -1,7 +1,7 @@
 <template>
     <div class="vui-radio-group">
         <slot name="before"></slot>
-        <radio v-for="(item, index) in selfCheckboxDatas" :key="index" :index="index" :size="item.size" :name="name" :checked="item.checked"
+        <radio v-for="(item, index) in selfRadioDatas" :key="index" :index="index" :size="item.size" :name="name" :checked="item.selfChecked"
             :text="item.text" :value="item.value" @onClick="singleClick"></radio>
         <slot name="after"></slot>
     </div>
@@ -14,77 +14,47 @@
         name: 'vRadioGroup',
         data() {
             return {
-                selfCheckboxDatas: this.getCheckboxData(),
-                selfCheckedDatas: this.checkedDatas.length === 0 ? [] : [...this.checkedDatas]
+                selfRadioDatas: this.getRadioData()
             }
         },
         components: {
             Radio
         },
-        watch: {
-            selfCheckboxDatas: {
-                deep: true,
-                handler(val) {
-                    this.getCkeckedItems([...val]);
-                }
-            }
-        },
         props: {
-            //checkbox组的数据
-            checkboxData: {
+            //radio组的数据
+            radioDatas: {
                 type: Array,
                 default() {
                     return [];
                 }
             },
-            //checkbox组的name
+            //radio组的name
             name: String,
             //被选中的项
-            checkedDatas: {
-                type: Array,
-                default() {
-                    return [];
-                }
+            checkedData: {
+                type: [String, Number],
+                default: undefined
             },
-            //指定checkboxData中的某个键值来判定checkbox的选中状态
+            //指定radioDatas中的某个键值来判定radio的选中状态
             checkedKey: {
                 type: String,
                 default: 'index'
             }
         },
         methods: {
-            //重新组装checkboxData数据，便于组件内部调用
-            getCheckboxData() {
-                const _this = this;
-                let checkboxItems = [];
-                this.checkboxData.forEach(function (checkbox, index) {
-                    checkboxItems.push({ ...checkbox, ...{ checked: _this.getCkeckedStatus(checkbox, index) } });
+            //重新组装radioDatas数据，便于组件内部调用
+            getRadioData() {
+                const _this = this, checkedKey = _this.checkedKey, checkedData = _this.checkedData;
+                let radioItems = [];
+                this.radioDatas.forEach(function (radio, index) {
+                    radioItems.push({ ...radio, ...{ selfChecked: typeof checkedData === 'undefined' ?  !!radio.checked : checkedKey === 'index' ? index === checkedData : radio[_this.checkedKey] === checkedData} });
                 });
-                return checkboxItems;
-            },
-            //获取是否选中状态
-            getCkeckedStatus(item, i) {
-                const checkedDatas = this.checkedDatas, checkedKey = this.checkedKey;
-                if (checkedDatas.length > 0) {
-                    let checkedVal = i;
-                    if (checkedKey !== 'index') checkedVal = item[checkedKey];
-                    return checkedDatas.indexOf(checkedVal) >= 0
-                } else {
-                    return !!item.checked
-                }
+                console.log('radioItems==>',{...radioItems})
+                return radioItems;
             },
             //单个点击时触发
-            singleClick(event, checked, value, index) {
-                this.selfCheckboxDatas[index].checked = checked;
-                this.$emit('singleClick', event, checked, value, index);
-            },
-            //选中状态发生更改时触发，向外传递所有被选中的checkbox
-            getCkeckedItems(checkedDatas) {
-                const _this = this, checkItems = [], checkedKey = _this.checkedKey;
-                checkedDatas.forEach(function (item, index) {
-                    if (item.checked) checkItems.push(checkedKey === 'index' ? index : item[checkedKey]);
-                })
-                this.$emit('updateCheckedDatas', [...checkItems]);
+            singleClick(event, value, index) {
+                this.$emit('singleClick', event, value, index);
             }
         }
     }

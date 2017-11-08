@@ -3,8 +3,8 @@
         <v-radio size="small" :checked="false" name="iiii">
             <span slot="text">asdas</span>
         </v-radio>
-        <v-radio size="small" :checked="checked" text="textCheckbox" @onClick="getInfo"></v-radio>
-        <v-radio-group :checkboxData="checkboxData" checkedKey="value" name="uuuu" :checkedDatas="checkedDatas" @singleClick="singleClick"
+        <v-radio size="small" :checked="checked" text="textRadio" @onClick="getInfo"></v-radio>
+        <v-radio-group :radioDatas="radioDatas" checkedKey="value" name="uuuu" @singleClick="singleClick"
             @updateCheckedDatas="updateCheckedDatas"></v-radio-group>
     </div>
 </template>
@@ -15,7 +15,7 @@
         data() {
             return {
                 checked: true,
-                checkboxData: [{
+                radioDatas: [{
                     size: 'small',
                     checked: true,
                     value: 1,
@@ -36,7 +36,7 @@
                     value: 4,
                     text: 'tetttt4'
                 }],
-                checkedDatas: [2, 3, 4]
+                // checkedData: 2
             }
         },
         methods: {
@@ -44,8 +44,7 @@
                 console.log('checked inner==>', checked);
                 console.log('checked==>', this.checked)
             },
-            singleClick: function (event, checked, value, index) {
-                console.log('checked ==>', checked);
+            singleClick: function (event, value, index) {
                 console.log('value ==>', value);
                 console.log('index ==>', index);
             },

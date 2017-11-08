@@ -1,7 +1,7 @@
 <template>
     <div class="vui-checkbox-group">
         <slot name="before"></slot>
-        <checkbox v-for="(item, index) in selfCheckboxDatas" :key="index" :index="index" :size="item.size" :name="name" :checked="item.checked"
+        <checkbox v-for="(item, index) in selfCheckboxDatas" :key="index" :index="index" :size="item.size" :name="name" :checked="item.selfChecked"
             :text="item.text" :value="item.value" @onClick="singleClick"></checkbox>
         <slot name="after"></slot>
     </div>
@@ -58,7 +58,7 @@
                 const _this = this;
                 let checkboxItems = [];
                 this.checkboxData.forEach(function (checkbox, index) {
-                    checkboxItems.push({ ...checkbox, ...{ checked: _this.getCkeckedStatus(checkbox, index) } });
+                    checkboxItems.push({ ...checkbox, ...{ selfChecked: _this.getCkeckedStatus(checkbox, index) } });
                 });
                 return checkboxItems;
             },
@@ -75,14 +75,14 @@
             },
             //单个点击时触发
             singleClick(event, checked, value, index) {
-                this.selfCheckboxDatas[index].checked = checked;
+                this.selfCheckboxDatas[index].selfChecked = checked;
                 this.$emit('singleClick', event, checked, value, index);
             },
             //选中状态发生更改时触发，向外传递所有被选中的checkbox
             getCkeckedItems(checkedDatas) {
                 const _this = this, checkItems = [], checkedKey = _this.checkedKey;
                 checkedDatas.forEach(function (item, index) {
-                    if (item.checked) checkItems.push(checkedKey === 'index' ? index : item[checkedKey]);
+                    if (item.selfChecked) checkItems.push(checkedKey === 'index' ? index : item[checkedKey]);
                 })
                 this.$emit('updateCheckedDatas', [...checkItems]);
             }

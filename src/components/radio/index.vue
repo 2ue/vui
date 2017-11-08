@@ -1,6 +1,7 @@
 <template>
     <label class="vui-radio-warp" :index="index">
-        <input type="radio" v-model="ownChecked" @click="click" :name="name" :value="value">
+        <input v-if="ownChecked" type="radio" v-model="value" @click="click" :name="name" :value="value">
+        <input else type="radio" @click="click" :name="name" :value="value">
         <span class="vui-radio"></span>
         <span class="vui-radio-text" v-if="text">{{text}}</span>
         <slot name="html"></slot>
@@ -38,7 +39,7 @@
         },
         methods: {
             click: function (event) {
-                this.$emit('onClick', event, this.ownChecked, this.value, this.index);
+                this.$emit('onClick', event, this.value, this.index);
             }
         }
     }
