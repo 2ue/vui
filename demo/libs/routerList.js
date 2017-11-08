@@ -9,6 +9,7 @@ import DataTips from "../pagePc/data-tips";
 import Modal from "../pagePc/modal";
 import Chexkbox from "../pagePc/checkbox";
 import Radio from "../pagePc/radio";
+import Switch from "../pagePc/switch";
 
 export default [
     { path: "/", component: Index, name: "index" },
@@ -18,5 +19,6 @@ export default [
     { path: "/DataTips", component: DataTips, name: "DataTips" },
     { path: "/Modal", component: Modal, name: "Modal" },
     { path: "/Chexkbox", component: Chexkbox, name: "Chexkbox" },
-    { path: "/Radio", component: Radio, name: "Radio" }
+    { path: "/Radio", component: Radio, name: "Radio" },
+    { path: "/Switch", component: Switch, name: "Switch" }
 ];

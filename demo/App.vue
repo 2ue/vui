@@ -59,8 +59,9 @@
     }
 
     .vui-menu {
-        position: absolute;
-        top: 0;
+        float: left;
+        /* position: absolute; */
+        /* top: 0; */
         background: #DDE0E2;
         width: 280px;
         margin-right: 20px;

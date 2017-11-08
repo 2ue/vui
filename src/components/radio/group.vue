@@ -1,9 +1,7 @@
 <template>
     <div class="vui-radio-group">
-        <slot name="before"></slot>
         <radio v-for="(item, index) in selfRadioDatas" :key="index" :index="index" :size="item.size" :name="name" :checked="item.selfChecked"
             :text="item.text" :value="item.value" @onClick="singleClick"></radio>
-        <slot name="after"></slot>
     </div>
 </template>
 
@@ -47,9 +45,9 @@
                 const _this = this, checkedKey = _this.checkedKey, checkedData = _this.checkedData;
                 let radioItems = [];
                 this.radioDatas.forEach(function (radio, index) {
-                    radioItems.push({ ...radio, ...{ selfChecked: typeof checkedData === 'undefined' ?  !!radio.checked : checkedKey === 'index' ? index === checkedData : radio[_this.checkedKey] === checkedData} });
+                    radioItems.push({ ...radio, ...{ selfChecked: typeof checkedData === 'undefined' ? !!radio.checked : checkedKey === 'index' ? index === checkedData : radio[_this.checkedKey] === checkedData } });
                 });
-                console.log('radioItems==>',{...radioItems})
+                console.log('radioItems==>', { ...radioItems })
                 return radioItems;
             },
             //单个点击时触发
