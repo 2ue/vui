@@ -73,12 +73,12 @@
                     return !!item.checked
                 }
             },
-            //单个点击是触发
+            //单个点击时触发
             singleClick(event, checked, value, index) {
                 this.selfCheckboxDatas[index].checked = checked;
                 this.$emit('singleClick', event, checked, value, index);
             },
-            //当组的选中状态发生更改时触发
+            //选中状态发生更改时触发，向外传递所有被选中的checkbox
             getCkeckedItems(checkedDatas) {
                 const _this = this, checkItems = [], checkedKey = _this.checkedKey;
                 checkedDatas.forEach(function (item, index) {
