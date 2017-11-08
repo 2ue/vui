@@ -1,21 +1,21 @@
 <template>
-    <label class="vui-checkbox-warp" :index="index">
-        <input type="checkbox" v-model="ownChecked" @click="click" :name="name" :value="value">
-        <span class="vui-checkbox"></span>
-        <span class="vui-checkbox-text" v-if="text">{{text}}</span>
+    <label class="vui-radio-warp" :index="index">
+        <input type="radio" v-model="ownChecked" @click="click" :name="name" :value="value">
+        <span class="vui-radio"></span>
+        <span class="vui-radio-text" v-if="text">{{text}}</span>
         <slot name="html"></slot>
     </label>
 </template>
 
 <script>
     export default {
-        name: 'vCheckbox',
+        name: 'vRadio',
         data() {
             return {
                 sizeClass: {
-                    small: 'vui-checkbox-small',
-                    middle: 'vui-checkbox-middle',
-                    larger: 'vui-checkbox-larger'
+                    small: 'vui-radio-small',
+                    middle: 'vui-radio-middle',
+                    larger: 'vui-radio-larger'
                 },
                 ownChecked: !!this.checked
             }

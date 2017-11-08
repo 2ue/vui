@@ -13,6 +13,8 @@ import Input from "./components/input";
 import Modal from "./components/modal/modal.vue";
 import Checkbox from "./components/checkbox/index.vue";
 import CheckboxGroup from "./components/checkbox/group.vue";
+import Radio from "./components/radio/index.vue";
+import RadioGroup from "./components/radio/group.vue";
 
 //loading css
 // import 'rest-css'
@@ -25,7 +27,9 @@ const components = {
     Input,
     Modal,
     Checkbox,
-    CheckboxGroup
+    CheckboxGroup,
+    Radio,
+    RadioGroup
 };
 
 const install = function (Vue, options = {}) {
