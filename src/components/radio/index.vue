@@ -2,8 +2,9 @@
     <label class="vui-radio-warp" :index="index">
         <input v-if="ownChecked" type="radio" v-model="value" @click="click" :name="name" :value="value">
         <input else type="radio" @click="click" :name="name" :value="value">
-        <span class="vui-radio"></span>
-        <span class="vui-radio-text" v-if="text">{{text}}</span>
+        <span class="vui-radio vui-dib-vt"></span>
+        <span class="vui-radio-text vui-dib-vt" v-if="text">{{text}}</span>
+        <slot></slot>
     </label>
 </template>
 

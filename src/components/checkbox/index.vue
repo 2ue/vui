@@ -1,9 +1,9 @@
 <template>
     <label class="vui-checkbox-warp" :index="index">
         <input type="checkbox" v-model="ownChecked" @click="click" :name="name" :value="value">
-        <span class="vui-checkbox"></span>
-        <span class="vui-checkbox-text" v-if="text">{{text}}</span>
-        <slot name="html"></slot>
+        <span class="vui-checkbox vui-dib-vt"></span>
+        <span class="vui-checkbox-text vui-dib-vt" v-if="text">{{text}}</span>
+        <slot></slot>
     </label>
 </template>
 
