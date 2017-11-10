@@ -7,8 +7,10 @@
 </template>
 
 <script>
+
     import DatePickerPanel from "./datePickerPanel.vue"
     import datePikcer from '@utils/datepicker.js'
+
     export default {
         name: 'vDatePicker',
         data() {
@@ -24,10 +26,14 @@
         components: {
             DatePickerPanel
         },
-        created() {
-            console.log('this.selectedVal==》', this.selectedVal)
+        props: {
+            formate: {
+                default: 'YYYY-MM-DD'
+            },
+            selectedVal: {
+                default: '请选择时间'
+            }
         },
-        props: ['formate', 'selectedVal'],
         methods: {
             showDatePickerPanel() {
                 this.showPanel = true;
@@ -47,7 +53,7 @@
             },
             updateInputVal(val) {
                 this.selfSelectedVal = val;
-                this.$emit('updateInputVal',val)
+                this.$emit('updateInputVal', val)
             }
         }
     }

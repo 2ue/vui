@@ -7,7 +7,9 @@
 </template>
 
 <script>
+
     import datePikcer from '@utils/datepicker.js'
+
     export default {
         name: 'vDatePickerPanel',
         data() {
@@ -19,16 +21,10 @@
         },
         props: {
             showPanel: {
-                default: undefined
+                default: false
             },
-            selectedVal: {
-                type: String,
-                default: '请选择时间'
-            },
-            formate: {
-                type: String,
-                default: 'YYYY-MM-DD'
-            }
+            selectedVal: String,
+            formate: String
         },
         watch: {
             showPanel(status) {
