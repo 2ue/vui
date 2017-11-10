@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-date-picker></v-date-picker>
+        <v-date-picker :formate="formate" :selectedVal="selectedVal"></v-date-picker>
     </div>
 </template>
 
@@ -9,7 +9,8 @@
         name: 'switch',
         data() {
             return {
-                checked: false
+                formate: 'YYYY-MM-DD',
+                selectedVal: '2016-9-2'
             }
         },
         methods: {

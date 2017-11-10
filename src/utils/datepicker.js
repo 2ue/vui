@@ -2,7 +2,7 @@
  * @Author: 2ue
  * @Date: 2017-11-09 09:43:58
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-11-09 16:18:55
+ * @Last Modified time: 2017-11-10 09:52:13
  */
 
 const DATE = new Date();
@@ -33,28 +33,30 @@ export default {
     * @param: date，需要格式的时间字符串或者时间对象
     * @return： 返回期望的时间格式
     * */
-    formate(fmt, date = new Date()) {
+
+    formate(fmt, date) {
+        date = new Date(date).toString() === 'Invalid Date' ? new Date() : new Date(date);
         const _rules = [{
             rule: '[yY]{4}',
-            value: _date.getFullYear()
+            value: date.getFullYear()
         }, {
             rule: 'M+',
-            value: _date.getMonth() + 1
+            value: date.getMonth() + 1
         }, {
             rule: '[dD]+',
-            value: _date.getDate()
+            value: date.getDate()
         }, {
             rule: 'h+',
-            value: _date.getHours()
+            value: date.getHours()
         }, {
             rule: 'm+',
-            value: _date.getMinutes()
+            value: date.getMinutes()
         }, {
             rule: 's+',
-            value: _date.getSeconds()
+            value: date.getSeconds()
         }, {
             rule: 'ms{1,2}',
-            value: _date.getMilliseconds()
+            value: date.getMilliseconds()
         }];
 
         _rules.forEach((_r) => {
@@ -66,6 +68,7 @@ export default {
         });
         return fmt;
     },
+    //修正年月
     fixedYM(year = YEAR, month = MONTH) {
         if (month === 0) {
             year = year - 1;
@@ -78,16 +81,17 @@ export default {
         };
         return [year, month];
     },
+    //获取某年某月有多少天
     getMonthDays(year, month) {
         const YM = this.fixedYM(year, month);
-        //获取某年某月有多少天
         return new Date(YM[0], YM[1], 0).getDate();
     },
+    //返回某年某月某日是星期几
     getDayInWeek(year, month, day = DAY) {
         const YM = this.fixedYM(year, month);
-        //返回某年某月某日是星期几
         return new Date(YM[0], YM[1] - 1, day).getDay();
     },
+    //获取某年某月的具体天数的排列顺序
     getMonthDaysArray(year = YEAR, month = MONTH, day) {
         if (typeof day === 'undefined' && year === YEAR && month === MONTH) day = DAY;
 
@@ -95,12 +99,14 @@ export default {
         const days = this.getMonthDays(year, month), preDays = this.getMonthDays(year, month - 1);
         const thisMonthFirstDayInWeek = this.getDayInWeek(year, month, 1), thisMonthLastDayInWeek = this.getDayInWeek(year, month, days);
         const thisMonthAllDays = thisMonthFirstDayInWeek + days + 6 - thisMonthLastDayInWeek;
+        //上月在当月日历面板中的排列
         for (let i = 0; i < thisMonthFirstDayInWeek; i++) {
             dayArrays.push({
                 dayNum: (preDays - thisMonthFirstDayInWeek + i + 1),
                 weekDay: WEEKTABLE.common.cn[i]
             })
         }
+        //当月日历面板中的排列
         for (let i = 1; i <= days; i++) {
             const weekDayFlag = (thisMonthFirstDayInWeek + i - 1) % 7
             dayArrays.push({
@@ -110,6 +116,7 @@ export default {
                 isThisMonth: true
             })
         };
+        //下月在当月日历面板中的排列
         for (let i = 1; i <= (6 - thisMonthLastDayInWeek); i++) {
             const weekDayFlag = (thisMonthFirstDayInWeek + days + i - 1) % 7
             dayArrays.push({
@@ -117,7 +124,7 @@ export default {
                 weekDay: WEEKTABLE.common.cn[weekDayFlag]
             })
         };
-        console.log('dayArrays==>', { ...dayArrays })
+        // console.log('dayArrays==>', { ...dayArrays })
         return dayArrays;
     }
 }

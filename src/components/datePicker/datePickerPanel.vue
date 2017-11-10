@@ -1,13 +1,13 @@
 <template>
     <div class="vui-datePicker-panel-warp" v-if="selfShowPanel" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
         <div class="vui-datpaicker-days">
-            <span v-for="(day, index) in daysArray" :key="index" :class="getClassName(day)" @click="click">{{day.dayNum}}</span>
+            <span v-for="(day, index) in daysArray" :key="index" :class="getClassName(day)" @click="choosedDay(day)">{{day.dayNum}}</span>
         </div>
     </div>
 </template>
 
 <script>
-    import datePikcer from '../../utils/datepicker.js'
+    import datePikcer from '@utils/datepicker.js'
     export default {
         name: 'vDatePickerPanel',
         data() {
@@ -21,11 +21,21 @@
             showPanel: {
                 default: undefined
             },
-            selectedVal: String
+            selectedVal: {
+                type: String,
+                default: '请选择时间'
+            },
+            formate: {
+                type: String,
+                default: 'YYYY-MM-DD'
+            }
         },
         watch: {
             showPanel(status) {
                 this.selfShowPanel = status;
+            },
+            selfVal(_v) {
+                this.updateInputVal(datePikcer.formate(this.formate, _v.join('-')));
             }
         },
         created() {
@@ -34,15 +44,13 @@
         },
         methods: {
             getYMD() {
-                const date = new Date(this.selectedVal);
-                if (date.toString() === 'Invalid Date') return [];
-                return [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+                return datePikcer.formate(this.formate, this.selectedVal).split('-');
             },
             showDatePickerPanel() {
                 this.selfShowPanel = true;
             },
-            updateInputVal() {
-                this.$emit('updateInputVal', this.selfInputVal);
+            updateInputVal(val) {
+                this.$emit('updateInputVal', val);
             },
             updateshowPanelStatus(status) {
                 this.$emit('updateshowPanelStatus', status);
@@ -50,8 +58,8 @@
             getClassName(dayItem) {
                 return { 'vui-selected-day': dayItem.selected, 'vui-this-month': dayItem.isThisMonth }
             },
-            click() {
-                console.log('click');
+            choosedDay(day) {
+                if (day.isThisMonth && day.dayNum != this.selfVal[2]) this.selfVal.splice(2, 1, day.dayNum);
             }
         }
     }

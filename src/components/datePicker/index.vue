@@ -1,22 +1,21 @@
 <template>
     <div class="vui-datePicker-warp">
-        <input type="text" class="vui-datePicker-input" v-model="selectedVal" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
-        <datePickerPanel v-for="" :showPanel="showPanel" :selectedVal="selectedVal" @updateInputVal="updateInputVal" @updateshowPanelStatus="updateshowPanelStatus"></datePickerPanel>
+        <input type="text" class="vui-datePicker-input" v-model="selfSelectedVal" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
+        <datePickerPanel v-for="" :formate="formate" :showPanel="showPanel" :selectedVal="selfSelectedVal" @updateInputVal="updateInputVal"
+            @updateshowPanelStatus="updateshowPanelStatus"></datePickerPanel>
     </div>
 </template>
 
 <script>
     import DatePickerPanel from "./datePickerPanel.vue"
+    import datePikcer from '@utils/datepicker.js'
     export default {
         name: 'vDatePicker',
         data() {
             return {
                 showPanel: true,
-                inputValMsg: {
-                    no: '请选择时间'
-                },
-                selectedVal: '请选择时间',
                 timer: null,
+                selfSelectedVal: datePikcer.formate(this.formate, this.selectedVal),
                 panelArray: [
 
                 ]
@@ -25,6 +24,10 @@
         components: {
             DatePickerPanel
         },
+        created() {
+            console.log('this.selectedVal==》', this.selectedVal)
+        },
+        props: ['formate', 'selectedVal'],
         methods: {
             showDatePickerPanel() {
                 this.showPanel = true;
@@ -43,8 +46,8 @@
                 }
             },
             updateInputVal(val) {
-                console.log('val===>', val);
-                this.selectedVal = val;
+                this.selfSelectedVal = val;
+                this.$emit('updateInputVal',val)
             }
         }
     }
