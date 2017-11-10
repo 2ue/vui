@@ -1,22 +1,21 @@
 <template>
-    <label class="vui-radio-warp" :index="index">
-        <input v-if="ownChecked" type="radio" v-model="value" @click="click" :name="name" :value="value">
-        <input else type="radio" @click="click" :name="name" :value="value">
-        <span class="vui-radio vui-dib-vt"></span>
-        <span class="vui-radio-text vui-dib-vt" v-if="text">{{text}}</span>
+    <label class="vui-switch-warp" :index="index">
+        <input type="checkbox" v-model="ownChecked" @click="click" :name="name" :value="value">
+        <span class="vui-switch vui-dib-vt"></span>
+        <span class="vui-switch-text vui-dib-vt" v-if="text">{{text}}</span>
         <slot></slot>
     </label>
 </template>
 
 <script>
     export default {
-        name: 'vRadio',
+        name: 'vSwitch',
         data() {
             return {
                 sizeClass: {
-                    small: 'vui-radio-small',
-                    middle: 'vui-radio-middle',
-                    larger: 'vui-radio-larger'
+                    small: 'vui-switch-small',
+                    middle: 'vui-switch-middle',
+                    larger: 'vui-switch-larger'
                 },
                 ownChecked: !!this.checked
             }
@@ -39,7 +38,7 @@
         },
         methods: {
             click: function (event) {
-                this.$emit('onClick', event, this.value, this.index);
+                this.$emit('on-change', event, this.ownChecked, this.value, this.index);
             }
         }
     }

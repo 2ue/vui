@@ -15,6 +15,8 @@ import Checkbox from "./components/checkbox/index.vue";
 import CheckboxGroup from "./components/checkbox/group.vue";
 import Radio from "./components/radio/index.vue";
 import RadioGroup from "./components/radio/group.vue";
+import Switch from "./components/switch/index.vue";
+import DatePicker from "./components/datePicker/index.vue";
 
 //loading css
 // import 'rest-css'
@@ -29,7 +31,9 @@ const components = {
     Checkbox,
     CheckboxGroup,
     Radio,
-    RadioGroup
+    RadioGroup,
+    Switch,
+    DatePicker
 };
 
 const install = function (Vue, options = {}) {

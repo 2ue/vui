@@ -138,10 +138,6 @@
 .vui-checkbox-warp {
     margin-right: 5px;
     .vui-dis-selected();
-    span {
-        display: inline-block;
-        vertical-align: top;
-    }
     .vui-checkbox-text {
         .vui-can-selected();
         color: #666;
@@ -186,8 +182,7 @@
             transition: background ease-in-out 0.4s;
         }
     }
-    [type=checkbox],
-    [type=radio] {
+    [type=checkbox] {
         &:checked~.vui-checkbox:after {
             /*加勾*/
             content: '\2714';
@@ -206,14 +201,72 @@
 }
 
 //------checkbox end------
+//-----switch start-----
+.vui-switch-warp {
+    margin-right: 5px;
+    .vui-dis-selected();
+    .vui-switch-text {
+        .vui-can-selected();
+        color: #666;
+        font-size: 14px;
+    }
+    .vui-switch {
+        position: relative;
+        height: 20px;
+        padding-left: 42px;
+        &:before {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 32px;
+            height: 16px;
+            border-radius: 12px;
+            background: #999;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: background ease-in-out 0.3s;
+            -moz-transition: background ease-in-out 0.3s;
+            transition: background ease-in-out 0.3s;
+        }
+        &:after {
+            content: ' ';
+            position: absolute;
+            left: 3px;
+            top: 2px;
+            z-index: 2;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fff;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: left ease-in-out 0.3s;
+            -moz-transition: left ease-in-out 0.3s;
+            transition: left ease-in-out 0.3s;
+        }
+    }
+    [type=checkbox] {
+        &:checked~.vui-switch:before {
+            background: #7B7EA2;
+        }
+        &:checked~.vui-switch:after {
+            left: 17px;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+        }
+    }
+}
+
+//------checkbox end------
 //-----radio start-----
 .vui-radio-warp {
     margin-right: 5px;
     .vui-dis-selected();
-    span {
-        display: inline-block;
-        vertical-align: top;
-    }
     .vui-radio-text {
         .vui-can-selected();
         color: #666;
