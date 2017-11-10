@@ -1,8 +1,8 @@
 /*
  * @Author: 2ue
  * @Date: 2017-11-09 09:43:58
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-11-10 09:52:13
+ * @Last Modified by: 2ue
+ * @Last Modified time: 2017-11-10 16:16:50
  */
 
 const DATE = new Date();
@@ -62,7 +62,7 @@ export default {
         _rules.forEach((_r) => {
             const rule = _r.rule, val = _r.value;
             fmt = fmt.replace(new RegExp(rule), function ($1) {
-                const rLen = ['', val].join('').length, fLen = $1.length;
+                const rLen = val.toString().length, fLen = $1.length;
                 return (fLen !== 2 || rLen >= fLen) ? val : ['00', val].join('').substr(rLen);
             });
         });
@@ -87,7 +87,7 @@ export default {
         return new Date(YM[0], YM[1], 0).getDate();
     },
     //返回某年某月某日是星期几
-    getDayInWeek(year, month, day = DAY) {
+    getWeekday(year, month, day = DAY) {
         const YM = this.fixedYM(year, month);
         return new Date(YM[0], YM[1] - 1, day).getDay();
     },
@@ -97,7 +97,7 @@ export default {
 
         let dayArrays = [];
         const days = this.getMonthDays(year, month), preDays = this.getMonthDays(year, month - 1);
-        const thisMonthFirstDayInWeek = this.getDayInWeek(year, month, 1), thisMonthLastDayInWeek = this.getDayInWeek(year, month, days);
+        const thisMonthFirstDayInWeek = this.getWeekday(year, month, 1), thisMonthLastDayInWeek = this.getWeekday(year, month, days);
         const thisMonthAllDays = thisMonthFirstDayInWeek + days + 6 - thisMonthLastDayInWeek;
         //上月在当月日历面板中的排列
         for (let i = 0; i < thisMonthFirstDayInWeek; i++) {
