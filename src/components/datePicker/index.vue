@@ -38,21 +38,23 @@
             showDatePickerPanel() {
                 this.showPanel = true;
             },
-            hideDatePickerPanel() {
+            hideDatePickerPanel(t) {
+                t = typeof t === 'undefined' || isNaN(t) ? 300 : t;
                 this.timer = setTimeout(() => {
-                    this.showPanel = false;
-                }, 400);
+                    // this.showPanel = false;
+                }, t);
             },
-            updateshowPanelStatus(status) {
+            updateshowPanelStatus(status, t) {
                 clearTimeout(this.timer);
                 if (status) {
                     this.showDatePickerPanel();
                 } else {
-                    this.hideDatePickerPanel();
+                    this.hideDatePickerPanel(t);
                 }
             },
             updateInputVal(val) {
                 this.selfSelectedVal = val;
+                this.updateshowPanelStatus(false, 10);
                 this.$emit('updateInputVal', val)
             }
         }

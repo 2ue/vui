@@ -1,8 +1,8 @@
 /*
  * @Author: 2ue
  * @Date: 2017-11-09 09:43:58
- * @Last Modified by: 2ue
- * @Last Modified time: 2017-11-10 16:16:50
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-11-16 16:01:37
  */
 
 const DATE = new Date();
@@ -33,7 +33,7 @@ export default {
     * @param: date，需要格式的时间字符串或者时间对象
     * @return： 返回期望的时间格式
     * */
-
+    WEEKTABLE,
     formate(fmt, date) {
         date = new Date(date).toString() === 'Invalid Date' ? new Date() : new Date(date);
         const _rules = [{
@@ -70,13 +70,13 @@ export default {
     },
     //修正年月
     fixedYM(year = YEAR, month = MONTH) {
-        if (month === 0) {
-            year = year - 1;
+        if (+month === 0) {
+            year = +year - 1;
             month = 12;
         };
 
-        if (month === 13) {
-            year = year + 1;
+        if (+month === 13) {
+            year = +year + 1;
             month = 1;
         };
         return [year, month];
@@ -94,7 +94,9 @@ export default {
     //获取某年某月的具体天数的排列顺序
     getMonthDaysArray(year = YEAR, month = MONTH, day) {
         if (typeof day === 'undefined' && year === YEAR && month === MONTH) day = DAY;
-
+        console.log('year==>', year)
+        console.log('month==>', month)
+        console.log('day==>', day)
         let dayArrays = [];
         const days = this.getMonthDays(year, month), preDays = this.getMonthDays(year, month - 1);
         const thisMonthFirstDayInWeek = this.getWeekday(year, month, 1), thisMonthLastDayInWeek = this.getWeekday(year, month, days);
