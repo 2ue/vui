@@ -1,14 +1,28 @@
 <template>
     <div>
-        <v-input></v-input><br/>
-        <v-input width="300"></v-input><br/>
-        <v-input disabled="true"  width="30%"> </v-input><br/>
-        <v-input readonly="true"></v-input><br/>
-        <v-input v-model="val1" @input="changeVal1"></v-input><br/>
-        <v-input v-model="val1" @focus="changeVal1"></v-input><br/>
+        <v-input></v-input>
+        <br/>
+        <v-input width="300"></v-input>
+        <br/>
+        <v-input disabled="true" width="30%"> </v-input>
+        <br/>
+        <v-input readonly="true"></v-input>
+        <br/>
+        <v-input v-model="val1" @input="changeVal1"></v-input>
+        <br/>
+        <v-input v-model="val1" @focus="changeVal1"></v-input>
+        <br/>
         <v-input v-model="val2" @change="changeVal2"></v-input>
         <div>{{val2}}</div>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <!-- <div class="box">
             <img src="../assets/logo.png" alt="" class="file">
         </div>
@@ -38,10 +52,10 @@
         },
         methods: {
             changeVal1(event) {
-                console.log('val1==>',this.val1)
+                console.log('val1==>', this.val1)
             },
             changeVal2(event) {
-                console.log('val1==>',this.val2)
+                console.log('val1==>', this.val2)
             }
         }
     }

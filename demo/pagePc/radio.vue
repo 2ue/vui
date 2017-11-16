@@ -4,8 +4,7 @@
             <span slot="text">asdas</span>
         </v-radio>
         <v-radio size="small" :checked="checked" text="textRadio" @onClick="getInfo"></v-radio>
-        <v-radio-group :radioDatas="radioDatas" checkedKey="value" name="uuuu" @singleClick="singleClick"
-            @updateCheckedDatas="updateCheckedDatas"></v-radio-group>
+        <v-radio-group :radioDatas="radioDatas" checkedKey="value" name="uuuu" @singleClick="singleClick" @updateCheckedDatas="updateCheckedDatas"></v-radio-group>
     </div>
 </template>
 

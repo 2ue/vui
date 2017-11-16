@@ -13,7 +13,7 @@ const install = (Vue, _OPTIONS = {}) => {
 
     function tocloseLoading() {
         if (showLoading) {
-            setTimeout(function() {
+            setTimeout(function () {
                 loadingInstance.close();
             }, 500);
         }
@@ -29,7 +29,7 @@ const install = (Vue, _OPTIONS = {}) => {
     //doc https://www.kancloud.cn/yunye/axios/234845
     //interceptors request
     instance.interceptors.request.use(
-        function(config) {
+        function (config) {
             toShowLoading();
             //change to toUpperCase
             config.method = config.method.toUpperCase();
@@ -45,7 +45,7 @@ const install = (Vue, _OPTIONS = {}) => {
 
             return config;
         },
-        function(error) {
+        function (error) {
             tocloseLoading();
             return Promise.reject(error);
         }
@@ -53,7 +53,7 @@ const install = (Vue, _OPTIONS = {}) => {
 
     //interceptors response
     instance.interceptors.response.use(
-        function(response) {
+        function (response) {
             const result = {
                 status: response.status,
                 data: ''
@@ -64,7 +64,7 @@ const install = (Vue, _OPTIONS = {}) => {
             tocloseLoading();
             return result;
         },
-        function(error) {
+        function (error) {
             tocloseLoading();
             return Promise.reject(error.response.data);
         }

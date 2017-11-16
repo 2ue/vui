@@ -21,7 +21,7 @@
             }
         },
         methods: {
-            show: function(){
+            show: function () {
                 console.log('button click show')
                 this.modalOptions.showModal = true
                 this.showModal = true;
@@ -33,5 +33,4 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-
 </style>

@@ -1,7 +1,9 @@
 <template>
     <div class="vui-warper vui-box-shadow-2 vui-header">
         <div class="vui-warper-content vui-header-box">
-            <span class="vui-logo"><img src="../assets/logo.png"></span>
+            <span class="vui-logo">
+                <img src="../assets/logo.png">
+            </span>
             <span class="vui-intro">一个vue的简易框架</span>
         </div>
     </div>
