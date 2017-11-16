@@ -3,12 +3,15 @@
 a ui framework  build with vue for pc。
 [Demo](https://2ue.github.io/vui)
 
+# 目的
+
+主要是为深入学习vue
+
 # css变量命名规则
 ## 通用规则
 
 - 所有命名都应添加前缀`vui`，以避免命名冲突
 - 以中划线（-）链接
-- `js`中使用的`class`应该加以区分，建议使用加上`j-vui`前缀
 
 ## 汉英对照
 
@@ -28,3 +31,13 @@ a ui framework  build with vue for pc。
 
 > 与box结合
 
+# 进度
+
+- alert
+- loadding
+- icon
+- button
+- checkbox
+- raido
+- switch
+- datepicker[正在进行中]
