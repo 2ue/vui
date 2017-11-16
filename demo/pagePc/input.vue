@@ -14,30 +14,6 @@
         <br/>
         <v-input v-model="val2" @change="changeVal2"></v-input>
         <div>{{val2}}</div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <!-- <div class="box">
-            <img src="../assets/logo.png" alt="" class="file">
-        </div>
-        <div class="box">
-            <img src="../assets/logo.png" alt="" class="contain">
-        </div>
-        <div class="box">
-            <img src="../assets/logo.png" alt="" class="cover">
-        </div>
-        <div class="box">
-            <img src="../assets/logo.png" alt="" class="none">
-        </div>
-        <div class="box">
-            <img src="../assets/logo.png" alt="" class="scale-down">
-        </div> -->
     </div>
 </template>
 

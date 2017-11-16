@@ -34,16 +34,16 @@
                 // this.$https.get('https://api.github.com/users/2ue/repos?sort=created&per_page=100').then(function (res) {
                 //     console.log('res==>', res);
                 // });
-                // this.$https({
-                //     method: 'get',
-                //     url: 'https://api.github.com/users/2ue/repos',
-                //     loading: true,
-                //     data: {
-                //         sort: 'created',
-                //         per_page: 100,
-                //         loading: true
-                //     }
-                // });
+                this.$https({
+                    method: 'get',
+                    url: 'https://api.github.com/users/2ue/repos',
+                    loading: true,
+                    data: {
+                        sort: 'created',
+                        per_page: 100,
+                        loading: true
+                    }
+                });
             }
         }
     }

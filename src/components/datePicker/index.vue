@@ -40,7 +40,7 @@
             },
             hideDatePickerPanel() {
                 this.timer = setTimeout(() => {
-                    // this.showPanel = false;
+                    this.showPanel = false;
                 }, 400);
             },
             updateshowPanelStatus(status) {

@@ -4,7 +4,7 @@
             <span class="vui-logo">
                 <img src="../assets/logo.png">
             </span>
-            <span class="vui-intro">一个vue的简易框架</span>
+            <span class="vui-intro">一个vue的简易框架，基于学习vue为目的</span>
         </div>
     </div>
 </template>
