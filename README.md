@@ -41,3 +41,9 @@ a ui framework  build with vue for pc。
 - raido
 - switch
 - datepicker[正在进行中]
+
+# 记录问题
+
+记录开发过程中遇到的问题
+
+- 编译字体文件路径问题
