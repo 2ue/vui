@@ -15,7 +15,7 @@
         name: 'vDatePicker',
         data() {
             return {
-                showPanel: true,
+                showPanel: false,
                 timer: null,
                 selfSelectedVal: datePikcer.formate(this.formate, this.selectedVal),
                 panelArray: [
@@ -41,12 +41,12 @@
             hideDatePickerPanel(t) {
                 t = typeof t === 'undefined' || isNaN(t) ? 300 : t;
                 this.timer = setTimeout(() => {
-                    // this.showPanel = false;
+                    this.showPanel = false;
                 }, t);
             },
             updateshowPanelStatus(status, t) {
                 clearTimeout(this.timer);
-                if (status) {
+                if (typeof status === 'undefined' || status) {
                     this.showDatePickerPanel();
                 } else {
                     this.hideDatePickerPanel(t);

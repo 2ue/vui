@@ -1,24 +1,24 @@
 <template>
     <div class="vui-datePicker-panel-warp" v-if="selfShowPanel" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
-        <div class="vui-datePicker-change">
+        <div class="vui-datePicker-change" @mouseout="getYearMonthArray('clear')" @mouseover="getYearMonthArray(true)">
             <p class="vui-datePicker-header">
                 <span class="vue-datePicker-preMonth" @click="changeMonth(-1)">&lt;</span>
-                <label class="vue-datePicker-year" @click="getYearMonthArray(true)">{{ tempVal[0] }}</label>
-                <label class="vue-datePicker-month" @click="getYearMonthArray(false)">{{ tempVal[1] }}</label>
+                <label class="vue-datePicker-year" @click="getYearMonthArray('year')">{{ tempVal[0] }}</label>
+                <label class="vue-datePicker-month" @click="getYearMonthArray('month')">{{ tempVal[1] }}</label>
                 <span class="vue-datePicker-nxtMonth" @click="changeMonth(1)">&gt;</span>
             </p>
-            <div class="vui-datePicker-yearMonth">
-                <p v-if="yearMonth.length !== 12" class="vui-datePicker-changeYear">
-                    <span class="vue-datePicker-preYear" @click="changeYear(-1)">&lt;</span>
+            <div v-if="!!yearMonth && yearMonth.length !== 0" class="vui-datePicker-yearMonth" :class="{'vui-datePicker-month': yearMonth.length === 12}">
+                <p v-if="yearMonth.length !== 12">
+                    <span @click="changeYear(-1)">&lt;</span>
                     <span>{{ tempVal[0] }}</span>
-                    <span class="vue-datePicker-preYear" @click="changeYear(1)">&gt;</span>
+                    <span @click="changeYear(1)">&gt;</span>
                 </p>
-                <span v-for="(item,index) in yearMonth" :key="index">{{ item }}</span>
+                <span v-for="(item,index) in yearMonth" :key="index" @click.stop="chooseYearMonth(yearMonth.length === 12, item)">{{ item }}</span>
             </div>
         </div>
         <div class="vui-datpaicker-days">
             <span v-for="(weekday,index) in weekdays" :key="index">{{weekday}}</span>
-            <span v-for="(day, index) in daysArray" :key="index" :class="getClassName(day)" @click="choosedDay(day,index)">{{day.dayNum}}</span>
+            <span v-for="(day, index) in daysArray" :key="index" :class="getClassName(day)" @click.self.stop="choosedDay(day,index)">{{day.dayNum}}</span>
         </div>
     </div>
 </template>
@@ -39,7 +39,8 @@
                 daysArray: [],
                 //星期
                 weekdays: datePikcer.WEEKTABLE.common.cns,
-                yearMonth: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                yearMonth: [],
+                yearMonthPanelStatus: false
             }
         },
         props: {
@@ -72,6 +73,9 @@
             showDatePickerPanel() {
                 this.selfShowPanel = true;
             },
+            showYearMonthPanel(type) {
+                this.getYearMonthArray(type);
+            },
             updateshowPanelStatus(status) {
                 this.$emit('updateshowPanelStatus', status);
             },
@@ -80,28 +84,23 @@
             },
             getYearMonthArray(type, _y) {
                 const year = _y || this.tempVal[0], month = this.tempVal[1];
-                let res = [];
-                if (type) {
+                if (type === 'year') {
                     const start = parseInt(year / 9) * 9;
-                    console.log('start==>', start)
+                    let res = [];
                     for (let i = start; i < start + 9; i++) {
                         res.push(i)
                     }
                     this.yearMonth = [...res];
-                } else {
+                } else if (type === 'month') {
                     this.yearMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+                } else if (type === 'clear') {
+                    this.yearMonth = [];
                 }
             },
             //更新月份数组数据
             renderDatePickerPanel() {
                 const selfVal = this.tempVal;
                 this.daysArray = datePikcer.getMonthDaysArray(selfVal[0], selfVal[1], selfVal[2]);
-            },
-            //选择天
-            choosedDay(day, index) {
-                if (day.isThisMonth && day.dayNum != this.selfVal[2]) {
-                    this.selfVal = [...this.tempVal.slice(0, 2), day.dayNum];
-                }
             },
             //切换上一月（val=-1），下一月（val=1）
             changeMonth(val) {
@@ -111,6 +110,18 @@
             changeYear(val) {
                 this.getYearMonthArray(true, +this.yearMonth[0] + (val * 9));
                 // this.tempVal = [...datePikcer.fixedYM(+this.tempVal[0] + (val * 9), +this.tempVal[1])];
+            },
+            //选择天
+            choosedDay(day, index) {
+                if (day.isThisMonth && day.dayNum != this.selfVal[2]) {
+                    this.selfVal = [...this.tempVal.slice(0, 2), day.dayNum];
+                }
+            },
+            //选择年月
+            chooseYearMonth(isMonth, val) {
+                this.tempVal.splice(isMonth ? 1 : 0, 1, val);
+                this.tempVal = [...this.tempVal.slice(0, 2)];
+                this.yearMonth = [];
             }
         }
     }
@@ -181,7 +192,7 @@
     .vui-datePicker-yearMonth {
         position: absolute;
         top: 30px;
-        left: 50px;
+        left: 25px;
         width: 150px;
         height: 120px;
         background: #ccc;
@@ -194,18 +205,13 @@
             box-sizing: border-box;
             border-bottom: 1px solid #fff;
             border-right: 1px solid #fff;
+            cursor: pointer;
             span:nth-child(3n) {
                 border-right: 0;
             }
         }
-        /* &>span:nth-child(3n+1) {
-            border-right: 0;
-        } */
-    }
-
-    /* .vui-datePicker-changeYear {
-        span {
-            width: 75px;/
+        &.vui-datePicker-month {
+            left: 125px;
         }
-    } */
+    }
 </style>
