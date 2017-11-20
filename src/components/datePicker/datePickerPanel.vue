@@ -1,19 +1,20 @@
 <template>
     <div class="vui-datePicker-panel-warp" v-if="selfShowPanel" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
-        <div class="vui-datePicker-change" @mouseout="getYearMonthArray('clear')" @mouseover="getYearMonthArray(true)">
+        <div class="vui-datePicker-change">
             <p class="vui-datePicker-header">
                 <span class="vue-datePicker-preMonth" @click="changeMonth(-1)">&lt;</span>
-                <label class="vue-datePicker-year" @click="getYearMonthArray('year')">{{ tempVal[0] }}</label>
-                <label class="vue-datePicker-month" @click="getYearMonthArray('month')">{{ tempVal[1] }}</label>
+                <label class="vue-datePicker-year" @click="showYearMonthPanel('Y')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel('Y')">{{ tempVal[0] }}</label>
+                <label class="vue-datePicker-month" @click="showYearMonthPanel('M')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel('M')">{{ tempVal[1] }}</label>
                 <span class="vue-datePicker-nxtMonth" @click="changeMonth(1)">&gt;</span>
             </p>
-            <div v-if="!!yearMonth && yearMonth.length !== 0" class="vui-datePicker-yearMonth" :class="{'vui-datePicker-month': yearMonth.length === 12}">
-                <p v-if="yearMonth.length !== 12">
+            <div v-if="isYearOrMonth" class="vui-datePicker-yearMonth" :class="{'vui-datePicker-month': isYearOrMonth === 'M'}" @mouseout="showYearMonthPanel(false)"
+                @mouseover="showYearMonthPanel(isYearOrMonth)">
+                <p v-if="isYearOrMonth === 'Y'">
                     <span @click="changeYear(-1)">&lt;</span>
                     <span>{{ tempVal[0] }}</span>
                     <span @click="changeYear(1)">&gt;</span>
                 </p>
-                <span v-for="(item,index) in yearMonth" :key="index" @click.stop="chooseYearMonth(yearMonth.length === 12, item)">{{ item }}</span>
+                <span v-for="(item,index) in yearMonth" :key="index" @click.stop="chooseYearMonth(item)">{{ item }}</span>
             </div>
         </div>
         <div class="vui-datpaicker-days">
@@ -39,8 +40,10 @@
                 daysArray: [],
                 //星期
                 weekdays: datePikcer.WEEKTABLE.common.cns,
-                yearMonth: [],
-                yearMonthPanelStatus: false
+                yearMonth: null,
+                //判断是哪一个选择面板
+                isYearOrMonth: false,
+                timer: null
             }
         },
         props: {
@@ -53,6 +56,7 @@
         watch: {
             showPanel(status) {
                 this.selfShowPanel = status;
+                if (!status) this.tempVal = [...this.selfVal];
             },
             selfVal(_v) {
                 this.tempVal = [..._v];
@@ -60,41 +64,58 @@
             },
             tempVal() {
                 this.renderDatePickerPanel();
+            },
+            isYearOrMonth(val) {
+                this.getYearMonthArray();
             }
         },
         created() {
             this.renderDatePickerPanel();
         },
         methods: {
+            initSelfData() {
+                this.yearMonth = [];
+                this.isYearOrMonth = false
+                clearTimeout(this.timer);
+            },
             //把年月日分割成数组
             getYMD() {
                 return datePikcer.formate(this.formate, this.selectedVal).split('-');
+            },
+            getClassName(dayItem) {
+                return { 'vui-selected-day': dayItem.selected, 'vui-this-month': dayItem.isThisMonth }
             },
             showDatePickerPanel() {
                 this.selfShowPanel = true;
             },
             showYearMonthPanel(type) {
-                this.getYearMonthArray(type);
+                const _this = this;
+                clearTimeout(_this.timer);
+                if (!type) {
+                    _this.timer = setTimeout(() => {
+                        _this.isYearOrMonth = false
+                    }, 300);
+                } else {
+                    _this.isYearOrMonth = type;
+                }
             },
             updateshowPanelStatus(status) {
                 this.$emit('updateshowPanelStatus', status);
             },
-            getClassName(dayItem) {
-                return { 'vui-selected-day': dayItem.selected, 'vui-this-month': dayItem.isThisMonth }
-            },
-            getYearMonthArray(type, _y) {
-                const year = _y || this.tempVal[0], month = this.tempVal[1];
-                if (type === 'year') {
-                    const start = parseInt(year / 9) * 9;
-                    let res = [];
-                    for (let i = start; i < start + 9; i++) {
+            getYearMonthArray(_y) {
+                const type = this.isYearOrMonth;
+                if (!type) {
+                    this.yearMonth = null;
+                } else {
+                    let startNum = 1, endNum = 13, res = [];
+                    if (type === 'Y') {
+                        startNum = parseInt((!_y || isNaN(_y) ? this.tempVal[0] : _y) / 9) * 9;
+                        endNum = startNum + 9;
+                    };
+                    for (let i = startNum; i < endNum; i++) {
                         res.push(i)
                     }
                     this.yearMonth = [...res];
-                } else if (type === 'month') {
-                    this.yearMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-                } else if (type === 'clear') {
-                    this.yearMonth = [];
                 }
             },
             //更新月份数组数据
@@ -108,7 +129,7 @@
             },
             //切换上一月（val=-1），下一月（val=1）
             changeYear(val) {
-                this.getYearMonthArray(true, +this.yearMonth[0] + (val * 9));
+                this.getYearMonthArray(+this.yearMonth[0] + (val * 9));
                 // this.tempVal = [...datePikcer.fixedYM(+this.tempVal[0] + (val * 9), +this.tempVal[1])];
             },
             //选择天
@@ -118,10 +139,12 @@
                 }
             },
             //选择年月
-            chooseYearMonth(isMonth, val) {
-                this.tempVal.splice(isMonth ? 1 : 0, 1, val);
-                this.tempVal = [...this.tempVal.slice(0, 2)];
-                this.yearMonth = [];
+            chooseYearMonth(val) {
+                let temp = [...this.tempVal];
+                temp.splice(this.isYearOrMonth === 'M' ? 1 : 0, 1, val);
+                temp = datePikcer.formate(this.formate, temp.join('-')).split('-').slice(0, 2);
+                this.tempVal = +temp[1] == +this.selfVal[1] && +temp[0] == +this.selfVal[0] ? [...temp, this.selfVal[2]] : [...temp];
+                this.initSelfData();
             }
         }
     }
