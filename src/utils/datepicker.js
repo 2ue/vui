@@ -2,7 +2,7 @@
  * @Author: 2ue
  * @Date: 2017-11-09 09:43:58
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-11-16 16:01:37
+ * @Last Modified time: 2017-11-20 17:24:34
  */
 
 const DATE = new Date();
@@ -94,9 +94,6 @@ export default {
     //获取某年某月的具体天数的排列顺序
     getMonthDaysArray(year = YEAR, month = MONTH, day) {
         if (typeof day === 'undefined' && year === YEAR && month === MONTH) day = DAY;
-        console.log('year==>', year)
-        console.log('month==>', month)
-        console.log('day==>', day)
         let dayArrays = [];
         const days = this.getMonthDays(year, month), preDays = this.getMonthDays(year, month - 1);
         const thisMonthFirstDayInWeek = this.getWeekday(year, month, 1), thisMonthLastDayInWeek = this.getWeekday(year, month, days);
