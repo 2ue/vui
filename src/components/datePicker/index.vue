@@ -1,6 +1,6 @@
 <template>
     <div class="vui-datePicker-warp">
-        <input type="text" class="vui-datePicker-input" v-model="selfSelectedVal" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
+        <input type="text" class="vui-datePicker-input" v-model="selfSelectedVal" @mouseout="updateshowPanelStatus(false)" @click="updateshowPanelStatus(true)">
         <datePickerPanel v-for="" :formate="formate" :showPanel="showPanel" :selectedVal="selfSelectedVal" @updateInputVal="updateInputVal"
             @updateshowPanelStatus="updateshowPanelStatus"></datePickerPanel>
     </div>

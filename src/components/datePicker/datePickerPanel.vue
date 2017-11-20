@@ -3,8 +3,8 @@
         <div class="vui-datePicker-change">
             <p class="vui-datePicker-header">
                 <span class="vue-datePicker-preMonth" @click="changeMonth(-1)">&lt;</span>
-                <label class="vue-datePicker-year" @click="showYearMonthPanel('Y')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel('Y')">{{ tempVal[0] }}</label>
-                <label class="vue-datePicker-month" @click="showYearMonthPanel('M')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel('M')">{{ tempVal[1] }}</label>
+                <label class="vue-datePicker-year" @click="showYearMonthPanel('Y')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel(isYearOrMonth)">{{ tempVal[0] }}</label>
+                <label class="vue-datePicker-month" @click="showYearMonthPanel('M')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel(isYearOrMonth)">{{ tempVal[1] }}</label>
                 <span class="vue-datePicker-nxtMonth" @click="changeMonth(1)">&gt;</span>
             </p>
             <div v-if="isYearOrMonth" class="vui-datePicker-yearMonth" :class="{'vui-datePicker-month': isYearOrMonth === 'M'}" @mouseout="showYearMonthPanel(false)"
