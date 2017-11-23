@@ -14,8 +14,8 @@ import DatePicker from "../pagePc/datePicker";
 
 export default [
     { path: "/", component: Index, name: "index" },
-    { path: "/btton", component: Button, name: "Button" },
-    { path: "/icon", component: Icon, name: "Icon" },
+    { path: "/Button", component: Button, name: "Button" },
+    { path: "/Icon", component: Icon, name: "Icon" },
     { path: "/Input", component: Input, name: "Input" },
     { path: "/DataTips", component: DataTips, name: "DataTips" },
     { path: "/Modal", component: Modal, name: "Modal" },
