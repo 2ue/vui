@@ -22,9 +22,23 @@ export default {
                 };
                 return _html;
             };
-            if (type === 'html') return !str ? '' : htmlDecode(str);
-            if (type === 'html2') return !str ? '' : htmlDecode(htmlDecode(str));
-            return !str ? '' : decodeURIComponent(decodeURI(htmlDecode(htmlDecode(str))));
+            if (!str) return '';
+            let newStr = '', newStr1 = htmlDecode(str), newStr2 = htmlDecode(newStr1);
+            if (type === 'html') return newStr1;
+            if (type === 'html2') return newStr2;
+            // return decodeURIComponent(decodeURI(newStr2));
+            //防止decodeURIComponent和decodeURI转码出错
+            try {
+                newStr = decodeURI(newStr2);
+            } catch (error) {
+                if (!!error) return newStr2;
+            }
+            try {
+                newStr = decodeURIComponent(newStr);
+            } catch (error) {
+                if (!!error) return newStr;
+            }
+            return newStr;
         }
     }
 }
