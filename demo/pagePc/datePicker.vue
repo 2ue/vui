@@ -10,7 +10,7 @@
         data() {
             return {
                 formate: 'YYYY-MM-DD',
-                selectedVal: '2017-9-2'
+                selectedVal: new Date()
             }
         },
         methods: {

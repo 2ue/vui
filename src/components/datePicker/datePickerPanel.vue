@@ -1,25 +1,29 @@
 <template>
-    <div class="vui-datePicker-panel-warp" v-if="selfShowPanel" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
+    <div class="vui-datePicker-panel-warp f_disselected" v-if="selfShowPanel" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
         <div class="vui-datePicker-change">
             <p class="vui-datePicker-header">
-                <span class="vue-datePicker-preMonth" @click="changeMonth(-1)">&lt;</span>
+                <span class="vue-datePicker-change-btn" @click="changeMonth(-1)">&lt;</span>
                 <label class="vue-datePicker-year" @click="showYearMonthPanel('Y')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel(isYearOrMonth)">{{ tempVal[0] }}</label>
                 <label class="vue-datePicker-month" @click="showYearMonthPanel('M')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel(isYearOrMonth)">{{ tempVal[1] }}</label>
-                <span class="vue-datePicker-nxtMonth" @click="changeMonth(1)">&gt;</span>
+                <span class="vue-datePicker-change-btn" @click="changeMonth(1)">&gt;</span>
             </p>
             <div v-if="isYearOrMonth" class="vui-datePicker-yearMonth" :class="{'vui-datePicker-month': isYearOrMonth === 'M'}" @mouseout="showYearMonthPanel(false)"
                 @mouseover="showYearMonthPanel(isYearOrMonth)">
                 <p v-if="isYearOrMonth === 'Y'">
                     <span @click="changeYear(-1)">&lt;</span>
-                    <span>{{ tempVal[0] }}</span>
+                    <span></span>
                     <span @click="changeYear(1)">&gt;</span>
                 </p>
                 <span v-for="(item,index) in yearMonth" :key="index" @click.stop="chooseYearMonth(item)">{{ item }}</span>
             </div>
         </div>
         <div class="vui-datpaicker-days">
-            <span v-for="(weekday,index) in weekdays" :key="index">{{weekday}}</span>
-            <span v-for="(day, index) in daysArray" :key="index" :class="getClassName(day)" @click.self.stop="choosedDay(day,index)">{{day.dayNum}}</span>
+            <p class="vui-datpaicker-weekday-box">
+                <span v-for="(weekday,index) in weekdays" :key="index">{{weekday}}</span>
+            </p>
+            <div class="vui-datpaicker-day-box">
+                <span v-for="(day, index) in daysArray" :key="index" :class="getClassName(day)" @click.self.stop="choosedDay(day,index)">{{day.dayNum}}</span>
+            </div>
         </div>
     </div>
 </template>
@@ -125,12 +129,12 @@
             },
             //切换上一月（val=-1），下一月（val=1）
             changeMonth(val) {
-                this.tempVal = [...datePikcer.fixedYM(+this.tempVal[0], +this.tempVal[1] + val)];
+                let yearMonth = [...datePikcer.fixedYM(+this.tempVal[0], +this.tempVal[1] + val)];
+                this.tempVal = datePikcer.formate(this.formate, yearMonth.join('-')).split('-').slice(0, 2);
             },
-            //切换上一月（val=-1），下一月（val=1）
+            //切换上一年（val=-1），下一年（val=1）
             changeYear(val) {
                 this.getYearMonthArray(+this.yearMonth[0] + (val * 9));
-                // this.tempVal = [...datePikcer.fixedYM(+this.tempVal[0] + (val * 9), +this.tempVal[1])];
             },
             //选择天
             choosedDay(day, index) {
@@ -152,46 +156,29 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+    @import url('../../assets/less/variable.less');
+    @border-color: #EDEDED;
+    @datepikcer-span-height: 30px;
+    @datepikcer-header-height: 40px;
+    @datepikcer-width: 300px;
+
     .vui-datePicker-panel-warp {
         position: absolute;
         left: 0;
         top: 30px;
-        width: 300px;
-        height: 300px;
-        background: #eee;
+        width: @datepikcer-width;
+        max-height: 300px;
+        padding-bottom: 10px;
+        background: #fff;
+        border: 1px solid @border-color;
+        box-sizing: border-box;
     }
 
-    .vui-datpaicker-days {
-        padding: 0 10px;
-        font-size: 0;
-        span {
-            display: inline-block;
-            box-sizing: border-box;
-            width: 36px;
-            height: 24px;
-            line-height: 24px;
-            text-align: center;
-            font-size: 12px;
-            margin: 3px 2px;
-            color: #999;
-
-            &.vui-this-month {
-                color: #333;
-                cursor: pointer;
-
-                &.vui-selected-day,
-                &:hover {
-                    background: #fff;
-                }
-            }
-        }
-    }
 
     .vui-datePicker-change {
         position: relative;
-        height: 30px;
-        line-height: 30px;
-        border-bottom: 1px solid #ccc;
+        height: @datepikcer-header-height;
+        line-height: @datepikcer-header-height;
         text-align: center;
         font-size: 0;
 
@@ -201,40 +188,92 @@
             text-align: top;
             font-size: 12px;
         }
-    }
 
-    .vui-datePicker-header {
-        span {
-            width: 50px;
-        }
-        label {
-            width: 100px;
-        }
-    }
 
-    .vui-datePicker-yearMonth {
-        position: absolute;
-        top: 30px;
-        left: 25px;
-        width: 150px;
-        height: 120px;
-        background: #ccc;
-
-        span {
-            float: left;
-            width: 50px;
-            height: 30px;
-            line-height: 30px;
-            box-sizing: border-box;
-            border-bottom: 1px solid #fff;
-            border-right: 1px solid #fff;
+        .vue-datePicker-change-btn {
             cursor: pointer;
-            span:nth-child(3n) {
-                border-right: 0;
+        }
+
+        .vui-datePicker-header {
+            span {
+                width: 49px;
+            }
+            label {
+                width: 100px;
             }
         }
-        &.vui-datePicker-month {
-            left: 125px;
+
+        .vui-datePicker-yearMonth {
+            position: absolute;
+            top: @datepikcer-header-height;
+            left: 25px;
+            width: 150px;
+            height: 120px;
+            background: #fff;
+            border-top: 1px solid darken(@border-color, 5%);
+            border-left: 1px solid darken(@border-color, 5%);
+
+            span {
+                float: left;
+                width: 50px;
+                height: @datepikcer-span-height;
+                line-height: @datepikcer-span-height;
+                box-sizing: border-box;
+                border-bottom: 1px solid darken(@border-color, 5%);
+                border-right: 1px solid darken(@border-color, 5%);
+                cursor: pointer;
+
+                span:nth-child(3n) {
+                    border-right: 0;
+                }
+            }
+            &.vui-datePicker-month {
+                left: 125px;
+            }
         }
+    }
+
+    .vui-datpaicker-days {
+        border-top: 1px solid @border-color;
+        padding: 0 9px;
+        font-size: 0;
+        span {
+            display: inline-block;
+            box-sizing: border-box;
+            width: (@datepikcer-width - 20)/7 - 4;
+            height: @datepikcer-span-height;
+            line-height: @datepikcer-span-height;
+            text-align: center;
+            font-size: 12px;
+            margin: 3px 2px;
+
+            &.vui-this-month {
+                color: #333;
+                cursor: pointer;
+                transition: all ease-in-out 0.1s;
+            }
+            &:nth-child(7n),
+            &:nth-child(7n+1) {
+                color: #f30;
+            }
+        }
+
+        .vui-datpaicker-day-box span {
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .vui-datpaicker-day-box span:not(.vui-this-month) {
+            color: #999;
+            cursor: inherit;
+        }
+        .vui-datpaicker-day-box .vui-selected-day {
+            background: #a18ebd !important;
+            color: #fff !important;
+        }
+        .vui-datpaicker-day-box .vui-this-month:hover {
+            background: darken(@border-color, 10%);
+            color: #fff;
+        }
+
     }
 </style>
