@@ -12,7 +12,7 @@
         name: "selectItem",
         data() {
             return {
-                selfListData: !this.listData || this.listData.length === 0 ? [] : this.listData
+                selfListData: !this.listData || this.listData.length === 0 ? [] : [...this.listData]
             };
         },
         props: {
