@@ -1,0 +1,439 @@
+{
+    "selectList": [
+        {
+            "id": 1,
+            "name": "Kevin Thomas",
+            "showChildren": false,
+            "children": [
+                {
+                    "id": 1001,
+                    "name": "Mark Hall",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001001,
+                            "name": "Scott White"
+                        },
+                        {
+                            "id": 1001002,
+                            "name": "Jeffrey Anderson"
+                        },
+                        {
+                            "id": 1001003,
+                            "name": "Mark Thomas"
+                        },
+                        {
+                            "id": 1001004,
+                            "name": "Deborah Brown"
+                        }
+                    ]
+                },
+                {
+                    "id": 1002,
+                    "name": "Ronald Harris",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001005,
+                            "name": "Patricia Martin"
+                        },
+                        {
+                            "id": 1001006,
+                            "name": "Jose Rodriguez"
+                        },
+                        {
+                            "id": 1001007,
+                            "name": "Helen Moore"
+                        }
+                    ]
+                },
+                {
+                    "id": 1003,
+                    "name": "Laura Thompson",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001008,
+                            "name": "Karen Lopez"
+                        },
+                        {
+                            "id": 1001009,
+                            "name": "Jessica Jackson"
+                        },
+                        {
+                            "id": 1001010,
+                            "name": "Matthew Martin"
+                        },
+                        {
+                            "id": 1001011,
+                            "name": "George Walker"
+                        },
+                        {
+                            "id": 1001012,
+                            "name": "Donald Robinson"
+                        },
+                        {
+                            "id": 1001013,
+                            "name": "Anthony Martin"
+                        },
+                        {
+                            "id": 1001014,
+                            "name": "Mark Clark"
+                        }
+                    ]
+                },
+                {
+                    "id": 1004,
+                    "name": "Kimberly White",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001015,
+                            "name": "Ruth Lewis"
+                        },
+                        {
+                            "id": 1001016,
+                            "name": "Jessica Moore"
+                        },
+                        {
+                            "id": 1001017,
+                            "name": "Gary Lee"
+                        },
+                        {
+                            "id": 1001018,
+                            "name": "James Thomas"
+                        },
+                        {
+                            "id": 1001019,
+                            "name": "Richard Anderson"
+                        },
+                        {
+                            "id": 1001020,
+                            "name": "Gary Moore"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Michael Brown",
+            "showChildren": false,
+            "children": [
+                {
+                    "id": 1005,
+                    "name": "Jose Clark",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001021,
+                            "name": "George Hall"
+                        },
+                        {
+                            "id": 1001022,
+                            "name": "Shirley Thomas"
+                        },
+                        {
+                            "id": 1001023,
+                            "name": "Edward Gonzalez"
+                        },
+                        {
+                            "id": 1001024,
+                            "name": "Laura Thompson"
+                        },
+                        {
+                            "id": 1001025,
+                            "name": "Matthew Anderson"
+                        },
+                        {
+                            "id": 1001026,
+                            "name": "Daniel Robinson"
+                        }
+                    ]
+                },
+                {
+                    "id": 1006,
+                    "name": "Jessica Lewis",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001027,
+                            "name": "Laura Gonzalez"
+                        },
+                        {
+                            "id": 1001028,
+                            "name": "Eric Lee"
+                        },
+                        {
+                            "id": 1001029,
+                            "name": "Helen Robinson"
+                        },
+                        {
+                            "id": 1001030,
+                            "name": "William Lee"
+                        },
+                        {
+                            "id": 1001031,
+                            "name": "Robert Williams"
+                        },
+                        {
+                            "id": 1001032,
+                            "name": "Amy Lewis"
+                        },
+                        {
+                            "id": 1001033,
+                            "name": "Christopher Anderson"
+                        },
+                        {
+                            "id": 1001034,
+                            "name": "Patricia Rodriguez"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Sharon Lee",
+            "showChildren": false,
+            "children": [
+                {
+                    "id": 1007,
+                    "name": "Sharon Clark",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001035,
+                            "name": "Sarah Brown"
+                        },
+                        {
+                            "id": 1001036,
+                            "name": "Kimberly Anderson"
+                        },
+                        {
+                            "id": 1001037,
+                            "name": "Shirley Miller"
+                        },
+                        {
+                            "id": 1001038,
+                            "name": "Jeffrey Perez"
+                        },
+                        {
+                            "id": 1001039,
+                            "name": "Elizabeth Thomas"
+                        },
+                        {
+                            "id": 1001040,
+                            "name": "Shirley Martinez"
+                        }
+                    ]
+                },
+                {
+                    "id": 1008,
+                    "name": "Steven Martinez",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001041,
+                            "name": "Michael Garcia"
+                        },
+                        {
+                            "id": 1001042,
+                            "name": "Timothy Hernandez"
+                        },
+                        {
+                            "id": 1001043,
+                            "name": "Cynthia Allen"
+                        },
+                        {
+                            "id": 1001044,
+                            "name": "George Wilson"
+                        },
+                        {
+                            "id": 1001045,
+                            "name": "Elizabeth Robinson"
+                        },
+                        {
+                            "id": 1001046,
+                            "name": "George Young"
+                        },
+                        {
+                            "id": 1001047,
+                            "name": "Jessica Perez"
+                        },
+                        {
+                            "id": 1001048,
+                            "name": "Sandra Davis"
+                        }
+                    ]
+                },
+                {
+                    "id": 1009,
+                    "name": "Brenda Gonzalez",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001049,
+                            "name": "Joseph Wilson"
+                        },
+                        {
+                            "id": 1001050,
+                            "name": "Deborah Hall"
+                        },
+                        {
+                            "id": 1001051,
+                            "name": "Betty Rodriguez"
+                        },
+                        {
+                            "id": 1001052,
+                            "name": "Sarah Lee"
+                        },
+                        {
+                            "id": 1001053,
+                            "name": "Ronald Gonzalez"
+                        },
+                        {
+                            "id": 1001054,
+                            "name": "Anthony Moore"
+                        },
+                        {
+                            "id": 1001055,
+                            "name": "Cynthia Brown"
+                        }
+                    ]
+                },
+                {
+                    "id": 1010,
+                    "name": "Jeffrey Lopez",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001056,
+                            "name": "Melissa Anderson"
+                        },
+                        {
+                            "id": 1001057,
+                            "name": "Paul White"
+                        },
+                        {
+                            "id": 1001058,
+                            "name": "Edward Jones"
+                        },
+                        {
+                            "id": 1001059,
+                            "name": "Scott Jones"
+                        },
+                        {
+                            "id": 1001060,
+                            "name": "Ruth White"
+                        },
+                        {
+                            "id": 1001061,
+                            "name": "Robert Garcia"
+                        },
+                        {
+                            "id": 1001062,
+                            "name": "Carol Gonzalez"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Nancy Taylor",
+            "showChildren": false,
+            "children": [
+                {
+                    "id": 1011,
+                    "name": "Lisa Johnson",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001063,
+                            "name": "Angela Taylor"
+                        },
+                        {
+                            "id": 1001064,
+                            "name": "Sandra Robinson"
+                        },
+                        {
+                            "id": 1001065,
+                            "name": "Timothy Jackson"
+                        },
+                        {
+                            "id": 1001066,
+                            "name": "Barbara Jackson"
+                        },
+                        {
+                            "id": 1001067,
+                            "name": "James Hernandez"
+                        },
+                        {
+                            "id": 1001068,
+                            "name": "Gary Lewis"
+                        }
+                    ]
+                },
+                {
+                    "id": 1012,
+                    "name": "Michelle Gonzalez",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001069,
+                            "name": "Ronald Lewis"
+                        },
+                        {
+                            "id": 1001070,
+                            "name": "Timothy Lopez"
+                        },
+                        {
+                            "id": 1001071,
+                            "name": "Amy Johnson"
+                        },
+                        {
+                            "id": 1001072,
+                            "name": "Carol Thomas"
+                        },
+                        {
+                            "id": 1001073,
+                            "name": "Timothy Jackson"
+                        }
+                    ]
+                },
+                {
+                    "id": 1013,
+                    "name": "Carol Hall",
+                    "showChildren": false,
+                    "children": [
+                        {
+                            "id": 1001074,
+                            "name": "Robert Johnson"
+                        },
+                        {
+                            "id": 1001075,
+                            "name": "Donald Clark"
+                        },
+                        {
+                            "id": 1001076,
+                            "name": "Daniel Miller"
+                        },
+                        {
+                            "id": 1001077,
+                            "name": "Dorothy Johnson"
+                        },
+                        {
+                            "id": 1001078,
+                            "name": "Matthew Taylor"
+                        },
+                        {
+                            "id": 1001079,
+                            "name": "Edward Martin"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

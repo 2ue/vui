@@ -11,6 +11,7 @@ import Chexkbox from "../pagePc/checkbox";
 import Radio from "../pagePc/radio";
 import Switch from "../pagePc/switch";
 import DatePicker from "../pagePc/datePicker";
+import Select from "../pagePc/select";
 
 export default [
     { path: "/", component: Index, name: "index" },
@@ -22,5 +23,6 @@ export default [
     { path: "/Chexkbox", component: Chexkbox, name: "Chexkbox" },
     { path: "/Radio", component: Radio, name: "Radio" },
     { path: "/Switch", component: Switch, name: "Switch" },
-    { path: "/DatePicker", component: DatePicker, name: "DatePicker" }
+    { path: "/DatePicker", component: DatePicker, name: "DatePicker" },
+    { path: "/Select", component: Select, name: "Select" }
 ];
