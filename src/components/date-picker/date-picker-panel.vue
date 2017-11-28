@@ -30,7 +30,7 @@
 
 <script>
 
-    import datePikcer from '@utils/datePicker.js'
+    import datePikcer from '@utils/date-picker.js'
 
     export default {
         name: 'vDatePickerPanel',

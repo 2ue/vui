@@ -19,7 +19,7 @@
 <script>
     import VHeader from './components/header'
     import VFooter from './components/footer'
-    import RouterList from './libs/routerList'
+    import RouterList from './libs/router-list'
 
     export default {
         name: 'app',

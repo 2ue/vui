@@ -1,15 +1,16 @@
 <template>
     <div>
-        <v-switch size="small" :checked="checked" text="textSwitch" @on-change="onChange"></v-switch>
+        <v-date-picker :formate="formate" :selectedVal="selectedVal"></v-date-picker>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'switch',
+        name: 'datePicker',
         data() {
             return {
-                checked: false
+                formate: 'YYYY-MM-DD',
+                selectedVal: new Date()
             }
         },
         methods: {

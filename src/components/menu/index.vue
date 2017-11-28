@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import MenuItems from "./menuItems.vue";
+    import MenuItems from "./menu-items.vue";
     export default {
         name: "vMenu",
         data() {
@@ -28,6 +28,7 @@
                 data.forEach(item => {
                     item._deep = !deep ? 0 : deep;
                     item._showChildren = false;
+                    item._actived = false;
                     if (item.children && item.children.length > 0) {
                         item.children = [...item.children];
                         loopData(item.children, item._deep + 1);

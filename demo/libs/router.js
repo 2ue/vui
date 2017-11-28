@@ -3,7 +3,7 @@
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
-import routes from "./routerList";
+import routes from "./router-list";
 
 Vue.use(VueRouter);
 

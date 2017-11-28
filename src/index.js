@@ -6,7 +6,6 @@ import Alert from "./components/alert";
 import Util from "./utils/util";
 
 //components
-import Hello from "./components/hello/Hello";
 import Button from "./components/button";
 import Icon from "./components/icon";
 import Input from "./components/input";
@@ -20,11 +19,9 @@ import DatePicker from "./components/date-picker/index.vue";
 import Menu from "./components/menu/index.vue";
 
 //loading css
-// import 'rest-css'
 import "./assets/less/vui.less";
 
 const components = {
-    Hello,
     Button,
     Icon,
     Input,
