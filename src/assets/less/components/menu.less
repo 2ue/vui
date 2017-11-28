@@ -8,27 +8,30 @@
     background: #fff;
     border-top: 1px solid @border-color-less;
     p {
-        padding: 8px 10px;
         width: 100%;
         box-sizing: border-box;
         transition: background ease-in-out 0.2s;
+    }
+    .vui-menu-custom{
+        padding: 8px 10px;
+    }
+    a{
+        display: block;
+        padding: 8px 10px;
+        transition: all ease-in-out 0.2s;
     }
     li {
         border-bottom: 1px solid @border-color-less;
         cursor: pointer;
         color: #333;
-        &>p:hover {
+        & > p:hover {
             background: lighten(@border-color-less, 5%);
             color: #333;
         }
-        &.vui-actived>p {
+        &.vui-actived > p {
             background: @light-color;
             color: #fff;
         }
-    }
-    a{
-        display: block;
-        transition: all ease-in-out 0.2s;
     }
 }
 
