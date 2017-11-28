@@ -9,7 +9,7 @@
 <script>
 
     import DatePickerPanel from "./datePickerPanel.vue"
-    import datePikcer from '@utils/datepicker.js'
+    import datePikcer from '@utils/datePicker.js'
 
     export default {
         name: 'vDatePicker',

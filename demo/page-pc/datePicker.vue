@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'switch',
+        name: 'datePicker',
         data() {
             return {
                 formate: 'YYYY-MM-DD',
