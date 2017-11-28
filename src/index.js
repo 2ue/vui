@@ -16,7 +16,7 @@ import CheckboxGroup from "./components/checkbox/group.vue";
 import Radio from "./components/radio/index.vue";
 import RadioGroup from "./components/radio/group.vue";
 import Switch from "./components/switch/index.vue";
-import DatePicker from "./components/datePicker/index.vue";
+import DatePicker from "./components/date-picker/index.vue";
 import Select from "./components/select/select.vue";
 
 //loading css

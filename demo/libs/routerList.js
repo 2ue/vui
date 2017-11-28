@@ -1,17 +1,17 @@
 /**
  * Created by J.2ue on 2017/9/16.
  */
-import Index from "../pagePc/index";
-import Button from "../pagePc/button";
-import Icon from "../pagePc/icon";
-import Input from "../pagePc/input";
-import DataTips from "../pagePc/data-tips";
-import Modal from "../pagePc/modal";
-import Chexkbox from "../pagePc/checkbox";
-import Radio from "../pagePc/radio";
-import Switch from "../pagePc/switch";
-import DatePicker from "../pagePc/datePicker";
-import Select from "../pagePc/select";
+import Index from "../page-pc/index";
+import Button from "../page-pc/button";
+import Icon from "../page-pc/icon";
+import Input from "../page-pc/input";
+import DataTips from "../page-pc/dataTips";
+import Modal from "../page-pc/modal";
+import Chexkbox from "../page-pc/checkbox";
+import Radio from "../page-pc/radio";
+import Switch from "../page-pc/switch";
+import DatePicker from "../page-pc/datePicker";
+import Select from "../page-pc/select";
 
 export default [
     { path: "/", component: Index, name: "index" },

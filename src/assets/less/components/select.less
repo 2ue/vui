@@ -1,0 +1,42 @@
+@border-color: #EDEDED;
+.vui-select>ul {
+    border: 1px solid @border-color;
+    border-bottom: none;
+}
+
+.vui-select-items {
+    background: #fff;
+    border-top: 1px solid @border-color-less;
+    p {
+        padding: 8px 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    li {
+        border-bottom: 1px solid @border-color-less;
+        cursor: pointer;
+        color: #333;
+        &>p:hover {
+            background: lighten(@border-color-less, 5%);
+            color: #333;
+        }
+        &.vui-actived>p {
+            background: @light-color;
+            color: #fff;
+        }
+    }
+}
+
+.select-items-enter-active {
+    transition: all .3s ease-in-out;
+}
+
+.select-items-leave-active {
+    transition: all .3s ease-in-out;
+}
+
+.select-items-enter,
+.select-items-leave-to {
+    transform: translateX(5px);
+    opacity: 0;
+}

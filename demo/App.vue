@@ -38,6 +38,7 @@
 </script>
 
 <style lang="less">
+    @import url('./assets/less/variable.less');
     body {
         font: 12/1.5 "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
         color: #333;
@@ -62,7 +63,7 @@
         float: left;
         /* position: absolute; */
         /* top: 0; */
-        background: #DDE0E2;
+        background: lighten(@border-color-less, 5%);
         width: 280px;
         margin-right: 20px;
         padding-top: 30px;
@@ -97,7 +98,7 @@
     .menu-list {
         height: 30px;
         line-height: 30px;
-        font-size: 16px;
+        font-size: 14px;
         text-indent: 1em;
         &:hover {
             text-decoration: underline;
@@ -105,7 +106,7 @@
     }
 
     .menu-active {
-        background: #795da3;
+        background: @light-color;
         color: #fff;
     }
 </style>
