@@ -1,8 +1,15 @@
 <template>
     <div>
-        <p>一个基于VUE的UI框架，但不仅仅是一个UI框架。</p>
-        <p>除了实现一些基本的UI功能外，还将实现一些有趣或者实用的小功能。</p>
-        <p>适用于PC端</p>
+        <h1>目的</h1>
+        <div class="h1-content">
+            以学习vue为目的而写的一个UI框架，除了会实现一些基本的UI功能模块外，也许会实现一些有趣的小功能。目前只适用于PC端
+        </div>
+        <h1>命名规范</h1>
+        <div class="h1-content">
+            文件夹名一律使用小写，用中划线(-)连接
+            <br>文件名使用驼峰写法，首字母小写
+            <br>css类名一律使用小写，用中划线(-)连接，并且框架内的类名必须以vui-开头
+        </div>
     </div>
 </template>
 
@@ -19,8 +26,16 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less" scoped>
-    p {
+<style scoped>
+    h1 {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 40px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .h1-content {
+        margin: 10px 0 20px;
         font-size: 14px;
     }
 </style>

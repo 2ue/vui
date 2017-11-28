@@ -1,13 +1,14 @@
 <template>
     <div>
         <v-header></v-header>
-        <div class="vui-warper-content vui-content vui-clear">
-            <div class="vui-menu">
-                <p v-for="route in RouterList" class="menu-list" :class="{'menu-active': route.path == $route.path}">
-                    <router-link :to="route.path">{{ route.name }}</router-link>
-                </p>
+        <div class="warper-content clear">
+            <div class="menu">
+                <!-- <p v-for="route in RouterList" class="menu-list" :class="{'menu-active': route.path == $route.path}">
+                    <router-link :to="route.path">{{ route.cname || route.name }}</router-link>
+                </p> -->
+                <v-menu class="menu-list" :menuData="RouterList" :showOne="true" :mapTable="mapTable"></v-menu>
             </div>
-            <div class="vui-main">
+            <div class="main">
                 <router-view></router-view>
             </div>
         </div>
@@ -25,6 +26,11 @@
         data() {
             return {
                 RouterList,
+                mapTable: {
+                    key: 'id',
+                    name: 'cname',
+                    href: 'path'
+                }
             }
         },
         components: {
@@ -44,63 +50,60 @@
         color: #333;
     }
 
-    .vui-warper {
+    .warper {
         width: 100%;
         min-width: 80%;
     }
 
-    .vui-warper-content {
+    .warper-content {
         width: 80%;
         margin: 0 auto;
+        margin-top: 20px;
     }
 
-    .vui-content {
+    .content {
         margin: 0 auto;
         position: relative;
     }
 
-    .vui-menu {
+    .menu {
         float: left;
-        /* position: absolute; */
-        /* top: 0; */
         background: lighten(@border-color-less, 5%);
         width: 280px;
         margin-right: 20px;
-        padding-top: 30px;
-        padding-bottom: 30px;
         p {
             text-decoration: none;
             cursor: pointer;
         }
     }
 
-    .vui-main {
+    .main {
         padding: 20px 0 20px 300px;
         box-sizing: border-box;
         width: 100%;
         min-height: 300px;
     }
 
-    .vui-clear {
+    .clear {
         zoom: 1;
     }
 
-    .vui-clear:before,
-    .vui-clear:after {
+    .clear:before,
+    .clear:after {
         display: table;
         content: "";
     }
 
-    .vui-clear:after {
+    .clear:after {
         clear: both;
     }
 
     .menu-list {
-        height: 30px;
-        line-height: 30px;
+        /* height: 30px;
+        line-height: 30px; */
         font-size: 14px;
         text-indent: 1em;
-        &:hover {
+        p:hover>a {
             text-decoration: underline;
         }
     }

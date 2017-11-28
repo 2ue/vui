@@ -11,18 +11,18 @@ import Chexkbox from "../page-pc/checkbox";
 import Radio from "../page-pc/radio";
 import Switch from "../page-pc/switch";
 import DatePicker from "../page-pc/datePicker";
-import Select from "../page-pc/select";
+import Menu from "../page-pc/menu";
 
 export default [
-    { path: "/", component: Index, name: "index" },
-    { path: "/Button", component: Button, name: "Button" },
-    { path: "/Icon", component: Icon, name: "Icon" },
-    { path: "/Input", component: Input, name: "Input" },
-    { path: "/DataTips", component: DataTips, name: "DataTips" },
-    { path: "/Modal", component: Modal, name: "Modal" },
-    { path: "/Chexkbox", component: Chexkbox, name: "Chexkbox" },
-    { path: "/Radio", component: Radio, name: "Radio" },
-    { path: "/Switch", component: Switch, name: "Switch" },
-    { path: "/DatePicker", component: DatePicker, name: "DatePicker" },
-    { path: "/Select", component: Select, name: "Select" }
+    { path: "/", component: Index, name: "Index", cname: '首页' },
+    { path: "/button", component: Button, name: "Button", cname: '按钮' },
+    { path: "/icon", component: Icon, name: "Icon", cname: '字体图标' },
+    { path: "/input", component: Input, name: "Input", cname: '输入框' },
+    { path: "/dataTips", component: DataTips, name: "DataTips", cname: 'title提示' },
+    { path: "/modal", component: Modal, name: "Modal", cname: '模态框' },
+    { path: "/chexkbox", component: Chexkbox, name: "Chexkbox", cname: '复选框' },
+    { path: "/radio", component: Radio, name: "Radio", cname: '单选框' },
+    { path: "/switch", component: Switch, name: "Switch", cname: '开关' },
+    { path: "/datePicker", component: DatePicker, name: "DatePicker", cname: '日历' },
+    { path: "/menu", component: Menu, name: "Menu", cname: '多级菜单' }
 ];
