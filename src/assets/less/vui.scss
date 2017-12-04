@@ -1,12 +1,12 @@
-@import "variable";
-@import "rest";
+@import "./variable";
+@import "./rest";
 @import url("../iconfont/iconfont.css");
-@import "mixin";
-@import "common";
+@import "./mixin";
+@import "./common";
 //组件样式
-@import "components/button";
-@import "components/input";
-@import "components/data-tips";
-@import "components/checkbox-radio";
-@import "components/menu";
-@import "components/date-picker";
+@import "./components/button";
+@import "./components/input";
+@import "./components/data-tips";
+@import "./components/checkbox-radio";
+@import "./components/menu";
+@import "./components/date-picker";

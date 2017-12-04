@@ -46,7 +46,6 @@
 <style lang="scss">
     @import './assets/less/variable.scss';
     body {
-        /* font: 12/1.5 "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif; */
         color: #333;
     }
 
