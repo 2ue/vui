@@ -1,20 +1,34 @@
 <template>
     <div>
-        <v-button size="small"></v-button>
-        <v-button size="middle"></v-button>
-        <v-button size="larger"></v-button>
-        <br/>
-        <v-button size="small" disabled="true"></v-button>
-        <v-button size="middle" disabled="true"></v-button>
-        <v-button size="larger" :disabled="false"></v-button>
-        <br/>
-        <v-button size="small" type="ghost"></v-button>
-        <v-button size="middle" type="primary"></v-button>
-        <v-button size="larger" type="dashed" disabled="true"></v-button>
-        <br/>
-        <v-button size="middle" text="middle" disabled="true"></v-button>
-        <v-button size="larger" text="larger"></v-button>
-        <v-button width="100" text="small 100" @click="getInfo"></v-button>
+        <p class="vui-page-title">测试type：默认ghost，接受ghost,primary,dashed三个字符串</p>
+        <v-button type="ghost"></v-button>
+        <v-button type="primary"></v-button>
+        <v-button type="dashed"></v-button>
+
+        <p class="vui-page-title">测试size：默认small，接受small,middle,larger和带正确单位的字符串，如果纯数字则以px为单位</p>
+        <v-button size="small">default</v-button>
+        <v-button size="small">small button</v-button>
+        <v-button size="middle">middle button</v-button>
+        <v-button size="larger">larger button</v-button>
+
+        <p class="vui-page-title">测试width属性：支持数字，百分百和各种单位</p>
+        <v-button width="300px">width:300px</v-button>
+        <br>
+        <v-button width="30%">width:30%</v-button>
+        <br>
+        <v-button width="30em">width:30em</v-button>
+        <br>
+        <v-button width="30rem">width:30rem</v-button>
+
+        <p class="vui-page-title">支持各种原生属性传递：disabled，class，style等，包括一些自定义属性</p>
+        <v-button disabled>disabled</v-button>
+        <v-button class="test-buuton-class">test-buuton-class</v-button>
+        <v-button style="color:#f30;">字体#f30</v-button>
+        <v-button data-tips="添加了一个自定义属性data-tips属性">自定义属性data-tips</v-button>
+
+        <p class="vui-page-title">事件绑定：点击事件</p>
+        <v-button @click="clickEvent"></v-button>
+        <v-button disabled @click="clickEvent">disabled禁用点击事件</v-button>
     </div>
 </template>
 
@@ -25,25 +39,8 @@
             return {}
         },
         methods: {
-
-            getInfo: function (event) {
-                // console.log('event==>', event)
-                // this.$alert('加载失败！');
-                // this.$loading.show();
-                // this.$loading.show({ html: '<p>{{ loadingText }}</p><span></span><span></span><span></span><span></span><span></span><span></span><hello></hello>' });
-                // this.$https.get('https://api.github.com/users/2ue/repos?sort=created&per_page=100').then(function (res) {
-                //     console.log('res==>', res);
-                // });
-                this.$https({
-                    method: 'get',
-                    url: 'https://api.github.com/users/2ue/repos',
-                    loading: true,
-                    data: {
-                        sort: 'created',
-                        per_page: 100,
-                        loading: true
-                    }
-                });
+            clickEvent: function (event) {
+                console.log('被点击了');
             }
         }
     }

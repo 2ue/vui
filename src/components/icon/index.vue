@@ -1,5 +1,5 @@
 <template>
-    <i class="vui-icon-font" :class="'vui-icon-' + type" :style="{fontSize: fontVal, color: color }"></i>
+    <i class="vui-icon-font" :class="'vui-icon-' + type" :style="{'font-size': fontVal, color: color }"></i>
 </template>
 
 <script>
@@ -25,7 +25,7 @@
         props: {
             size: {
                 type: [String, Number],
-                default: 'small'
+                default: 'middle'
             },
             type: {
                 type: String

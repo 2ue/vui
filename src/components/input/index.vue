@@ -42,14 +42,14 @@
         },
         methods: {
             eventInput: function (event) {
-                this.$emit('input', this.selfVal);
-                this.$emit('change', event);
+                this.$emit('input', event, this.selfVal);
+                this.$emit('change', event, this.selfVal);
             },
             eventFocus: function (event) {
-                this.$emit('focus', event);
+                this.$emit('focus', event, this.selfVal);
             },
             eventBlur: function (event) {
-                this.$emit('blur', event);
+                this.$emit('blur', event, this.selfVal);
             },
             updateValue(value) {
                 if (value === this.selfVal) return;

@@ -43,6 +43,29 @@
 <style lang="scss">
     body {
         color: #333;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 40px;
+        border-bottom: 1px solid $border-color-less;
+    }
+
+    .h1-content {
+        margin: 10px 0 20px;
+        font-size: 14px;
+    }
+
+    .h1-content a {
+        color: #6772E5;
+
+    }
+
+    .vui-page-title {
+        margin-top: 20px;
+        margin-bottom: 5px;
     }
 
     .warper {

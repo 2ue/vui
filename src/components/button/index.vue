@@ -1,5 +1,7 @@
 <template>
-    <button class="vui-button" :class="className" :style="{ width:widthSize }" @click="click">{{ text }}</button>
+    <button class="vui-button" :class="className" :style="{ width:widthSize }" @click="click">
+        <slot>{{ text }}</slot>
+    </button>
 </template>
 
 <script>

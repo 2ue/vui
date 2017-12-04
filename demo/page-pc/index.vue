@@ -31,21 +31,5 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    h1 {
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 40px;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .h1-content {
-        margin: 10px 0 20px;
-        font-size: 14px;
-    }
-
-    .h1-content a {
-        color: #6772E5;
-
-    }
+<style lang="scss">
 </style>

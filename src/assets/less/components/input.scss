@@ -1,11 +1,17 @@
 .vui-input {
     box-sizing: border-box;
-    width: 100px;
+    width: 200px;
     height: 30px;
     border: 1px solid $border-color-main;
     border-radius: $border-radius;
+    box-sizing: border-box;
     padding: 0 10px;
-    &:disabled,
+    margin: 2px 0;
+    color: #666;
+    &:disabled {
+        background: $border-color-litle;
+        cursor: not-allowed;
+    }
     &:read-only {
         background: $border-color-litle;
     }

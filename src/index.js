@@ -17,6 +17,7 @@ import RadioGroup from "./components/radio/group.vue";
 import Switch from "./components/switch/index.vue";
 import DatePicker from "./components/date-picker/index.vue";
 import Menu from "./components/menu/index.vue";
+import Select from "./components/select/index.vue";
 
 //loading css
 import "./assets/less/vui.scss";
@@ -32,7 +33,8 @@ const components = {
     RadioGroup,
     Switch,
     DatePicker,
-    Menu
+    Menu,
+    Select
 };
 
 const install = function (Vue, options = {}) {

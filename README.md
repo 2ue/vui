@@ -42,7 +42,7 @@ a ui framework  build with vue for pc。
 - switch
 - datepicker[基础版已完成]
 - 多级菜单
-- 联动选择
+- 联动选择[正在开发]
 
 # 记录问题
 

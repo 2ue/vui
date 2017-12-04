@@ -1,22 +1,14 @@
 <template>
     <div>
-        <p data-tips="测试一下tips">测试一下tips</p>
-        <span data-tips="测试一下tips">测试一下span</span>
-        <p data-tips="测试一下长文字，还不够长啊，不够长，再来几个字">测试长文字</p>
-        <v-button size="larger" data-tips="测试Button" text="测试啊"></v-button>
-        <p data-tips="daaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">cessdada</p>
+        <p class="vui-page-title">模拟原生title提示：自动相对于有data-tips属性元素自动居中</p>
         <br>
+        <span data-tips="测试一下span标签">测试一下span标签</span>
         <br>
+        <p data-tips="测试一下p标签">测试一下p标签</p>
         <br>
+        <span data-tips="测试一段长文字2333333333333333333333333333333333333333333333333">测试长文字</span>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <p data-tips="测试一下长文字，还不够长啊，不够长，再来几个字" class="vui-data-tips-center">测试长文字</p>
+        <v-button data-tips="测试Button" text="测试Button"></v-button>
     </div>
 </template>
 
@@ -35,4 +27,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+    div {
+        margin: 20px 0;
+    }
 </style>

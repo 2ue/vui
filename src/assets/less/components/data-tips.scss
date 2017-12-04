@@ -2,6 +2,12 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
+    &:before,
+    &:after {
+        -webkit-transition: all ease-in-out 1s;
+        -moz-transition: all ease-in-out 1s;
+        transition: all ease-in-out 1s;
+    }
     &:hover {
         $left: 7px;
         $top: 10px;
@@ -13,8 +19,9 @@
             position: absolute;
             z-index: 999;
             top: -100%;
-            left: -$paddingLeft;
-            margin-top: -($top + $dis + $paddingTop * 2+2);
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin-top: -($top + $dis + $paddingTop * 2);
             display: block;
             min-width: 100%;
             padding: $paddingTop $paddingLeft;
@@ -24,9 +31,6 @@
             color: #fff;
             background: $bg-shade-80;
             border-radius: $border-radius-button;
-            -webkit-transition: all ease-in-out 1s;
-            -moz-transition: all ease-in-out 1s;
-            transition: all ease-in-out 1s;
         }
         &:after {
             content: "";
@@ -41,9 +45,5 @@
             border-top: $top solid $bg-shade-80;
             border-right: $left solid transparent;
         }
-    }
-    &.vui-data-tips-center:hover:before {
-        left: calc(50% + 10px); // margin-left: 10px;
-        transform: translate(-50%, 0);
     }
 }

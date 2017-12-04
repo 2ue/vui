@@ -6,6 +6,7 @@
     cursor: pointer;
     box-sizing: border-box;
     color: $font-color-main;
+    margin: 2px 0;
     &.vui-button-small {
         padding: 0 10px;
         height: 30px;
@@ -26,8 +27,8 @@
     }
     &:disabled,
     &:disabled:hover {
-        background: $primary-color;
-        border-color: $primary-color;
+        background: $border-color-main;
+        border-color: $border-color-main;
         color: #fff;
         cursor: not-allowed;
     }
