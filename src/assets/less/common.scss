@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: @bg-shade;
+    background: $bg-shade;
 }
 
 .vui-modal {
@@ -16,11 +16,11 @@
     margin: -100px auto;
     background: #fff;
     text-align: center;
-    border-radius: @border-radius-modal;
+    border-radius: $border-radius-modal;
     .vui-modal-header {
-        border-bottom: 1px solid @border-color-less;
+        border-bottom: 1px solid $border-color-less;
         .vui-modal-title {
-            .vui-title();
+            @extend .vui-title;
             margin-left: 20px;
             text-align: left;
         }
@@ -29,20 +29,20 @@
             display: inline-block;
             vertical-align: top;
             cursor: pointer;
-            width: @title-height;
+            width: $title-height;
             font-size: 18px;
         }
     }
     .vui-modal-body {
-        padding: @modal-margin;
+        padding: $modal-margin;
     }
     .vui-modal-footer {
         position: relative;
         bottom: 0;
         height: 60px;
         line-height: 60px;
-        border-top: 1px solid @border-color-less;
-        padding-top: @box-padding;
+        border-top: 1px solid $border-color-less;
+        padding-top: $box-padding;
     }
 }
 

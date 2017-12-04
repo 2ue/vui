@@ -9,11 +9,11 @@ export default {
         * @param：props（必须），深层取值的键值对数组，顺序排列
         * @param：target，原始数据，默认为this
         * */
-        getValueFromDeepData: (props, target) => {
+        $_getValueFromDeepData: (props, target) => {
             if (!props || !target) return undefined;
             return props.reduce((pre, nxt) => (typeof pre === 'undefined' || typeof pre[nxt] === 'undefined' ? undefined : pre[nxt]), target);
         },
-        decodeStr: (str, type) => {//type: html, html2
+        $_decodeStr: (str, type) => {//type: html, html2
             function htmlDecode(str) {
                 let e = document.createElement('div'), _html = '';
                 e.innerHTML = str;

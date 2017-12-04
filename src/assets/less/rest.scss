@@ -48,7 +48,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    font: @font-family;
+    font: $font-family;
 }
 
 
@@ -154,20 +154,20 @@ button {
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
     /* WebKit browsers */
-    color: @font-color-main;
+    color: $font-color-main;
 }
 
 input:-moz-placeholder,
 textarea:-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     opacity: 1;
-    color: @font-color-main;
+    color: $font-color-main;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
     /* Internet Explorer 10+ */
-    color: @font-color-main;
+    color: $font-color-main;
 }
 
 select::-ms-expand {

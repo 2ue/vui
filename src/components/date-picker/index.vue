@@ -62,16 +62,5 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less" scoped>
-    .vui-datePicker-warp {
-        position: relative;
-    }
-
-    .vui-datePicker-input {
-        box-sizing: border-box;
-        width: 300px;
-        height: 30px;
-        text-indent: 1em;
-        border: 1px solid tint(#ccc, 50%);
-    }
+<style lang="scss">
 </style>

@@ -43,10 +43,10 @@
 
 </script>
 
-<style lang="less">
-    @import url('./assets/less/variable.less');
+<style lang="scss">
+    @import './assets/less/variable.scss';
     body {
-        font: 12/1.5 "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        /* font: 12/1.5 "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif; */
         color: #333;
     }
 
@@ -68,7 +68,7 @@
 
     .menu {
         float: left;
-        background: lighten(@border-color-less, 5%);
+        background: $border-color-less;
         width: 280px;
         margin-right: 20px;
         p {
@@ -109,7 +109,7 @@
     }
 
     .menu-active {
-        background: @light-color;
+        background: $light-color;
         color: #fff;
     }
 </style>

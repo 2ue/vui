@@ -1,0 +1,193 @@
+//----tips css end ----
+//-----checkbox start-----
+.vui-checkbox-warp {
+    margin-right: 5px;
+    @extend .vui-dis-selected;
+    .vui-checkbox-text {
+        .vui-can-selected();
+        color: #666;
+        font-size: 14px;
+    }
+    .vui-checkbox {
+        position: relative;
+        height: 20px;
+        padding-left: 22px;
+        &:before {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            background: $light-color;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: background ease-in-out 0.4s;
+            -moz-transition: background ease-in-out 0.4s;
+            transition: background ease-in-out 0.4s;
+        }
+        &:after {
+            content: ' ';
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            z-index: 2;
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            background: $border-color-less;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: background ease-in-out 0.4s;
+            -moz-transition: background ease-in-out 0.4s;
+            transition: background ease-in-out 0.4s;
+        }
+    }
+    [type=checkbox] {
+        &:checked~.vui-checkbox:after {
+            /*加勾*/
+            content: '\2714';
+            color: #fff;
+            line-height: 6px;
+            font-size: 18px;
+            background: $light-color;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+        }
+        &:checked~.vui-checkbox:before {
+            background: $border-color-less;
+        }
+    }
+}
+
+//------checkbox end------
+//-----switch start-----
+.vui-switch-warp {
+    margin-right: 5px;
+    @extend .vui-dis-selected;
+    .vui-switch-text {
+        .vui-can-selected();
+        color: #666;
+        font-size: 14px;
+    }
+    .vui-switch {
+        position: relative;
+        height: 20px;
+        padding-left: 42px;
+        &:before {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 32px;
+            height: 16px;
+            border-radius: 12px;
+            background: $font-color-light;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: background ease-in-out 0.3s;
+            -moz-transition: background ease-in-out 0.3s;
+            transition: background ease-in-out 0.3s;
+        }
+        &:after {
+            content: ' ';
+            position: absolute;
+            left: 3px;
+            top: 2px;
+            z-index: 2;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fff;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: left ease-in-out 0.3s;
+            -moz-transition: left ease-in-out 0.3s;
+            transition: left ease-in-out 0.3s;
+        }
+    }
+    [type=checkbox] {
+        &:checked~.vui-switch:before {
+            background: $light-color;
+        }
+        &:checked~.vui-switch:after {
+            left: 17px;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+        }
+    }
+}
+
+//------checkbox end------
+//-----radio start-----
+.vui-radio-warp {
+    margin-right: 5px;
+    @extend .vui-dis-selected;
+    .vui-radio-text {
+        .vui-can-selected();
+        color: #666;
+        font-size: 14px;
+    }
+    .vui-radio {
+        position: relative;
+        height: 20px;
+        padding-left: 22px;
+        &:before {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: $light-color;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: background ease-in-out 0.4s;
+            -moz-transition: background ease-in-out 0.4s;
+            transition: background ease-in-out 0.4s;
+        }
+        &:after {
+            content: ' ';
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            z-index: 2;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: $border-color-less;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
+            -webkit-transition: background ease-in-out 0.4s;
+            -moz-transition: background ease-in-out 0.4s;
+            transition: background ease-in-out 0.4s;
+        }
+    }
+    [type=radio] {
+        &:checked~.vui-radio:after {
+            color: #fff;
+            background: $light-color;
+            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
+        }
+        &:checked~.vui-radio:before {
+            background: $border-color-less;
+        }
+    }
+}
+
+//------radio end------

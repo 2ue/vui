@@ -24,7 +24,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang=less>
+<style scoped lang="scss">
     .footer {
         margin: 20px auto;
         padding: 20px 0;

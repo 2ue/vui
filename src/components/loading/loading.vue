@@ -61,7 +61,7 @@
 
 </script>
 
-<style lang="less">
+<style lang="scss">
     .vui-loading-inner {
 
         position: relative;

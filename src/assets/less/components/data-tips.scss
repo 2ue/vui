@@ -1,0 +1,46 @@
+[data-tips] {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+        $left: 7px;
+        $top: 10px;
+        $dis: 5px;
+        $paddingTop: 5px;
+        $paddingLeft: 10;
+        &:before {
+            content: attr(data-tips);
+            position: absolute;
+            z-index: 999;
+            top: -100%;
+            left: 50%;
+            margin-left: -(50% + $paddingLeft + 'px');
+            margin-top: -($top + $dis + $paddingTop * 2);
+            display: block;
+            min-width: 100%;
+            padding: $paddingTop $paddingLeft;
+            pointer-events: none;
+            white-space: nowrap;
+            font-size: 14px;
+            color: #fff;
+            background: $bg-shade-80;
+            border-radius: $border-radius-button;
+            -webkit-transition: all ease-in-out 1s;
+            -moz-transition: all ease-in-out 1s;
+            transition: all ease-in-out 1s;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            top: -($top + $dis);
+            left: 50%;
+            margin-left: -$left;
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: $left solid transparent;
+            border-top: $top solid $bg-shade-80;
+            border-right: $left solid transparent;
+        }
+    }
+}

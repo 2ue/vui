@@ -19,7 +19,7 @@ import DatePicker from "./components/date-picker/index.vue";
 import Menu from "./components/menu/index.vue";
 
 //loading css
-import "./assets/less/vui.less";
+import "./assets/less/vui.scss";
 
 const components = {
     Button,

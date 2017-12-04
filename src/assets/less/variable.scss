@@ -1,0 +1,37 @@
+//函数tint混合白色
+// font
+$font-size-base: 12px;
+$font-size: 14px;
+$font-family: $font-size-base/1.5 "Helvetica Neue",
+Helvetica,
+"PingFang SC",
+"Hiragino Sans GB",
+"Microsoft YaHei",
+"微软雅黑",
+Arial,
+sans-serif;
+//间距
+$modal-margin: 20px;
+$box-padding: 10px;
+//尺寸
+$title-height: 40px;
+$border-radius: 3px;
+$border-radius-modal: 5px;
+$border-radius-button: 5px;
+//color
+// $primary-color: #734dff;
+$primary-color: #6772E5;
+$light-color: #6D78F2;
+$light-less-color: $primary-color;
+$dark-color: #565FBF;
+$border-color-main: #CCC;
+$border-color-less: #E6E6E6;
+$border-color-litle: #EDEDED;
+$bg-shade: rgba(0, 0, 0, 0.3);
+$bg-shade-30: rgba(0, 0, 0, 0.3);
+$bg-shade-60: rgba(0, 0, 0, 0.6);
+$bg-shade-80: rgba(0, 0, 0, 0.8);
+$font-color-dark: #333;
+$font-color-main: #666;
+$font-color-light: #999;
+$font-color-link: #2d8cf0;

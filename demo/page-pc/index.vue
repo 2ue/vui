@@ -10,6 +10,11 @@
             <br>文件名使用驼峰写法，首字母小写
             <br>css类名一律使用小写，用中划线(-)连接，并且框架内的类名必须以vui-开头
         </div>
+        <h1>风格指南</h1>
+        <div class="h1-content">
+            按照推官方荐规范：
+            <a href="https://cn.vuejs.org/v2/style-guide">style-guides</a>
+        </div>
     </div>
 </template>
 
@@ -37,5 +42,10 @@
     .h1-content {
         margin: 10px 0 20px;
         font-size: 14px;
+    }
+
+    .h1-content a {
+        color: #6772E5;
+
     }
 </style>
