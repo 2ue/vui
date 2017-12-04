@@ -40,7 +40,9 @@ a ui framework  build with vue for pc。
 - checkbox
 - raido
 - switch
-- datepicker[正在进行中]
+- datepicker[基础版已完成]
+- 多级菜单
+- 联动选择
 
 # 记录问题
 
