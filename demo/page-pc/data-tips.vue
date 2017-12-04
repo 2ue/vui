@@ -4,6 +4,19 @@
         <span data-tips="测试一下tips">测试一下span</span>
         <p data-tips="测试一下长文字，还不够长啊，不够长，再来几个字">测试长文字</p>
         <v-button size="larger" data-tips="测试Button" text="测试啊"></v-button>
+        <p data-tips="daaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">cessdada</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <p data-tips="测试一下长文字，还不够长啊，不够长，再来几个字" class="vui-data-tips-center">测试长文字</p>
     </div>
 </template>
 

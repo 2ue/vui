@@ -13,7 +13,7 @@
         <h1>风格指南</h1>
         <div class="h1-content">
             按照推官方荐规范：
-            <a href="https://cn.vuejs.org/v2/style-guide">style-guides</a>
+            <a href="https://cn.vuejs.org/v2/style-guide" target="_blank">style-guides</a>
         </div>
     </div>
 </template>
