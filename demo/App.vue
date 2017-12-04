@@ -3,9 +3,6 @@
         <v-header></v-header>
         <div class="warper-content clear">
             <div class="menu">
-                <!-- <p v-for="route in RouterList" class="menu-list" :class="{'menu-active': route.path == $route.path}">
-                    <router-link :to="route.path">{{ route.cname || route.name }}</router-link>
-                </p> -->
                 <v-menu class="menu-list" :menuData="RouterList" :showOne="true" :mapTable="mapTable"></v-menu>
             </div>
             <div class="main">
@@ -44,7 +41,6 @@
 </script>
 
 <style lang="scss">
-    @import './assets/less/variable.scss';
     body {
         color: #333;
     }
