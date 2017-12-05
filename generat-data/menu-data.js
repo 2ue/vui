@@ -1,8 +1,8 @@
 /*
 * @Author: 2ue
 * @Date: 2017-11-27 14:26:51
- * @Last Modified by: 2ue
- * @Last Modified time: 2017-11-28 16:51:16
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2017-12-05 12:57:21
 * @Function: 生成菜单数据
 * @Describtion: 生成菜单数据
 */
@@ -28,17 +28,17 @@ data = Mock.mock({
         // 属性 id 是一个自增数，起始值为 1，每次增 1
         'id|+1': 1,
         'name': '@name',
-        'cname': '2@name',
+        'cname': '@name',
         'showChildren': false,//是否显示子集元素
         "children|2-4": [{
             'id|+1': 1001,
             'name': '@name',
-            'cname': '2@name',
+            'cname': '@name',
             'showChildren': false,
             "children|3-8": [{
                 'id|+1': 1001001,
                 'name': '@name',
-                'cname': '2@name',
+                'cname': '@name',
             }]
         }]
     }]

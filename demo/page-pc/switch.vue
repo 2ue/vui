@@ -5,8 +5,8 @@
         <v-switch checked="true">checked为true</v-switch>
 
         <p class="vui-page-title">测试其他属性：name和value等</p>
-        <v-switch name="name1">name为name1</v-switch>
-        <v-switch value="value1">name为value1</v-switch>
+        <v-switch name="test">name为test</v-switch>
+        <v-switch value="2">name为2</v-switch>
 
         <p class="vui-page-title">事件绑定：change事件，disabled不设置或者设置为false（包括undefined，0等隐性false）时不会禁用change事件</p>
         <v-switch @change="onChange">未设置disabled</v-switch>

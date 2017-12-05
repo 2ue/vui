@@ -6,7 +6,7 @@ $menu-class: #{$prefix-cls}menu;
 
 #{$menu-class}-items {
     background: #fff;
-    border-top: 1px solid $border-color-litle;
+    border-top: 1px solid $border-color-little;
     p {
         width: 100%;
         box-sizing: border-box;
@@ -21,15 +21,15 @@ $menu-class: #{$prefix-cls}menu;
         transition: all ease-in-out 0.2s;
     }
     li {
-        border-bottom: 1px solid $border-color-litle;
+        border-bottom: 1px solid $border-color-little;
         cursor: pointer;
         color: #333;
         &>p:hover {
-            background: $border-color-litle;
+            background: $border-color-little;
             color: #333;
         }
         &#{$menu-class}-actived>p {
-            background: $light-color;
+            background: $primary-color;
             color: #fff;
         }
     }

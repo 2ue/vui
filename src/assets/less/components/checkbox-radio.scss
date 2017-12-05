@@ -22,7 +22,7 @@ $radio-class: #{$prefix-cls}radio;
             width: 16px;
             height: 16px;
             border-radius: 3px;
-            background: $light-color;
+            background: $primary-color;
             -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
             -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
             box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
@@ -55,7 +55,7 @@ $radio-class: #{$prefix-cls}radio;
             color: #fff;
             line-height: 6px;
             font-size: 18px;
-            background: $light-color;
+            background: $primary-color;
             -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
             -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
             box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
@@ -117,7 +117,7 @@ $radio-class: #{$prefix-cls}radio;
     }
     [type=checkbox] {
         &:checked~#{$switch-class}:before {
-            background: $light-color;
+            background: $primary-color;
         }
         &:checked~#{$switch-class}:after {
             left: 17px;
@@ -151,7 +151,7 @@ $radio-class: #{$prefix-cls}radio;
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background: $light-color;
+            background: $primary-color;
             -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
             -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
             box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
@@ -180,7 +180,7 @@ $radio-class: #{$prefix-cls}radio;
     [type=radio] {
         &:checked~#{$radio-class}:after {
             color: #fff;
-            background: $light-color;
+            background: $primary-color;
             -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
             -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
             box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);

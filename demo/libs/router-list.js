@@ -2,6 +2,7 @@
  * Created by J.2ue on 2017/9/16.
  */
 import Index from "../page-pc/index";
+import Styles from "../page-pc/styles";
 import Button from "../page-pc/button";
 import Icon from "../page-pc/icon";
 import Input from "../page-pc/input";
@@ -16,6 +17,7 @@ import Select from "../page-pc/select";
 
 export default [
     { path: "/", component: Index, name: "Index", cname: '首页' },
+    { path: "/styles", component: Styles, name: "Styles", cname: '视觉风格' },
     { path: "/button", component: Button, name: "Button", cname: '按钮' },
     { path: "/icon", component: Icon, name: "Icon", cname: '字体图标' },
     { path: "/input", component: Input, name: "Input", cname: '输入框' },
