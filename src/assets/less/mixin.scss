@@ -118,6 +118,10 @@
     /*webkit*/
 }
 
+.box-shadow-less {
+    box-shadow: -1px -1px 1px 1px rgba(173, 171, 171, 0.1);
+}
+
 #{$prefix-cls}icon {
     vertical-align: top;
     display: inline-block;

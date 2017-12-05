@@ -1,0 +1,43 @@
+$select-class: #{$prefix-cls}select;
+$item-height: 30px;
+#{$select-class} {
+    width: 300px;
+    &-items {
+        height: $item-height;
+        line-height: $item-height;
+        cursor: pointer;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+    &-input {
+        @extend #{$select-class}-items;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        border-radius: $border-radius;
+        border: 1px solid $border-color-less;
+        &:hover {
+            @extend .box-shadow-less;
+            color: $font-color-dark;
+        }
+        i {
+            position: absolute;
+            right: 10px;
+            top: -1px;
+        }
+    }
+    ul {
+        margin-top: 5px;
+        border-radius: $border-radius;
+        border: 1px solid $border-color-less;
+        max-height: $item-height *10-1;
+        padding: 2px 0;
+        overflow-y: auto;
+        li {
+            @extend #{$select-class}-items;
+            &:not(:last-child) {
+                border-bottom: 1px solid $border-color-less;
+            }
+        }
+    }
+}
