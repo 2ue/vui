@@ -20,7 +20,8 @@
         },
         watch: {
             value(value) {
-                this.updateValue(value)
+                if (value === this.selfVal) return;
+                this.selfVal = value;
             }
         },
         props: {
@@ -42,7 +43,7 @@
         },
         methods: {
             eventInput: function (event) {
-                this.$emit('input', event, this.selfVal);
+                this.$emit('input', this.selfVal);
                 this.$emit('change', event, this.selfVal);
             },
             eventFocus: function (event) {
@@ -50,10 +51,6 @@
             },
             eventBlur: function (event) {
                 this.$emit('blur', event, this.selfVal);
-            },
-            updateValue(value) {
-                if (value === this.selfVal) return;
-                this.selfVal = value;
             }
         }
     }
