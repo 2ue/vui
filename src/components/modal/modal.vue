@@ -1,10 +1,10 @@
 <template>
-    <div class="vui-shade" v-if="showModal" @click="close">
+    <div class="vui-modal-shade" v-if="showModal" @click="close">
         <div class="vui-modal" @click="stopPropagation">
             <div class="vui-modal-header">
                 <p class="vui-modal-title vui-clear">
                     {{title}}
-                    <span class="vui-right vui-close" @click="close">x</span>
+                    <span class="vui-right vui-modal-close" @click="close">x</span>
                 </p>
             </div>
             <div class="vui-modal-body vui-modal-content" v-if="!content">

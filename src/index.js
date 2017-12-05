@@ -48,6 +48,7 @@ const install = function (Vue, options = {}) {
     Vue.use(Loading);
     Vue.use(Alert);
     Vue.prototype.$util = Util;
+    Vue.prototype.$prefixCls = 'vui-'
 };
 
 //mount Vue to gobol when use it through script tag

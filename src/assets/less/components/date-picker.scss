@@ -1,12 +1,12 @@
-// $border-color: #EDEDED;
+$datePicker-class: #{$prefix-cls}datePicker;
 $datepikcer-span-height: 30px;
 $datepikcer-header-height: 40px;
 $datepikcer-width: 300px;
-.vui-datePicker-warp {
+#{$datePicker-class}-warp {
     position: relative;
 }
 
-.vui-datePicker-input {
+#{$datePicker-class}-input {
     box-sizing: border-box;
     width: 300px;
     height: 30px;
@@ -14,7 +14,7 @@ $datepikcer-width: 300px;
     border: 1px solid $border-color-less;
 }
 
-.vui-datePicker-panel-warp {
+#{$datePicker-class}-panel-warp {
     position: absolute;
     left: 0;
     top: 30px;
@@ -26,7 +26,7 @@ $datepikcer-width: 300px;
     box-sizing: border-box;
 }
 
-.vui-datePicker-change {
+#{$datePicker-class}-change {
     position: relative;
     height: $datepikcer-header-height;
     line-height: $datepikcer-header-height;
@@ -38,10 +38,10 @@ $datepikcer-width: 300px;
         text-align: top;
         font-size: 12px;
     }
-    .vue-datePicker-change-btn {
+    #{$datePicker-class}-change-btn {
         cursor: pointer;
     }
-    .vui-datePicker-header {
+    #{$datePicker-class}-header {
         span {
             width: 49px;
         }
@@ -49,7 +49,7 @@ $datepikcer-width: 300px;
             width: 100px;
         }
     }
-    .vui-datePicker-yearMonth {
+    #{$datePicker-class}-yearMonth {
         position: absolute;
         top: $datepikcer-header-height;
         left: 25px;
@@ -71,13 +71,13 @@ $datepikcer-width: 300px;
                 border-right: 0;
             }
         }
-        &.vui-datePicker-month {
+        &#{$datePicker-class}-month {
             left: 125px;
         }
     }
 }
 
-.vui-datpaicker-days {
+#{$datePicker-class}-days {
     border-top: 1px solid $border-color-less;
     padding: 0 9px;
     font-size: 0;
@@ -90,7 +90,7 @@ $datepikcer-width: 300px;
         text-align: center;
         font-size: 12px;
         margin: 3px 2px;
-        &.vui-this-month {
+        &#{$datePicker-class}-this-month {
             color: #333;
             cursor: pointer;
             transition: all ease-in-out 0.1s;
@@ -100,19 +100,19 @@ $datepikcer-width: 300px;
             color: #f30;
         }
     }
-    .vui-datpaicker-day-box span {
+    #{$datePicker-class}-day-box span {
         border-radius: 3px;
         cursor: pointer;
     }
-    .vui-datpaicker-day-box span:not(.vui-this-month) {
+    #{$datePicker-class}-day-box span:not(#{$datePicker-class}-this-month) {
         color: $font-color-light;
         cursor: inherit;
     }
-    .vui-this-month:hover {
+    #{$datePicker-class}-this-month:hover {
         background: darken($border-color-less, 10%);
         color: #fff;
     }
-    .vui-datpaicker-day-box .vui-selected-day {
+    #{$datePicker-class}-day-box #{$datePicker-class}-selected-day {
         background: $primary-color;
         color: #fff;
     }

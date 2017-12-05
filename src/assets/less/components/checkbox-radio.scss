@@ -1,12 +1,15 @@
-.vui-checkbox-warp {
+$checkbox-class: #{$prefix-cls}checkbox;
+$switch-class: #{$prefix-cls}switch;
+$radio-class: #{$prefix-cls}radio;
+#{$checkbox-class}-warp {
     margin-right: 5px;
     @extend .vui-dis-selected;
-    .vui-checkbox-text {
+    #{$checkbox-class}-text {
         @extend .vui-can-selected;
         color: #666;
         font-size: 14px;
     }
-    .vui-checkbox {
+    #{$checkbox-class} {
         position: relative;
         height: 20px;
         padding-left: 22px;
@@ -46,7 +49,7 @@
         }
     }
     [type=checkbox] {
-        &:checked~.vui-checkbox:after {
+        &:checked~#{$checkbox-class}:after {
             /*加勾*/
             content: '\2714';
             color: #fff;
@@ -57,7 +60,7 @@
             -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
             box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
         }
-        &:checked~.vui-checkbox:before {
+        &:checked~#{$checkbox-class}:before {
             background: $border-color-less;
         }
     }
@@ -65,15 +68,15 @@
 
 //------checkbox end------
 //-----switch start-----
-.vui-switch-warp {
+#{$switch-class}-warp {
     margin-right: 5px;
     @extend .vui-dis-selected;
-    .vui-switch-text {
+    #{$switch-class}-text {
         @extend .vui-can-selected;
         color: #666;
         font-size: 14px;
     }
-    .vui-switch {
+    #{$switch-class} {
         position: relative;
         height: 20px;
         padding-left: 42px;
@@ -113,10 +116,10 @@
         }
     }
     [type=checkbox] {
-        &:checked~.vui-switch:before {
+        &:checked~#{$switch-class}:before {
             background: $light-color;
         }
-        &:checked~.vui-switch:after {
+        &:checked~#{$switch-class}:after {
             left: 17px;
             -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
             -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
@@ -127,15 +130,15 @@
 
 //------checkbox end------
 //-----radio start-----
-.vui-radio-warp {
+#{$radio-class}-warp {
     margin-right: 5px;
     @extend .vui-dis-selected;
-    .vui-radio-text {
+    #{$radio-class}-text {
         @extend .vui-can-selected;
         color: #666;
         font-size: 14px;
     }
-    .vui-radio {
+    #{$radio-class} {
         position: relative;
         height: 20px;
         padding-left: 22px;
@@ -175,14 +178,14 @@
         }
     }
     [type=radio] {
-        &:checked~.vui-radio:after {
+        &:checked~#{$radio-class}:after {
             color: #fff;
             background: $light-color;
             -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
             -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
             box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
         }
-        &:checked~.vui-radio:before {
+        &:checked~#{$radio-class}:before {
             background: $border-color-less;
         }
     }

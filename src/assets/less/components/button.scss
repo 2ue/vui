@@ -1,4 +1,5 @@
-.vui-button {
+$button-class: #{$prefix-cls}button;
+#{$button-class} {
     display: inline-block;
     text-align: center;
     border-radius: $border-radius-button;
@@ -7,19 +8,19 @@
     box-sizing: border-box;
     color: $font-color-main;
     margin: 2px 0;
-    &.vui-button-small {
+    &#{$button-class}-small {
         padding: 0 10px;
         height: 30px;
         line-height: 30px;
         font-size: 12px;
     }
-    &.vui-button-middle {
+    &#{$button-class}-middle {
         padding: 0 15px;
         height: 35px;
         line-height: 35px;
         font-size: 14px;
     }
-    &.vui-button-larger {
+    &#{$button-class}-larger {
         padding: 0 25px;
         height: 45px;
         line-height: 45px;
@@ -34,7 +35,7 @@
     }
 }
 
-.vui-button-default {
+#{$button-class}-default {
     background: none;
     border: 1px solid $primary-color;
     &:hover {
@@ -43,7 +44,7 @@
     }
 }
 
-.vui-button-primary {
+#{$button-class}-primary {
     background: $primary-color;
     color: #fff;
     &:hover {
@@ -51,7 +52,7 @@
     }
 }
 
-.vui-button-ghost {
+#{$button-class}-ghost {
     border: 1px solid $primary-color;
     &:hover {
         border: 1px solid $primary-color;
@@ -59,7 +60,7 @@
     }
 }
 
-.vui-button-dashed {
+#{$button-class}-dashed {
     border: 1px dashed $primary-color;
     &:hover {
         border: 1px dashed $primary-color;

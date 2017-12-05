@@ -2,10 +2,10 @@
     <div class="vui-datePicker-panel-warp f_disselected" v-if="selfShowPanel" @mouseout="updateshowPanelStatus(false)" @mouseover="updateshowPanelStatus(true)">
         <div class="vui-datePicker-change">
             <p class="vui-datePicker-header">
-                <span class="vue-datePicker-change-btn" @click="changeMonth(-1)">&lt;</span>
-                <label class="vue-datePicker-year" @click="showYearMonthPanel('Y')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel(isYearOrMonth)">{{ tempVal[0] }}</label>
-                <label class="vue-datePicker-month" @click="showYearMonthPanel('M')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel(isYearOrMonth)">{{ tempVal[1] }}</label>
-                <span class="vue-datePicker-change-btn" @click="changeMonth(1)">&gt;</span>
+                <span class="vui-datePicker-change-btn" @click="changeMonth(-1)">&lt;</span>
+                <label class="vui-datePicker-year" @click="showYearMonthPanel('Y')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel(isYearOrMonth)">{{ tempVal[0] }}</label>
+                <label class="vui-datePicker-month" @click="showYearMonthPanel('M')" @mouseout="showYearMonthPanel(false)" @mouseover="showYearMonthPanel(isYearOrMonth)">{{ tempVal[1] }}</label>
+                <span class="vui-datePicker-change-btn" @click="changeMonth(1)">&gt;</span>
             </p>
             <div v-if="isYearOrMonth" class="vui-datePicker-yearMonth" :class="{'vui-datePicker-month': isYearOrMonth === 'M'}" @mouseout="showYearMonthPanel(false)"
                 @mouseover="showYearMonthPanel(isYearOrMonth)">
@@ -17,11 +17,11 @@
                 <span v-for="(item,index) in yearMonth" :key="index" @click.stop="chooseYearMonth(item)">{{ item }}</span>
             </div>
         </div>
-        <div class="vui-datpaicker-days">
-            <p class="vui-datpaicker-weekday-box">
+        <div class="vui-datePicker-days">
+            <p class="vui-datePicker-weekday-box">
                 <span v-for="(weekday,index) in weekdays" :key="index">{{weekday}}</span>
             </p>
-            <div class="vui-datpaicker-day-box">
+            <div class="vui-datePicker-day-box">
                 <span v-for="(day, index) in daysArray" :key="index" :class="getClassName(day)" @click.self.stop="choosedDay(day,index)">{{day.dayNum}}</span>
             </div>
         </div>
@@ -87,7 +87,7 @@
                 return datePikcer.formate(this.formate, this.selectedVal).split('-');
             },
             getClassName(dayItem) {
-                return { 'vui-selected-day': dayItem.selected, 'vui-this-month': dayItem.isThisMonth }
+                return { 'vui-datePicker-selected-day': dayItem.selected, 'vui-datePicker-this-month': dayItem.isThisMonth }
             },
             showDatePickerPanel() {
                 this.selfShowPanel = true;

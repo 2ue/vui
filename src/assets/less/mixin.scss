@@ -118,7 +118,7 @@
     /*webkit*/
 }
 
-.vui-icon {
+#{$prefix-cls}icon {
     vertical-align: top;
     display: inline-block;
     zoom: 1;
@@ -131,44 +131,44 @@
 }
 
 //new
-.vui-left {
+#{$prefix-cls}left {
     float: left;
 }
 
-.vui-right {
+#{$prefix-cls}right {
     float: right;
 }
 
-.vui-clear {
+#{$prefix-cls}clear {
     zoom: 1;
 }
 
-.vui-clear:before,
-.vui-clear:after {
+#{$prefix-cls}clear:before,
+#{$prefix-cls}clear:after {
     display: table;
     content: "";
 }
 
-.vui-clear:after {
+#{$prefix-cls}clear:after {
     clear: both;
 }
 
 //ui
-.vui-dis-selected {
+#{$prefix-cls}dis-selected {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 
-.vui-dib {
+#{$prefix-cls}dib {
     display: inline-block;
     zoom: 1;
     *display: inline;
     -display: inline;
 }
 
-.vui-dib-vt {
+#{$prefix-cls}dib-vt {
     display: inline-block;
     zoom: 1;
     *display: inline;
@@ -176,21 +176,21 @@
     vertical-align: top;
 }
 
-.vui-can-selected {
+#{$prefix-cls}can-selected {
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
 }
 
-.vui-title {
+#{$prefix-cls}title {
     font-size: $font-size;
     color: $font-color-dark;
     height: $title-height;
     line-height: $title-height;
 }
 
-.vui-box-shadow {
+#{$prefix-cls}box-shadow {
     box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
     -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.3);
     /*firefox*/
@@ -198,7 +198,7 @@
     /*webkit*/
 }
 
-.vui-box-shadow-2 {
+#{$prefix-cls}box-shadow-2 {
     box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
     -moz-box-shadow: 0px 1px 5px 0px rgba(9, 2, 4, 0.2);
     /*firefox*/
@@ -208,46 +208,46 @@
 
 //font 设置
 //主标题
-.vui-font-title-main {
+#{$prefix-cls}font-title-main {
     font-weight: bold;
     font-size: 16px;
     color: $font-color-dark;
 }
 
 //副标题
-.vui-font-title-less {
+#{$prefix-cls}font-title-less {
     font-weight: bold;
     font-size: 14px;
     color: $font-color-dark;
 }
 
 //小标题
-.vui-font-title-mini {
+#{$prefix-cls}font-title-mini {
     font-weight: bold;
     font-size: 12px;
     color: $font-color-dark;
 }
 
 //正文
-.vui-font-content {
+#{$prefix-cls}font-content {
     font-size: 12px;
     color: $font-color-main;
 }
 
 //辅助文字
-.vui-font-hand {
+#{$prefix-cls}font-hand {
     font-size: 12px;
     color: $font-color-light;
 }
 
 //无效文字
-.vui-font-invalid {
+#{$prefix-cls}font-invalid {
     font-size: 12px;
     color: $font-color-light;
 }
 
 //连接文字
-.vui-font-link {
+#{$prefix-cls}font-link {
     font-size: 18px;
     color: $font-color-link;
     &:hover {
