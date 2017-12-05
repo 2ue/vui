@@ -1,5 +1,7 @@
 <template>
-    <i class="vui-icon-font" :class="'vui-icon-' + type" :style="{'font-size': fontVal, color: color }"></i>
+    <span class="vui-icon-warp" :style="{'font-size': fontVal, color: color }">
+        <i class="vui-icon-font" :class="'vui-icon-' + type"></i>
+    </span>
 </template>
 
 <script>
@@ -40,5 +42,5 @@
 
 </script>
 
-<style scoped>
+<style>
 </style>

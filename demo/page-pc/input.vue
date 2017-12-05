@@ -5,8 +5,11 @@
 
         <p class="vui-page-title">测试width属性：支持数字，百分百和各种单位</p>
         <v-input width="300px" value="width:300px"></v-input>
+        <br>
         <v-input width="30%" value="width:30%"></v-input>
+        <br>
         <v-input width="30em" value="width:30em"></v-input>
+        <br>
         <v-input width="30rem" value="width:30rem"></v-input>
 
         <p class="vui-page-title">测试value和v-model：value不会双向绑定，v-model会</p>
