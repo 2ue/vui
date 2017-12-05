@@ -50,7 +50,7 @@
         font-size: 18px;
         font-weight: bold;
         line-height: 40px;
-        border-bottom: 1px solid $font-color-main;
+        border-bottom: 1px solid $border-color-less;
     }
 
     .h1-content {
