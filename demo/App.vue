@@ -46,7 +46,7 @@
         font-size: 14px;
     }
 
-    h1 {
+    h1.h1-title {
         font-size: 18px;
         font-weight: bold;
         line-height: 40px;
