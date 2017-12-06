@@ -1,6 +1,9 @@
 $select-class: #{$prefix-cls}select;
 $item-height: 30px;
 #{$select-class} {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
     width: 300px;
     &-items {
         height: $item-height;
@@ -27,7 +30,13 @@ $item-height: 30px;
         }
     }
     ul {
+        position: absolute;
+        z-index: 99;
+        box-sizing: border-box;
+        top: $item-height;
+        width: 100%;
         margin-top: 5px;
+        background: #fff;
         border-radius: $border-radius;
         border: 1px solid $border-color-less;
         max-height: $item-height *10-1;
@@ -39,5 +48,11 @@ $item-height: 30px;
                 border-bottom: 1px solid $border-color-less;
             }
         }
+    }
+}
+
+#{$select-class}-group {
+    #{$select-class} {
+        margin-right: 10px;
     }
 }

@@ -4,14 +4,16 @@ $datepikcer-header-height: 40px;
 $datepikcer-width: 300px;
 #{$datePicker-class}-warp {
     position: relative;
+    display: inline-block;
+    width: $datepikcer-width;
 }
 
 #{$datePicker-class}-input {
     box-sizing: border-box;
     position: relative;
     display: inline-block;
-    width: 300px;
-    height: 30px;
+    width: 100%;
+    height: $datepikcer-span-height;
     border: 1px solid $border-color-less;
     input {
         text-indent: 1em;
@@ -29,7 +31,7 @@ $datepikcer-width: 300px;
 #{$datePicker-class}-panel-warp {
     position: absolute;
     left: 0;
-    top: 30px;
+    top: $datepikcer-span-height +5;
     width: $datepikcer-width;
     max-height: 300px;
     padding-bottom: 10px;

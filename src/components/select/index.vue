@@ -4,7 +4,7 @@
             <v-icon :type="iconType[showOptions ? 1 : 0]" size="16"></v-icon>
         </span>
         <ul v-if="showOptions" class="vui-select-options" @mouseover="showBox" @mouseout="hideBox">
-            <li v-for="(options,index) in selfSelectOptions" :key="options.id" @click="selectedOption(options,index)">{{options.value}}</li>
+            <li v-for="(options,i) in selfSelectOptions" :key="options.id" @click="selectedOption(options,i,index)">{{options.value}}</li>
         </ul>
     </div>
 </template>
@@ -18,22 +18,29 @@
                 timer: null,
                 iconType: ['arrow-down', 'arrow-up'],
                 showOptions: false,
-                selfSelectedVal: this.selected
+                selfSelectedVal: this.selectedVal
             }
+        },
+        created() {
+            console.log('this.key', this.index);
         },
         props: {
             selectOptions: {
                 type: Array,
-                default: []
+                default: function () {
+                    return []
+                }
             },
-            selected: {
+            selectedVal: {
                 type: [String, Number],
                 default: '请选择'
-            }
+            },
+            index: Number
         },
         watch: {
-            selected: function (val) {
+            selectedVal: function (val) {
                 this.selfSelectedVal = val;
+                console.log('dsda===?', val)
             },
         },
         computed: {
@@ -63,10 +70,10 @@
             keepBoxStatus() {
                 if (this.showOptions) this.showBox();
             },
-            selectedOption(options, index) {
+            selectedOption(options, i) {
                 this.selfSelectedVal = options.value;
                 this.hideBox(1);
-                this.$emit('updateSelectedVal', options, index);
+                this.$emit('updateSelectedVal', options, i, this.index);
             }
         }
     }

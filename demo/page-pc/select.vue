@@ -2,7 +2,9 @@
     <div>
         <v-select :selectOptions="selectOptions1" @updateSelectedVal="updateSelectedVal"></v-select>
         <br>
-        <v-select :selectOptions="selectOptions2" :selected="selected" @updateSelectedVal="updateSelectedVal"></v-select>
+        <v-select :selectOptions="selectOptions2" :selectedVal="selectedVal" @updateSelectedVal="updateSelectedVal"></v-select>
+        <br>
+        <v-select-group :selectOptions="selectOptions" @updateSelectedVal="updateSelectedVal"></v-select-group>
     </div>
 </template>
 
@@ -12,9 +14,10 @@
         name: 'menu',
         data() {
             return {
+                selectOptions: [...selectData.items],
                 selectOptions1: [...selectData.items, ...selectData.items[2].children, ...selectData.items[3].children],
                 selectOptions2: [...selectData.items[0].children, ...selectData.items, ...selectData.items[1].children],
-                selected: 'John Taylor'
+                selectedVal: 'John Taylor'
             }
         },
         watch: {
@@ -25,7 +28,7 @@
         methods: {
             updateSelectedVal(selected, index) {
                 console.log(selected)
-                console.log(index)
+                // console.log(index)
             }
         }
     }
