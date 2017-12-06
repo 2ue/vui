@@ -30,7 +30,7 @@ export default {
     * @function: 测试传入的props值是否符合规则，20,等20px,20rem,20em；
     * @param： num，要判断的数据
     * */
-    testUnitStr: (para, extraRules) => {
-        return !!para.match(/^[0-9]+(px|em|rem|)$/);
+    testUnitStr: (para) => {
+        return /^[0-9]+(px|em|rem|)$/.test(para);
     }
 };
