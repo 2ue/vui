@@ -1,6 +1,9 @@
 <template>
     <div class="vui-datePicker-warp">
-        <input type="text" class="vui-datePicker-input" v-model="selfSelectedVal" @mouseout="updateshowPanelStatus(false)" @click="updateshowPanelStatus(true)">
+        <label class="vui-datePicker-input">
+            <input type="text" v-model="selfSelectedVal" @mouseout="updateshowPanelStatus(false)" @click="updateshowPanelStatus(true)">
+            <v-icon type="date-picker"></v-icon>
+        </label>
         <datePickerPanel v-for="" :formate="formate" :showPanel="showPanel" :selectedVal="selfSelectedVal" @updateInputVal="updateInputVal"
             @updateshowPanelStatus="updateshowPanelStatus"></datePickerPanel>
     </div>
@@ -17,10 +20,7 @@
             return {
                 showPanel: false,
                 timer: null,
-                selfSelectedVal: datePikcer.formate(this.formate, this.selectedVal),
-                panelArray: [
-
-                ]
+                selfSelectedVal: this.getSelfSelectVal()
             }
         },
         components: {
@@ -30,11 +30,12 @@
             formate: {
                 default: 'YYYY-MM-DD'
             },
-            selectedVal: {
-                default: '请选择时间'
-            }
+            selectedVal: [String, Object]
         },
         methods: {
+            getSelfSelectVal() {
+                return !this.selectedVal ? '请选择时间' : new Date(this.selectedVal).toString() === 'Invalid Date' ? this.selectedVal : datePikcer.formate(this.formate, this.selectedVal)
+            },
             showDatePickerPanel() {
                 this.showPanel = true;
             },

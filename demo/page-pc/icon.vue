@@ -9,13 +9,21 @@
         <v-icon type="message"></v-icon>
         <br/>
 
-        <p class="vui-page-title">测试size属性：默认是middle</p>
+        <p class="vui-page-title">测试size属性</p>
+        <p>1.可以接受small,middle,larger字符串，默认是middle;</p>
+        <p>2.也可以接受数字和带单位数字，如20,20px,20em,20rem，没带单位的数字默认添加px单位，带单位的数字保留原有的单位;</p>
+        <p>3.如果不符合以上规则，则使用默认值middle；</p>
         <v-icon type="collection"></v-icon>
         <v-icon type="collection" size="small"></v-icon>
         <v-icon type="collection" size="middle"></v-icon>
         <v-icon type="collection" size="larger"></v-icon>
+        <v-icon type="collection" size="20"></v-icon>
+        <v-icon type="collection" size="20px"></v-icon>
+        <v-icon type="collection" size="3em"></v-icon>
+        <v-icon type="collection" size="4rem"></v-icon>
 
-        <p class="vui-page-title">测试color属性： 默认是父集字体颜色，要求传入的字符串能正确解析成颜色，否则将会被忽略</p>
+        <p class="vui-page-title">测试color属性</p>
+        <p>默认继承父集字体颜色，要求传入的字符串能正确解析成颜色，否则将会被忽略</p>
         <v-icon type="delete" size="middle" color="#f30"></v-icon>
         <v-icon type="delete" size="middle" color="#eee"></v-icon>
 

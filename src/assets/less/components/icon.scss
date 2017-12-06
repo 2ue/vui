@@ -1,0 +1,16 @@
+$icon-class: #{$prefix-cls}icon;
+#{$icon-class}-font {
+    color: $font-color-main;
+}
+
+#{$icon-class}-small {
+    font-size: 16px;
+}
+
+#{$icon-class}-middle {
+    font-size: 26px;
+}
+
+#{$icon-class}-larger {
+    font-size: 36px;
+}

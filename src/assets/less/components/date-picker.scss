@@ -8,10 +8,22 @@ $datepikcer-width: 300px;
 
 #{$datePicker-class}-input {
     box-sizing: border-box;
+    position: relative;
+    display: inline-block;
     width: 300px;
     height: 30px;
-    text-indent: 1em;
     border: 1px solid $border-color-less;
+    input {
+        text-indent: 1em;
+        width: 270px;
+        height: 100%;
+    }
+    i {
+        position: absolute;
+        top: 6px;
+        right: 5px;
+        font-size: 16px;
+    }
 }
 
 #{$datePicker-class}-panel-warp {
