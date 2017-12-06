@@ -1,6 +1,7 @@
 <template>
     <div class="vui-select-group">
-        <select-opt v-for="(options,index) in selfSelectOptions" :key="index" :selectOptions="options" @updateSelectedVal="updateSelectedVal()"></select-opt>
+        <select-opt v-for="(options,index) in selfSelectOptions" :key="index" :index="index" :selectOptions="options" :selectedVal="selfSelectedVal[index]"
+            @updateSelectedVal="updateSelectedVal"></select-opt>
     </div>
 </template>
 
@@ -10,7 +11,8 @@
         name: 'vSelectGroup',
         data() {
             return {
-                selfSelectOptions: [[...this.selectOptions]]
+                selfSelectOptions: [[...this.selectOptions]],
+                selfSelectedVal: [...this.selectedVal]
             }
         },
         components: {
@@ -19,18 +21,27 @@
         props: {
             selectOptions: {
                 type: Array,
-                default: []
+                default: function () {
+                    return []
+                }
             },
-            selected: {
-                type: [String, Number],
-                default: '请选择'
+            selectedVal: {
+                type: Array,
+                default: function () {
+                    return []
+                }
             }
         },
         methods: {
-            updateSelectedVal(selected, index, key) {
-                console.log('selecet==>', selected)
-                console.log('index==>', index)
-                // this.selfSelectOptions.push([...selected.children])
+            updateSelectedVal(selected, index, parentIndex) {
+                // console.log('selecet==>', selected)
+                // console.log('index==>', index)
+                // console.log('parentIndex==>', parentIndex)
+                let oldOptions = [...this.selfSelectOptions];
+                if (selected.children) this.selfSelectOptions = [...oldOptions.slice(0, parentIndex + 1), selected.children];
+                this.selfSelectedVal[parentIndex] = selected.value;
+                this.selfSelectedVal = this.selfSelectedVal.slice(0, parentIndex + 1);
+                this.$emit('updateSelectedVal', [...this.selfSelectedVal])
             }
         }
     }
