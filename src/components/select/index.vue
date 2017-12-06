@@ -4,7 +4,7 @@
             <v-icon :type="iconType[showOptions ? 1 : 0]" size="16"></v-icon>
         </span>
         <ul v-if="showOptions" class="vui-select-options" @mouseover="showBox" @mouseout="hideBox">
-            <li v-for="(options,index) in selfSelectOptions" :key="options.id" @click="selectedOption(options,index)">{{options.value}}</li>
+            <li v-for="(options,index) in selfSelectOptions" :key="options.id" @click="selectedOption(options,index,key)">{{options.value}}</li>
         </ul>
     </div>
 </template>

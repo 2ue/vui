@@ -6,8 +6,8 @@
                 <router-link :to="item[slefMapTable.href]" @click.stop="showChildren(index)" :style="getStyleObject(item)">{{ item[slefMapTable.name] }}</router-link>
             </p>
             <p v-else class="vui-menu-custom" @click="showChildren(index)" :style="getStyleObject(item)">{{ item[slefMapTable.name] }}</p>
-            <menuItem v-if="item._showChildren && !!item.children && item.children.length > 0" :menuData="item.children" :showOne="showOne"
-                :mapTable="slefMapTable"></menuItem>
+            <menu-item v-if="item._showChildren && !!item.children && item.children.length > 0" :menuData="item.children" :showOne="showOne"
+                :mapTable="slefMapTable"></menu-item>
         </li>
     </ul>
     <!-- </transition> -->
