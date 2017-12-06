@@ -1,5 +1,5 @@
 <template>
-    <i class="vui-icon-font" :style="{'font-size': fontVal, color: color }" :class="'vui-icon-' + type"></i>
+    <i class="vui-icon-font" :style="{'font-size': fontVal, color: color }" :class="classes"></i>
 </template>
 
 <script>
@@ -11,15 +11,25 @@
                     small: '16px',
                     middle: '26px',
                     larger: '36px'
-                }
+                },
+                sizeArr: ['small', 'middle', 'larger']
             }
         },
         computed: {
             fontVal: function () {
-                if (!this.size) return '';
-                if (this.$util.isNumber(this.size)) return this.size + 'px';
-                if (!this.sizeVal[this.size]) return this.size;
-                return this.sizeVal[this.size];
+                let size = this.size, res;
+                if (this.$util.testUnitStr(size)) {
+                    if (isNaN(size)) {
+                        res = size
+                    } else {
+                        res = size + 'px'
+                    }
+                }
+                return res;
+            },
+            classes: function () {
+                const size = this.size, typeClass = `vui-icon-${this.type}`;
+                return this.sizeArr.indexOf(size) > -1 ? `${typeClass} vui-icon-${size}` : typeClass;
             }
         },
         props: {
@@ -40,5 +50,5 @@
 
 </script>
 
-<style>
+<style scoped>
 </style>
