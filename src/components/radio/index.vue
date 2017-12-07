@@ -2,16 +2,14 @@
     <label :class="sizeClass[size]" :index="index">
         <input v-if="selfChecked" type="radio" checked @click="click" :name="name" :value="value">
         <input v-else type="radio" @click="click" :name="name" :value="value">
-        <span class="vui-radio vui-dib-vt"></span>
-        <slot>
-            <span>{{text}}</span>
-        </slot>
+        <span class="vui-radio"></span>
+        <slot></slot>
     </label>
 </template>
 
 <script>
     export default {
-        name: 'vCheckbox',
+        name: 'vRadio',
         data() {
             return {
                 sizeClass: {
@@ -27,9 +25,6 @@
                 type: [String],
                 default: 'small'
             },
-            text: {
-                type: [String, Number]
-            },
             checked: {
                 default: undefined
             },
@@ -41,7 +36,7 @@
         },
         methods: {
             click: function (event) {
-                this.$emit('onClick', event, true, this.index);
+                this.$emit('onClick', event, this.value, this.index);
             }
         }
     }

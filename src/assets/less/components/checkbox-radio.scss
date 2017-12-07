@@ -1,9 +1,10 @@
 $radio-class: #{$prefix-cls}radio;
 $checkbox-class: #{$prefix-cls}checkbox;
 $switch-class: #{$prefix-cls}switch;
+//基本尺寸
 $default-size: 14px;
 $middle-size: 16px;
-$larger-size: 18px;
+$larger-size: 20px;
 $border-width: 3px;
 //radio不同的尺寸样式
 @mixin radio-size($type: small, $size: $default-size) {
@@ -36,7 +37,6 @@ $border-width: 3px;
 }
 
 #{$radio-class}-warp {
-    vertical-align: middle;
     position: relative;
     display: inline-block;
     white-space: nowrap;
@@ -45,6 +45,7 @@ $border-width: 3px;
     #{$radio-class} {
         position: relative;
         display: inline-block;
+        vertical-align: middle;
         top: 0;
         left: 0;
         background-color: #fff;
@@ -78,13 +79,13 @@ $border-width: 3px;
 #{$checkbox-class}-warp {
     position: relative;
     display: inline-block;
-    vertical-align: middle;
     white-space: nowrap;
     margin-right: 8px;
     cursor: pointer;
     #{$checkbox-class} {
         position: relative;
         display: inline-block;
+        vertical-align: middle;
         width: 14px;
         height: 14px;
         top: 0;
@@ -96,8 +97,7 @@ $border-width: 3px;
         &:after {
             content: "";
             position: absolute;
-            display: table; // width: 4px;
-            // height: 8px;
+            display: table;
             top: 0;
             left: 4px;
             border: 2px solid #fff;
@@ -123,7 +123,7 @@ $border-width: 3px;
     margin-right: 5px;
     user-select: none;
     #{$switch-class}-text {
-        @extend .vui-can-selected;
+        user-select: none;
         color: #666;
         font-size: 14px;
     }
@@ -131,6 +131,7 @@ $border-width: 3px;
         position: relative;
         height: 20px;
         padding-left: 42px;
+        vertical-align: middle;
         &:before {
             content: ' ';
             position: absolute;
