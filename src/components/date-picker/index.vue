@@ -1,11 +1,11 @@
 <template>
     <div class="vui-datePicker-warp">
         <label class="vui-datePicker-input">
-            <input type="text" v-model="selfSelectedVal" @mouseout="updateshowPanelStatus(false)" @click="updateshowPanelStatus(true)">
+            <input type="text" v-model="selfSelectedDate" @mouseout="updatePanelStatus(false)" @click="updatePanelStatus(true)">
             <v-icon type="date-picker"></v-icon>
         </label>
-        <datePickerPanel v-for="" :formate="formate" :showPanel="showPanel" :selectedVal="selfSelectedVal" @updateInputVal="updateInputVal"
-            @updateshowPanelStatus="updateshowPanelStatus"></datePickerPanel>
+        <datePickerPanel v-for="" :formate="formate" :showPanel="showPanel" :selectedVal="selfSelectedDate" @changeDate="changeDate"
+            @updatePanelStatus="updatePanelStatus"></datePickerPanel>
     </div>
 </template>
 
@@ -20,7 +20,7 @@
             return {
                 showPanel: false,
                 timer: null,
-                selfSelectedVal: this.getSelfSelectVal()
+                selfSelectedDate: this.getYMD()
             }
         },
         components: {
@@ -30,11 +30,13 @@
             formate: {
                 default: 'YYYY-MM-DD'
             },
-            selectedVal: [String, Object]
+            selectedDate: {
+                default: '请选择时间'
+            }
         },
         methods: {
-            getSelfSelectVal() {
-                return !this.selectedVal ? '请选择时间' : new Date(this.selectedVal).toString() === 'Invalid Date' ? this.selectedVal : datePikcer.formate(this.formate, this.selectedVal)
+            getYMD() {
+                return new Date(this.selectedDate).toString() === 'Invalid Date' ? this.selectedDate : datePikcer.formate(this.formate, this.selectedDate)
             },
             showDatePickerPanel() {
                 this.showPanel = true;
@@ -45,7 +47,7 @@
                     this.showPanel = false;
                 }, t);
             },
-            updateshowPanelStatus(status, t) {
+            updatePanelStatus(status, t) {
                 clearTimeout(this.timer);
                 if (typeof status === 'undefined' || status) {
                     this.showDatePickerPanel();
@@ -53,10 +55,10 @@
                     this.hideDatePickerPanel(t);
                 }
             },
-            updateInputVal(val) {
-                this.selfSelectedVal = val;
-                this.updateshowPanelStatus(false, 10);
-                this.$emit('updateInputVal', val)
+            changeDate(val) {
+                this.selfSelectedDate = val;
+                this.updatePanelStatus(false, 10);
+                this.$emit('changeDate', val)
             }
         }
     }

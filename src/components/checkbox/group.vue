@@ -1,9 +1,8 @@
 <template>
     <div class="vui-checkbox-group">
-        <slot name="before"></slot>
-        <checkbox v-for="(item, index) in selfCheckboxDatas" :key="index" :index="index" :size="item.size" :name="name" :checked="item.selfChecked"
-            :text="item.text" :value="item.value" @onClick="singleClick"></checkbox>
-        <slot name="after"></slot>
+        <slot></slot>
+        <checkbox v-for="(item, index) in selfGroupData" :key="index" :index="index" :size="size" :name="name" :checked="item.selfChecked"
+            :value="getVal(item,index)" @onClick="singleClick">{{item.text}}</checkbox>
     </div>
 </template>
 
@@ -14,15 +13,15 @@
         name: 'vCheckboxGroup',
         data() {
             return {
-                selfCheckboxDatas: this.getCheckboxData(),
-                selfCheckedDatas: this.checkedDatas.length === 0 ? [] : [...this.checkedDatas]
+                selfGroupData: this.getGroupData(),
+                selfCheckedData: this.checkedData.length === 0 ? [] : [...this.checkedData]
             }
         },
         components: {
             Checkbox
         },
         watch: {
-            selfCheckboxDatas: {
+            selfGroupData: {
                 deep: true,
                 handler(val) {
                     this.getCkeckedItems([...val]);
@@ -30,59 +29,65 @@
             }
         },
         props: {
-            //checkbox组的数据
-            checkboxData: {
+            groupData: {
                 type: Array,
                 default() {
                     return [];
                 }
             },
-            //checkbox组的name
-            name: String,
+            name: {
+                type: String,
+                default: 'checkbox'
+            },
+            size: String,
             //被选中的项
-            checkedDatas: {
+            checkedData: {
                 type: Array,
                 default() {
                     return [];
                 }
             },
-            //指定checkboxData中的某个键值来判定checkbox的选中状态
+            //指定groupData中的某个键值来判定checkbox的选中状态
             checkedKey: {
                 type: String,
                 default: 'index'
             }
         },
         methods: {
-            //重新组装checkboxData数据，便于组件内部调用
-            getCheckboxData() {
+            //重新组装groupData数据，便于组件内部调用
+            getGroupData() {
                 const _this = this;
                 let checkboxItems = [];
-                this.checkboxData.forEach(function (checkbox, index) {
+                this.groupData.forEach(function (checkbox, index) {
                     checkboxItems.push({ ...checkbox, ...{ selfChecked: _this.getCkeckedStatus(checkbox, index) } });
                 });
                 return checkboxItems;
             },
             //获取是否选中状态
             getCkeckedStatus(item, i) {
-                const checkedDatas = this.checkedDatas, checkedKey = this.checkedKey;
-                if (checkedDatas.length > 0) {
+                const checkedData = this.checkedData, checkedKey = this.checkedKey;
+                if (checkedData.length > 0) {
                     let checkedVal = i;
                     if (checkedKey !== 'index') checkedVal = item[checkedKey];
-                    return checkedDatas.indexOf(checkedVal) >= 0
+                    return checkedData.indexOf(checkedVal) >= 0
                 } else {
                     return !!item.checked
                 }
             },
+            //根据map值来获取映射的值
+            getVal(item, index) {
+                return this.checkedKey !== 'index' ? item[this.checkedKey] : index
+            },
             //单个点击时触发
             singleClick(event, checked, value, index) {
-                this.selfCheckboxDatas[index].selfChecked = checked;
+                this.selfGroupData[index].selfChecked = checked;
                 this.$emit('singleClick', event, checked, value, index);
             },
             //选中状态发生更改时触发，向外传递所有被选中的checkbox
-            getCkeckedItems(checkedDatas) {
-                const _this = this, checkItems = [], checkedKey = _this.checkedKey;
-                checkedDatas.forEach(function (item, index) {
-                    if (item.selfChecked) checkItems.push(checkedKey === 'index' ? index : item[checkedKey]);
+            getCkeckedItems(checkedData) {
+                const checkItems = [];
+                checkedData.forEach((item, index) => {
+                    if (item.selfChecked) checkItems.push(this.getVal(item, index));
                 })
                 this.$emit('updateCheckedDatas', [...checkItems]);
             }

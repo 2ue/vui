@@ -66,6 +66,7 @@
     .vui-page-title {
         margin-top: 20px;
         margin-bottom: 5px;
+        font-weight: bold;
     }
 
     .warper {
@@ -129,5 +130,22 @@
     .menu-active {
         background: $light-color;
         color: #fff;
+    }
+
+    .mr-b10 {
+        margin-bottom: 10px;
+    }
+    pre {
+        position: relative;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        padding: 6px 10px;
+        background-color: #f5f5f5;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+        color: $font-color-main;
+        margin: 10px 0;
     }
 </style>

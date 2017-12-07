@@ -1,8 +1,7 @@
 <template>
-    <label class="vui-checkbox-warp" :index="index">
-        <input type="checkbox" v-model="ownChecked" @click="click" :name="name" :value="value">
-        <span class="vui-checkbox vui-dib-vt"></span>
-        <span class="vui-checkbox-text vui-dib-vt" v-if="text">{{text}}</span>
+    <label :class="sizeClass[size]" :index="index">
+        <input type="checkbox" v-model="selfChecked" @click="click" :name="name" :value="value">
+        <span class="vui-checkbox"></span>
         <slot></slot>
     </label>
 </template>
@@ -13,19 +12,17 @@
         data() {
             return {
                 sizeClass: {
-                    small: 'vui-checkbox-small',
-                    middle: 'vui-checkbox-middle',
-                    larger: 'vui-checkbox-larger'
+                    small: 'vui-checkbox-warp vui-checkbox-warp-small',
+                    middle: 'vui-checkbox-warp vui-checkbox-warp-middle',
+                    larger: 'vui-checkbox-warp vui-checkbox-warp-larger'
                 },
-                ownChecked: !!this.checked
+                selfChecked: !!this.checked
             }
         },
         props: {
             size: {
+                type: [String],
                 default: 'small'
-            },
-            text: {
-                type: [String, Number]
             },
             checked: {
                 default: undefined
@@ -38,7 +35,7 @@
         },
         methods: {
             click: function (event) {
-                this.$emit('onClick', event, this.ownChecked, this.value, this.index);
+                this.$emit('onClick', event, this.selfChecked, this.value, this.index);
             }
         }
     }

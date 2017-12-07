@@ -20,7 +20,7 @@ $item-height: 30px;
         border-radius: $border-radius;
         border: 1px solid $border-color-less;
         &:hover {
-            @extend .box-shadow-less;
+            @extend #{$prefix-cls}box-shadow-less;
             color: $font-color-dark;
         }
         i {

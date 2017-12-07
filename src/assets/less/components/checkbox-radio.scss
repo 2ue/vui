@@ -1,78 +1,129 @@
+$radio-class: #{$prefix-cls}radio;
 $checkbox-class: #{$prefix-cls}checkbox;
 $switch-class: #{$prefix-cls}switch;
-$radio-class: #{$prefix-cls}radio;
-#{$checkbox-class}-warp {
-    margin-right: 5px;
-    @extend .vui-dis-selected;
-    #{$checkbox-class}-text {
-        @extend .vui-can-selected;
-        color: #666;
-        font-size: 14px;
-    }
-    #{$checkbox-class} {
-        position: relative;
-        height: 20px;
-        padding-left: 22px;
-        &:before {
-            content: ' ';
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 1;
-            width: 16px;
-            height: 16px;
-            border-radius: 3px;
-            background: $primary-color;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -webkit-transition: background ease-in-out 0.4s;
-            -moz-transition: background ease-in-out 0.4s;
-            transition: background ease-in-out 0.4s;
-        }
+//基本尺寸
+$default-size: 14px;
+$middle-size: 16px;
+$larger-size: 20px;
+$border-width: 3px;
+//radio不同的尺寸样式
+@mixin radio-size($type: small, $size: $default-size) {
+    &-#{$type} #{$radio-class} {
+        width: $size;
+        height: $size;
         &:after {
-            content: ' ';
-            position: absolute;
-            left: 2px;
-            top: 2px;
-            z-index: 2;
-            width: 12px;
-            height: 12px;
-            border-radius: 2px;
-            background: $border-color-less;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -webkit-transition: background ease-in-out 0.4s;
-            -moz-transition: background ease-in-out 0.4s;
-            transition: background ease-in-out 0.4s;
-        }
-    }
-    [type=checkbox] {
-        &:checked~#{$checkbox-class}:after {
-            /*加勾*/
-            content: '\2714';
-            color: #fff;
-            line-height: 6px;
-            font-size: 18px;
-            background: $primary-color;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-        }
-        &:checked~#{$checkbox-class}:before {
-            background: $border-color-less;
+            width: $size - $border-width*2;
+            height: $size - $border-width*2;
+            left: $border-width;
+            top: $border-width;
         }
     }
 }
 
-//------checkbox end------
-//-----switch start-----
+//checkbox不同的尺寸样式
+@mixin checkbox-size($type: small, $size: $default-size, $border: 2) {
+    &-#{$type} #{$checkbox-class} {
+        width: $size;
+        height: $size;
+        &:after {
+            width: $border * 2px;
+            height: $border * 4px;
+            left: $border * 2px;
+            border: $border solid #fff;
+            border-top: 0;
+            border-left: 0;
+        }
+    }
+}
+
+#{$radio-class}-warp {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    margin-right: 8px;
+    cursor: pointer;
+    #{$radio-class} {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        border: 1px solid $border-color-less;
+        transition: all .2s ease-in-out;
+        border-radius: 50%;
+        &:after {
+            content: " ";
+            position: absolute;
+            display: table;
+            border-radius: 50%;
+            border-top: 0;
+            border-left: 0;
+            background-color: $primary-color;
+            opacity: 0;
+            transition: all .2s ease-in-out;
+            transform: scale(0);
+        }
+    }
+    [type=radio] {
+        &:checked~#{$radio-class}:after {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    @include radio-size();
+    @include radio-size($type: middle, $size: $middle-size);
+    @include radio-size($type: larger, $size: $larger-size);
+}
+
+#{$checkbox-class}-warp {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    margin-right: 8px;
+    cursor: pointer;
+    #{$checkbox-class} {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 14px;
+        height: 14px;
+        top: 0;
+        left: 0;
+        border: 1px solid $border-color-less;
+        border-radius: 2px;
+        background-color: #fff;
+        transition: border-color .2s ease-in-out, background-color .2s ease-in-out;
+        &:after {
+            content: "";
+            position: absolute;
+            display: table;
+            top: 0;
+            left: 4px;
+            border: 2px solid #fff;
+            transform: rotate(45deg) scale(0);
+            transition: all .2s ease-in-out;
+        }
+    }
+    [type=checkbox] {
+        &:checked~#{$checkbox-class} {
+            border-color: $primary-color;
+            background-color: $primary-color;
+            &:after {
+                transform: rotate(45deg) scale(1);
+            }
+        }
+    }
+    @include checkbox-size();
+    @include checkbox-size($type: middle, $size: $middle-size, $border: 2.5);
+    @include checkbox-size($type: larger, $size: $larger-size, $border: 3);
+}
+
 #{$switch-class}-warp {
     margin-right: 5px;
-    @extend .vui-dis-selected;
+    user-select: none;
     #{$switch-class}-text {
-        @extend .vui-can-selected;
+        user-select: none;
         color: #666;
         font-size: 14px;
     }
@@ -80,6 +131,7 @@ $radio-class: #{$prefix-cls}radio;
         position: relative;
         height: 20px;
         padding-left: 42px;
+        vertical-align: middle;
         &:before {
             content: ' ';
             position: absolute;
@@ -89,12 +141,7 @@ $radio-class: #{$prefix-cls}radio;
             width: 32px;
             height: 16px;
             border-radius: 12px;
-            background: $border-color-less;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -webkit-transition: background ease-in-out 0.3s;
-            -moz-transition: background ease-in-out 0.3s;
+            background: $border-color-main;
             transition: background ease-in-out 0.3s;
         }
         &:after {
@@ -107,11 +154,7 @@ $radio-class: #{$prefix-cls}radio;
             height: 12px;
             border-radius: 50%;
             background: #fff;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
             box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -webkit-transition: left ease-in-out 0.3s;
-            -moz-transition: left ease-in-out 0.3s;
             transition: left ease-in-out 0.3s;
         }
     }
@@ -121,72 +164,6 @@ $radio-class: #{$prefix-cls}radio;
         }
         &:checked~#{$switch-class}:after {
             left: 17px;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-        }
-    }
-}
-
-//------checkbox end------
-//-----radio start-----
-#{$radio-class}-warp {
-    margin-right: 5px;
-    @extend .vui-dis-selected;
-    #{$radio-class}-text {
-        @extend .vui-can-selected;
-        color: #666;
-        font-size: 14px;
-    }
-    #{$radio-class} {
-        position: relative;
-        height: 20px;
-        padding-left: 22px;
-        &:before {
-            content: ' ';
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 1;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: $primary-color;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -webkit-transition: background ease-in-out 0.4s;
-            -moz-transition: background ease-in-out 0.4s;
-            transition: background ease-in-out 0.4s;
-        }
-        &:after {
-            content: ' ';
-            position: absolute;
-            left: 3px;
-            top: 3px;
-            z-index: 2;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: $border-color-less;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            -webkit-transition: background ease-in-out 0.4s;
-            -moz-transition: background ease-in-out 0.4s;
-            transition: background ease-in-out 0.4s;
-        }
-    }
-    [type=radio] {
-        &:checked~#{$radio-class}:after {
-            color: #fff;
-            background: $primary-color;
-            -webkit-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-            -moz-box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0);
-        }
-        &:checked~#{$radio-class}:before {
-            background: $border-color-less;
         }
     }
 }
