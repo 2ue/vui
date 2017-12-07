@@ -4,7 +4,7 @@
         <br>
         <v-select :selectOptions="selectOptions2" :selectedVal="selectedVal" @updateSelectedVal="updateSelectedVal"></v-select>
         <br>
-        <v-select-group :selectOptions="selectOptions" @updateSelectedVal="updateSelectedVal"></v-select-group>
+        <v-select-group :selectOptions="selectOptions" :selectedVal="selectedVal2" @updateSelectedVal="updateSelectedVal"></v-select-group>
     </div>
 </template>
 
@@ -17,7 +17,8 @@
                 selectOptions: [...selectData.items],
                 selectOptions1: [...selectData.items, ...selectData.items[2].children, ...selectData.items[3].children],
                 selectOptions2: [...selectData.items[0].children, ...selectData.items, ...selectData.items[1].children],
-                selectedVal: 'John Taylor'
+                selectedVal: 'John Taylor',
+                selectedVal2: ['范伟', 'Mark Thompson', '292244']
             }
         },
         watch: {

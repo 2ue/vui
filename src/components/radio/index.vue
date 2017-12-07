@@ -1,28 +1,30 @@
 <template>
-    <label class="vui-radio-warp" :index="index">
-        <input v-if="ownChecked" type="radio" v-model="value" @click="click" :name="name" :value="value">
-        <input else type="radio" @click="click" :name="name" :value="value">
+    <label :class="sizeClass[size]" :index="index">
+        <input v-if="selfChecked" type="radio" checked @click="click" :name="name" :value="value">
+        <input v-else type="radio" @click="click" :name="name" :value="value">
         <span class="vui-radio vui-dib-vt"></span>
-        <span class="vui-radio-text vui-dib-vt" v-if="text">{{text}}</span>
-        <slot></slot>
+        <slot>
+            <span>{{text}}</span>
+        </slot>
     </label>
 </template>
 
 <script>
     export default {
-        name: 'vRadio',
+        name: 'vCheckbox',
         data() {
             return {
                 sizeClass: {
-                    small: 'vui-radio-small',
-                    middle: 'vui-radio-middle',
-                    larger: 'vui-radio-larger'
+                    small: 'vui-radio-warp vui-radio-warp-small',
+                    middle: 'vui-radio-warp vui-radio-warp-middle',
+                    larger: 'vui-radio-warp vui-radio-warp-larger'
                 },
-                ownChecked: !!this.checked
+                selfChecked: !!this.checked
             }
         },
         props: {
             size: {
+                type: [String],
                 default: 'small'
             },
             text: {
@@ -39,7 +41,7 @@
         },
         methods: {
             click: function (event) {
-                this.$emit('onClick', event, this.value, this.index);
+                this.$emit('onClick', event, true, this.index);
             }
         }
     }
