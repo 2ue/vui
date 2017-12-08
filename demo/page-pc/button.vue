@@ -41,6 +41,7 @@
         methods: {
             clickEvent: function (event) {
                 console.log('被点击了');
+                this.$loading.show()
             }
         }
     }

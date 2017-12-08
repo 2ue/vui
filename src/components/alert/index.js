@@ -7,10 +7,15 @@ const install = (Vue, _OPTIONS) => {
         o = o || Alert.created(Vue, _OPTIONS || {});
         return o;
     }
-    const show = text => {
+    const show = (text, t) => {
         instance = Alert.created(Vue, _OPTIONS || {});
         const options = { footer: false, content: text };
         instance.show(options);
+        if (t) {
+            setTimeout(() => {
+                instance.close();
+            }, t);
+        }
     };
 
     //挂在一些全局方法

@@ -1,7 +1,7 @@
 <template>
     <div class="vui-select-group">
-        <select-opt v-for="(options,index) in selfSelectOptions" :key="index" :index="index" :selectOptions="options" :selectedVal="selfSelectedVal[index]"
-            @updateSelectedVal="updateSelectedVal"></select-opt>
+        <select-opt v-for="(options,index) in selfSelectOptions" :selectedKey="selectedKey" :key="index" :index="index" :selectOptions="options"
+            :selectedVal="selfSelectedVal[index]" @onChange="onChange"></select-opt>
     </div>
 </template>
 
@@ -12,7 +12,7 @@
         data() {
             return {
                 selfSelectOptions: [[...this.selectOptions]],
-                selfSelectedVal: [...this.selectedVal]
+                selfSelectedVal: []
             }
         },
         components: {
@@ -30,18 +30,37 @@
                 default: function () {
                     return []
                 }
+            },
+            selectedKey: {
+                type: String,
+                default: 'value'
             }
         },
+        created() {
+            this.fixedSelectedVal();
+        },
         methods: {
-            updateSelectedVal(selected, index, parentIndex) {
-                // console.log('selecet==>', selected)
-                // console.log('index==>', index)
-                // console.log('parentIndex==>', parentIndex)
+            fixedSelectedVal() {
+                const selectedVal = this.selectedVal, key = this.selectedKey, options = this.selfSelectOptions;
+                for (let i = 0; i < selectedVal.length; i++) {
+                    let val = selectedVal[i], res = false;
+                    for (let j = 0; j < options[i].length; j++) {
+                        const item = options[i][j];
+                        if (val === item[key]) {
+                            if (item.children) options.push([...item.children]);
+                            res = true;
+                        }
+                    }
+                    if (!res) return false;
+                    this.selfSelectedVal.push(val);
+                }
+            },
+            onChange(selected, index, parentIndex) {
                 let oldOptions = [...this.selfSelectOptions];
                 if (selected.children) this.selfSelectOptions = [...oldOptions.slice(0, parentIndex + 1), selected.children];
                 this.selfSelectedVal[parentIndex] = selected.value;
                 this.selfSelectedVal = this.selfSelectedVal.slice(0, parentIndex + 1);
-                this.$emit('updateSelectedVal', [...this.selfSelectedVal])
+                this.$emit('onChange', [...this.selfSelectedVal])
             }
         }
     }

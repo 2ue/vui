@@ -22,7 +22,7 @@ export default [
     { path: "/icon", component: Icon, name: "Icon", cname: '字体图标' },
     { path: "/input", component: Input, name: "Input", cname: '输入框' },
     { path: "/dataTips", component: DataTips, name: "DataTips", cname: '模拟原生title提示' },
-    { path: "/modal", component: Modal, name: "Modal", cname: '模态框' },
+    { path: "/modal", component: Modal, name: "Modal", cname: '弹窗系列' },
     { path: "/chexkbox", component: Chexkbox, name: "Chexkbox", cname: '复选框' },
     { path: "/radio", component: Radio, name: "Radio", cname: '单选框' },
     { path: "/switch", component: Switch, name: "Switch", cname: '开关' },

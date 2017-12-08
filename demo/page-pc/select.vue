@@ -1,10 +1,10 @@
 <template>
     <div>
-        <v-select :selectOptions="selectOptions1" @updateSelectedVal="updateSelectedVal"></v-select>
+        <v-select :selectOptions="selectOptions1" @onChange="onChange" selectedVal="selectedVal"></v-select>
         <br>
-        <v-select :selectOptions="selectOptions2" :selectedVal="selectedVal" @updateSelectedVal="updateSelectedVal"></v-select>
+        <v-select :selectOptions="selectOptions2" :selectedVal="selectedVal" @onChange="onChange"></v-select>
         <br>
-        <v-select-group :selectOptions="selectOptions" :selectedVal="selectedVal2" @updateSelectedVal="updateSelectedVal"></v-select-group>
+        <v-select-group :selectOptions="selectOptions" :selectedVal="selectedVal2" @onChange="onChange"></v-select-group>
     </div>
 </template>
 
@@ -21,15 +21,9 @@
                 selectedVal2: ['范伟', 'Mark Thompson', '292244']
             }
         },
-        watch: {
-            selected: function (val) {
-                console.log('val==>', val)
-            }
-        },
         methods: {
-            updateSelectedVal(selected, index) {
+            onChange(selected, index) {
                 console.log(selected)
-                // console.log(index)
             }
         }
     }

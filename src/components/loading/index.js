@@ -2,9 +2,9 @@ import Loading from "./loading.js";
 
 let instance;
 
-const install = (Vue, _OPTIONS) => {
+const install = (Vue) => {
     function getInstance(o) {
-        o = o || Loading.created(Vue, _OPTIONS || {});
+        o = o || Loading.created(Vue);
         return o;
     }
     const units = {
@@ -12,8 +12,8 @@ const install = (Vue, _OPTIONS) => {
             instance = getInstance(instance);
             instance.show(options);
         },
-        close() {
-            instance.close();
+        close(t) {
+            instance.close(t);
         }
     };
 

@@ -1,6 +1,6 @@
 <template>
-    <div class="vui-modal-shade" v-if="showModal" @click="close">
-        <div class="vui-modal" @click="stopPropagation">
+    <div class="vui-modal-shade" v-if="showModal" @click.self="close">
+        <div class="vui-modal">
             <div class="vui-modal-header">
                 <p class="vui-modal-title vui-clear">
                     {{title}}
@@ -34,11 +34,11 @@
         data() {
             return {
                 ...OPTIONS_DEFALUT,
-                optionsItem: typeof this.options === 'object' ? { ...this.options } : this.options
+                selfOoptions: typeof this.options === 'object' ? { ...this.options } : this.options
             }
         },
         watch: {
-            optionsItem: {
+            selfOoptions: {
                 handler(options) {
                     if (this.$util.tryType(options) === 'object') {
                         const _OPTIONS = { ...OPTIONS_DEFALUT, ...options };
@@ -55,7 +55,7 @@
             },
             options: {
                 handler(options) {
-                    this.optionsItem = typeof options === 'object' ? { ...options } : options;
+                    this.selfOoptions = typeof options === 'object' ? { ...options } : options;
                 },
                 deep: true
             }
@@ -66,11 +66,8 @@
             }
         },
         methods: {
-            stopPropagation: function (event) {
-                event.stopPropagation();
-            },
             show: function (_OPTIONS) {
-                if (!!_OPTIONS) this.optionsItem = typeof _OPTIONS === 'object' ? { ..._OPTIONS, showModal: true } : { content: _OPTIONS, showModal: true };
+                if (!!_OPTIONS) this.selfOoptions = typeof _OPTIONS === 'object' ? { ..._OPTIONS, showModal: true } : { content: _OPTIONS, showModal: true };
             },
             close: function () {
                 this.showModal = false;

@@ -1,4 +1,6 @@
 $modal-class: #{$prefix-cls}modal;
+$loading-class: #{$prefix-cls}loading;
+// 遮罩层
 #{$modal-class}-shade {
     z-index: 999999;
     width: 100%;
@@ -9,6 +11,7 @@ $modal-class: #{$prefix-cls}modal;
     background: $bg-shade;
 }
 
+//弹窗
 #{$modal-class} {
     position: relative;
     width: 350px;
@@ -18,7 +21,7 @@ $modal-class: #{$prefix-cls}modal;
     text-align: center;
     border-radius: $border-radius-modal;
     #{$modal-class}-header {
-        border-bottom: 1px solid $border-color-less;
+        border-bottom: 1px solid $border-color-little;
         #{$modal-class}-title {
             @extend #{$prefix-cls}title;
             margin-left: 20px;
@@ -28,9 +31,16 @@ $modal-class: #{$prefix-cls}modal;
             text-align: center;
             display: inline-block;
             vertical-align: top;
+            float: right;
             cursor: pointer;
             width: $title-height;
             font-size: 18px;
+            color: $font-color-main;
+            transition: all ease-in-out 0.2s;
+            &:hover {
+                color: $font-color-dark;
+                transform: scale(1.2)
+            }
         }
     }
     #{$modal-class}-body {
@@ -41,7 +51,61 @@ $modal-class: #{$prefix-cls}modal;
         bottom: 0;
         height: 60px;
         line-height: 60px;
-        border-top: 1px solid $border-color-less;
+        border-top: 1px solid $border-color-little;
         padding-top: $box-padding;
+    }
+}
+
+//loading动画
+@keyframes loading {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#{$loading-class}-progress {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    top: 50%;
+    margin: -50px auto;
+    text-align: center;
+    user-select: none;
+    p {
+        color: #fff;
+        margin-bottom: 10px;
+    }
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        width: 10px;
+        height: 10px;
+        margin: 3px;
+        background: darken($dark-color, 10%);
+        border-radius: 10px;
+        animation: loading 1s infinite alternate;
+        &:nth-of-type(2) {
+            background: $dark-color;
+            animation-delay: 0.2s;
+        }
+        &:nth-of-type(3) {
+            background: $primary-color;
+            animation-delay: 0.4s;
+        }
+        &:nth-of-type(4) {
+            background: lighten($primary-color, 10%);
+            animation-delay: 0.6s;
+        }
+        &:nth-of-type(5) {
+            background: lighten($primary-color, 5%);
+            animation-delay: 0.8s;
+        }
+        &:nth-of-type(6) {
+            background: darken($primary-color, 5%);
+            animation-delay: 1.0s;
+        }
     }
 }

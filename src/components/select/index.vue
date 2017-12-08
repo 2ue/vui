@@ -4,7 +4,7 @@
             <v-icon :type="iconType[showOptions ? 1 : 0]" size="16"></v-icon>
         </span>
         <ul v-if="showOptions" class="vui-select-options" @mouseover="showBox" @mouseout="hideBox">
-            <li v-for="(options,i) in selfSelectOptions" :key="options.id" @click="selectedOption(options,i,index)">{{options.value}}</li>
+            <li v-for="(options,i) in selfSelectOptions" :key="options.id" @click="onChange(options,i,index)">{{options.value}}</li>
         </ul>
     </div>
 </template>
@@ -18,11 +18,8 @@
                 timer: null,
                 iconType: ['arrow-down', 'arrow-up'],
                 showOptions: false,
-                selfSelectedVal: this.selectedVal
+                selfSelectedVal: this.fixedSelectedVal()
             }
-        },
-        created() {
-            console.log('this.key', this.index);
         },
         props: {
             selectOptions: {
@@ -35,13 +32,16 @@
                 type: [String, Number],
                 default: '请选择'
             },
-            index: Number
+            index: Number,
+            selectedKey: {
+                type: String,
+                default: 'value'
+            }
         },
         watch: {
             selectedVal: function (val) {
                 this.selfSelectedVal = val;
-                console.log('dsda===?', val)
-            },
+            }
         },
         computed: {
             selfSelectOptions: function () {
@@ -49,6 +49,15 @@
             }
         },
         methods: {
+            //修正初始化时传入的seleectVal是否匹配
+            fixedSelectedVal(option) {
+                let key = this.selectedKey, val = this.selectedVal, data = option || this.selectOptions, res = false;
+                data.forEach((item, i) => {
+                    if (item[key] === val) res = true;
+                });
+                return res ? this.selectedVal : '请选择';
+
+            },
             showBox() {
                 clearTimeout(this.timer);
                 this.showOptions = true;
@@ -70,10 +79,10 @@
             keepBoxStatus() {
                 if (this.showOptions) this.showBox();
             },
-            selectedOption(options, i) {
+            onChange(options, i) {
                 this.selfSelectedVal = options.value;
                 this.hideBox(1);
-                this.$emit('updateSelectedVal', options, i, this.index);
+                this.$emit('onChange', { ...options }, i, this.index);
             }
         }
     }
