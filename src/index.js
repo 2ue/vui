@@ -20,8 +20,7 @@ import Menu from "./components/menu/index.vue";
 import Select from "./components/select/index.vue";
 import SelectGroup from "./components/select/group.vue";
 
-//loading css
-import "./assets/less/vui.scss";
+//import css
 
 const components = {
     Button,

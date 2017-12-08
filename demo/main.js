@@ -4,7 +4,8 @@ import Vue from "vue";
 import App from "./App";
 import router from "./libs/router";
 
-//impoet vui
+//import vui
+import "../src/assets/less/vui.scss";
 import Vui from "../src";
 
 Vue.use(Vui);
