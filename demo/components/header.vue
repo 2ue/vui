@@ -1,5 +1,5 @@
 <template>
-    <div class="warper box-shadow-2 header">
+    <div class="warper box-shadow-less header">
         <div class="warper-content header-box">
             <span class="logo">
                 <img src="../assets/logo.png">
@@ -22,7 +22,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style scoped lang="scss">
     .header {
         background: #fff;
         padding: 20px 0;
@@ -44,5 +44,9 @@
             font-size: 16px;
             vertical-align: bottom;
         }
+    }
+
+    .box-shadow-less {
+        box-shadow: -1px -1px 1px 3px rgba(102, 101, 101, 0.25);
     }
 </style>
