@@ -2,86 +2,33 @@
     "items": [
         {
             "id": 1,
-            "value": "范伟",
+            "value": "曾秀兰",
             "children": [
                 {
                     "id": 1001,
-                    "value": "John Taylor",
-                    "showChildren": false,
+                    "value": "Larry Jones",
                     "children": [
                         {
                             "id": 1001001,
-                            "value": "072338"
+                            "value": "877771"
                         },
                         {
                             "id": 1001002,
-                            "value": "537435"
-                        },
-                        {
-                            "id": 1001003,
-                            "value": "394788"
-                        },
-                        {
-                            "id": 1001004,
-                            "value": "227784"
-                        },
-                        {
-                            "id": 1001005,
-                            "value": "162839"
+                            "value": "864148"
                         }
                     ]
                 },
                 {
                     "id": 1002,
-                    "value": "Mark Thompson",
-                    "showChildren": false,
+                    "value": "William Johnson",
                     "children": [
                         {
-                            "id": 1001006,
-                            "value": "225604"
+                            "id": 1001003,
+                            "value": "581269"
                         },
                         {
-                            "id": 1001007,
-                            "value": "292244"
-                        },
-                        {
-                            "id": 1001008,
-                            "value": "836687"
-                        },
-                        {
-                            "id": 1001009,
-                            "value": "858211"
-                        },
-                        {
-                            "id": 1001010,
-                            "value": "788057"
-                        },
-                        {
-                            "id": 1001011,
-                            "value": "076865"
-                        },
-                        {
-                            "id": 1001012,
-                            "value": "636668"
-                        }
-                    ]
-                },
-                {
-                    "id": 1003,
-                    "value": "Matthew Anderson",
-                    "showChildren": false,
-                    "children": [
-                        {
-                            "id": 1001013,
-                            "value": "754876"
-                        },
-                        {
-                            "id": 1001014,
-                            "value": "089857"
-                        },
-                        {
-                            "id": 1001015,
-                            "value": "380231"
+                            "id": 1001004,
+                            "value": "578326"
                         }
                     ]
                 }
@@ -89,63 +36,43 @@
         },
         {
             "id": 2,
-            "value": "宋霞",
+            "value": "潘艳",
             "children": [
                 {
-                    "id": 1004,
-                    "value": "Helen Walker",
-                    "showChildren": false,
+                    "id": 1003,
+                    "value": "Daniel Martin",
                     "children": [
                         {
-                            "id": 1001016,
-                            "value": "662362"
+                            "id": 1001005,
+                            "value": "228362"
                         },
                         {
-                            "id": 1001017,
-                            "value": "728436"
+                            "id": 1001006,
+                            "value": "473147"
+                        }
+                    ]
+                },
+                {
+                    "id": 1004,
+                    "value": "David Williams",
+                    "children": [
+                        {
+                            "id": 1001007,
+                            "value": "416955"
                         },
                         {
-                            "id": 1001018,
-                            "value": "389534"
-                        },
-                        {
-                            "id": 1001019,
-                            "value": "684138"
-                        },
-                        {
-                            "id": 1001020,
-                            "value": "668973"
+                            "id": 1001008,
+                            "value": "517131"
                         }
                     ]
                 },
                 {
                     "id": 1005,
-                    "value": "Susan Lopez",
-                    "showChildren": false,
+                    "value": "Jason Jones",
                     "children": [
                         {
-                            "id": 1001021,
-                            "value": "464227"
-                        },
-                        {
-                            "id": 1001022,
-                            "value": "432525"
-                        },
-                        {
-                            "id": 1001023,
-                            "value": "014839"
-                        },
-                        {
-                            "id": 1001024,
-                            "value": "926795"
-                        },
-                        {
-                            "id": 1001025,
-                            "value": "794688"
-                        },
-                        {
-                            "id": 1001026,
-                            "value": "394184"
+                            "id": 1001009,
+                            "value": "496527"
                         }
                     ]
                 }
@@ -153,331 +80,69 @@
         },
         {
             "id": 3,
-            "value": "张洋",
+            "value": "邵娟",
             "children": [
                 {
                     "id": 1006,
-                    "value": "Thomas Lee",
-                    "showChildren": false,
+                    "value": "Maria White",
                     "children": [
                         {
-                            "id": 1001027,
-                            "value": "114314"
-                        },
-                        {
-                            "id": 1001028,
-                            "value": "202545"
-                        },
-                        {
-                            "id": 1001029,
-                            "value": "087478"
-                        },
-                        {
-                            "id": 1001030,
-                            "value": "353528"
-                        },
-                        {
-                            "id": 1001031,
-                            "value": "984259"
+                            "id": 1001010,
+                            "value": "900667"
                         }
                     ]
                 },
                 {
                     "id": 1007,
-                    "value": "Sarah Thompson",
-                    "showChildren": false,
+                    "value": "William Brown",
                     "children": [
                         {
-                            "id": 1001032,
-                            "value": "735977"
-                        },
-                        {
-                            "id": 1001033,
-                            "value": "766712"
-                        },
-                        {
-                            "id": 1001034,
-                            "value": "219731"
-                        },
-                        {
-                            "id": 1001035,
-                            "value": "385456"
-                        },
-                        {
-                            "id": 1001036,
-                            "value": "615273"
+                            "id": 1001011,
+                            "value": "470711"
                         }
                     ]
                 },
                 {
                     "id": 1008,
-                    "value": "Linda Robinson",
-                    "showChildren": false,
+                    "value": "Ronald Thomas",
                     "children": [
                         {
-                            "id": 1001037,
-                            "value": "155167"
+                            "id": 1001012,
+                            "value": "634780"
                         },
                         {
-                            "id": 1001038,
-                            "value": "111622"
-                        },
-                        {
-                            "id": 1001039,
-                            "value": "767312"
-                        },
-                        {
-                            "id": 1001040,
-                            "value": "990730"
-                        },
-                        {
-                            "id": 1001041,
-                            "value": "781874"
-                        },
-                        {
-                            "id": 1001042,
-                            "value": "997338"
+                            "id": 1001013,
+                            "value": "290405"
                         }
                     ]
                 }
             ]
+        }
+    ],
+    "item": [
+        {
+            "id": 1,
+            "value": "贾超"
+        },
+        {
+            "id": 2,
+            "value": "文军"
+        },
+        {
+            "id": 3,
+            "value": "苏超"
         },
         {
             "id": 4,
-            "value": "赖涛",
-            "children": [
-                {
-                    "id": 1009,
-                    "value": "Jeffrey Rodriguez",
-                    "showChildren": false,
-                    "children": [
-                        {
-                            "id": 1001043,
-                            "value": "177847"
-                        },
-                        {
-                            "id": 1001044,
-                            "value": "009742"
-                        },
-                        {
-                            "id": 1001045,
-                            "value": "301972"
-                        },
-                        {
-                            "id": 1001046,
-                            "value": "424596"
-                        },
-                        {
-                            "id": 1001047,
-                            "value": "257863"
-                        },
-                        {
-                            "id": 1001048,
-                            "value": "616414"
-                        }
-                    ]
-                },
-                {
-                    "id": 1010,
-                    "value": "Sharon Brown",
-                    "showChildren": false,
-                    "children": [
-                        {
-                            "id": 1001049,
-                            "value": "284044"
-                        },
-                        {
-                            "id": 1001050,
-                            "value": "066612"
-                        },
-                        {
-                            "id": 1001051,
-                            "value": "838533"
-                        },
-                        {
-                            "id": 1001052,
-                            "value": "537790"
-                        },
-                        {
-                            "id": 1001053,
-                            "value": "135626"
-                        },
-                        {
-                            "id": 1001054,
-                            "value": "661598"
-                        }
-                    ]
-                },
-                {
-                    "id": 1011,
-                    "value": "Robert Anderson",
-                    "showChildren": false,
-                    "children": [
-                        {
-                            "id": 1001055,
-                            "value": "613757"
-                        },
-                        {
-                            "id": 1001056,
-                            "value": "815763"
-                        },
-                        {
-                            "id": 1001057,
-                            "value": "563820"
-                        },
-                        {
-                            "id": 1001058,
-                            "value": "894154"
-                        }
-                    ]
-                },
-                {
-                    "id": 1012,
-                    "value": "James Allen",
-                    "showChildren": false,
-                    "children": [
-                        {
-                            "id": 1001059,
-                            "value": "835857"
-                        },
-                        {
-                            "id": 1001060,
-                            "value": "816138"
-                        },
-                        {
-                            "id": 1001061,
-                            "value": "317667"
-                        },
-                        {
-                            "id": 1001062,
-                            "value": "147094"
-                        },
-                        {
-                            "id": 1001063,
-                            "value": "465575"
-                        },
-                        {
-                            "id": 1001064,
-                            "value": "475462"
-                        },
-                        {
-                            "id": 1001065,
-                            "value": "221522"
-                        }
-                    ]
-                }
-            ]
+            "value": "石超"
         },
         {
             "id": 5,
-            "value": "吕艳",
-            "children": [
-                {
-                    "id": 1013,
-                    "value": "Helen Brown",
-                    "showChildren": false,
-                    "children": [
-                        {
-                            "id": 1001066,
-                            "value": "842613"
-                        },
-                        {
-                            "id": 1001067,
-                            "value": "148622"
-                        },
-                        {
-                            "id": 1001068,
-                            "value": "166789"
-                        },
-                        {
-                            "id": 1001069,
-                            "value": "116276"
-                        },
-                        {
-                            "id": 1001070,
-                            "value": "828272"
-                        },
-                        {
-                            "id": 1001071,
-                            "value": "593207"
-                        },
-                        {
-                            "id": 1001072,
-                            "value": "408043"
-                        }
-                    ]
-                },
-                {
-                    "id": 1014,
-                    "value": "Matthew Hall",
-                    "showChildren": false,
-                    "children": [
-                        {
-                            "id": 1001073,
-                            "value": "777257"
-                        },
-                        {
-                            "id": 1001074,
-                            "value": "527168"
-                        },
-                        {
-                            "id": 1001075,
-                            "value": "425954"
-                        },
-                        {
-                            "id": 1001076,
-                            "value": "381401"
-                        },
-                        {
-                            "id": 1001077,
-                            "value": "248876"
-                        },
-                        {
-                            "id": 1001078,
-                            "value": "328085"
-                        },
-                        {
-                            "id": 1001079,
-                            "value": "253625"
-                        },
-                        {
-                            "id": 1001080,
-                            "value": "717485"
-                        }
-                    ]
-                },
-                {
-                    "id": 1015,
-                    "value": "Jose Jones",
-                    "showChildren": false,
-                    "children": [
-                        {
-                            "id": 1001081,
-                            "value": "109102"
-                        },
-                        {
-                            "id": 1001082,
-                            "value": "118538"
-                        },
-                        {
-                            "id": 1001083,
-                            "value": "957560"
-                        },
-                        {
-                            "id": 1001084,
-                            "value": "579687"
-                        },
-                        {
-                            "id": 1001085,
-                            "value": "260511"
-                        },
-                        {
-                            "id": 1001086,
-                            "value": "415941"
-                        }
-                    ]
-                }
-            ]
+            "value": "蒋芳"
+        },
+        {
+            "id": 6,
+            "value": "丁超"
         }
     ]
 }

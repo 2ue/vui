@@ -1,10 +1,10 @@
 <template>
-    <div class="vui-select">
+    <div class="vui-select" :style="styles">
         <span class="vui-select-input" @click="clickShow" @mouseover.stop="keepBoxStatus" @mouseout.stop="hideBox">{{selfSelectedVal}}
             <v-icon :type="iconType[showOptions ? 1 : 0]" size="16"></v-icon>
         </span>
         <ul v-if="showOptions" class="vui-select-options" @mouseover="showBox" @mouseout="hideBox">
-            <li v-for="(options,i) in selfSelectOptions" :key="options.id" @click="onChange(options,i,index)">{{options.value}}</li>
+            <li v-for="(options,i) in selfSelectOptions" :key="i" @click="onChange(options,i,index)">{{options.value}}</li>
         </ul>
     </div>
 </template>
@@ -36,7 +36,8 @@
             selectedKey: {
                 type: String,
                 default: 'value'
-            }
+            },
+            width: [Number, String]
         },
         watch: {
             selectedVal: function (val) {
@@ -46,6 +47,10 @@
         computed: {
             selfSelectOptions: function () {
                 return this.selectOptions
+            },
+            styles: function () {
+                const val = this.width, validatorRes = /^[0-9]+(px|em|rem|)$/.test(val);
+                return !validatorRes ? '' : isNaN(val) ? `width:${val}` : `width:${val}px`;
             }
         },
         methods: {

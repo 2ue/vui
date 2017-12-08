@@ -12,7 +12,8 @@
         data() {
             return {
                 selfSelectOptions: [[...this.selectOptions]],
-                selfSelectedVal: []
+                selfSelectedVal: [],
+                selfSelectedValMap: [],
             }
         },
         components: {
@@ -34,7 +35,8 @@
             selectedKey: {
                 type: String,
                 default: 'value'
-            }
+            },
+            width: [Number, String]
         },
         created() {
             this.fixedSelectedVal();
@@ -53,14 +55,19 @@
                     }
                     if (!res) return false;
                     this.selfSelectedVal.push(val);
+                    this.selfSelectedValMap.push(val);
                 }
             },
             onChange(selected, index, parentIndex) {
                 let oldOptions = [...this.selfSelectOptions];
                 if (selected.children) this.selfSelectOptions = [...oldOptions.slice(0, parentIndex + 1), selected.children];
+                //用于展示数据，展示数据永远取value字段
                 this.selfSelectedVal[parentIndex] = selected.value;
                 this.selfSelectedVal = this.selfSelectedVal.slice(0, parentIndex + 1);
-                this.$emit('onChange', [...this.selfSelectedVal])
+                //用于返回数据，返回数据根据selectedKey为准
+                this.selfSelectedValMap[parentIndex] = selected[this.selectedKey];
+                this.selfSelectedValMap = this.selfSelectedValMap.slice(0, parentIndex + 1);
+                this.$emit('onChange', [...this.selfSelectedValMap])
             }
         }
     }
