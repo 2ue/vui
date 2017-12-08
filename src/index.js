@@ -21,6 +21,7 @@ import Select from "./components/select/index.vue";
 import SelectGroup from "./components/select/group.vue";
 
 //import css
+import "../src/assets/less/vui.scss";
 
 const components = {
     Button,
