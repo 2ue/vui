@@ -1,5 +1,5 @@
 <template>
-    <div class="vui-select" :style="styles">
+    <div class="vui-select" :style="styles" :class="disabled ? 'vui-select-disabled' : ''">
         <span class="vui-select-input" @click="clickShow" @mouseover.stop="keepBoxStatus" @mouseout.stop="hideBox">{{selfSelectedVal}}
             <v-icon :type="iconType[showOptions ? 1 : 0]" size="16"></v-icon>
         </span>
@@ -37,7 +37,8 @@
                 type: String,
                 default: 'value'
             },
-            width: [Number, String]
+            width: [Number, String],
+            disabled: [Boolean, String, Number]
         },
         watch: {
             selectedVal: function (val) {
@@ -75,6 +76,7 @@
                 }, isNaN(t) ? 300 : t)
             },
             clickShow() {
+                if (this.disabled) return;
                 if (this.showOptions) {
                     this.hideBox(1);
                 } else {

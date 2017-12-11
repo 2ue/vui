@@ -1,6 +1,6 @@
 <template>
     <div class="vui-select-group">
-        <select-opt v-for="(options,index) in selfSelectOptions" :selectedKey="selectedKey" :key="index" :index="index" :selectOptions="options"
+        <select-opt v-for="(options,index) in selfSelectOptions" :selectedKey="selectedKey" :disabled="disabled" :key="index" :index="index" :selectOptions="options"
             :selectedVal="selfSelectedVal[index]" @onChange="onChange"></select-opt>
     </div>
 </template>
@@ -36,7 +36,8 @@
                 type: String,
                 default: 'value'
             },
-            width: [Number, String]
+            width: [Number, String],
+            disabled: [Boolean, String, Number]
         },
         created() {
             this.fixedSelectedVal();
