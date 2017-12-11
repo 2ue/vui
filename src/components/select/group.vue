@@ -1,7 +1,7 @@
 <template>
     <div class="vui-select-group">
-        <select-opt v-for="(options,index) in selfSelectOptions" :selectedKey="selectedKey" :disabled="disabled" :key="index" :index="index" :selectOptions="options"
-            :selectedVal="selfSelectedVal[index]" @onChange="onChange"></select-opt>
+        <select-opt v-for="(options,index) in selfSelectOptions" :selectedKey="selectedKey" :disabled="disabled" :key="index" :index="index"
+            :selectOptions="options" :selectedVal="selfSelectedVal[index]" @onChange="onChange"></select-opt>
     </div>
 </template>
 
