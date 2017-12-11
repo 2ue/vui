@@ -4,9 +4,12 @@
         <div class="vui-p">
             <v-range :sectionValue="[-20,199]" value="199"></v-range>
         </div>
-        <v-range sectionValue="-20" :value="[-10,100]"></v-range>
-        <br>
-        <v-range sectionValue="199" value="300"></v-range>
+        <div class="vui-p">
+            <v-range sectionValue="-20" :value="[-10,100]"></v-range>
+        </div>
+        <div class="vui-p">
+            <v-range sectionValue="199" value="300"></v-range>
+        </div>
     </div>
 </template>
 

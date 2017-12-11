@@ -1,11 +1,10 @@
 <template>
-    <div class="vui-range" @click.self="clickBar">
+    <div class="vui-range" :class="{'vui-range-warp-disabled': disabled}" @click.self="clickBar" ref="warp">
         <input type="range" hidden>
-        <label @click.self.stop="clickBar" :style="{width: selfDistance[1] - selfDistance[0] + 'px',left:selfDistance[0] + 'px'}">
-            <span v-if="showStartPoint" class="vui-range-start" ref="rangeStart"></span>
-            <span class="vui-range-end" ref="rangEnd"></span>
+        <label @click.self.stop="clickBar" ref="inner" :style="{width: selfDistance[1] - selfDistance[0] + 'px',left:selfDistance[0] + 'px'}">
+            <span v-if="showStartPoint" class="vui-range-start" ref="rangeStart" :data-tips="selfValue[0]"></span>
+            <span class="vui-range-end" ref="rangEnd" :data-tips="selfValue[1]"></span>
         </label>
-        {{selfSectionValue}} {{selfValue}}{{showStartPoint}}
     </div>
 </template>
 
@@ -19,16 +18,12 @@
             }
         },
         created() {
-            console.log('getValue==>', this.getValue())
             this.selfValue = this.getValue()
         },
         computed: {
             selfDistance() {
                 return this.valChangePoint();
             },
-            // selfValue() {
-            //     return this.getValue();
-            // },
             selfSectionValue() {
                 let value = this.sectionValue, isNumber = isNaN(value);
                 if (!isNumber && value <= 0) return [+value, 100];
@@ -79,14 +74,11 @@
             clickBar(event) {
                 let clickPointDis = event.offsetX;
                 const satrtPoint = this.$refs.rangeStart, endPoint = this.$refs.rangEnd, distance = this.selfDistance, t = (distance[1] - distance[0]) / 2;
-                console.log('distance==>', [...distance])
-                console.log('this.selfValue1111==>', [...this.selfValue])
-                if (!this.showStartPoint || (clickPointDis) > t) {
+                if (event.target !== this.$refs.warp) clickPointDis = distance[0] + clickPointDis;
+                if (!this.showStartPoint || clickPointDis - distance[0] > t) {
                     if (clickPointDis > this.width - 7) clickPointDis = this.width - 7;
-                    console.log('asddas=>', 1)
                     this.pointChangeVal(clickPointDis, 1)
                 } else {
-                    console.log('asddas=>', 0)
                     if (clickPointDis < -7) clickPointDis = -7;
                     this.pointChangeVal(clickPointDis, 0)
                 }
@@ -94,11 +86,10 @@
             },
             pointChangeVal(point, index) {
                 const sectionVal = this.selfSectionValue, allDistance = sectionVal[1] - sectionVal[0], width = this.width;
-                let p = Math.round((point - sectionVal[0]) * allDistance / width + sectionVal[0]);
+                let p = index === 1 ? Math.round(point * allDistance / width + sectionVal[0]) : Math.round(point * allDistance / width + sectionVal[0]);
                 if (p < sectionVal[0]) p = sectionVal[0];
                 if (p > sectionVal[1]) p = sectionVal[1];
                 this.selfValue.splice(index, 1, p);
-                console.log('this.selfValue==>', [...this.selfValue])
             },
             valChangePoint(v) {
                 const sectionVal = this.selfSectionValue, value = this.selfValue, allDistance = sectionVal[1] - sectionVal[0], size = this.width;
