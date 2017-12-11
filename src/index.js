@@ -19,6 +19,7 @@ import DatePicker from "./components/date-picker/index.vue";
 import Menu from "./components/menu/index.vue";
 import Select from "./components/select/index.vue";
 import SelectGroup from "./components/select/group.vue";
+import Range from "./components/range/index.vue";
 
 //import css
 import "../src/assets/less/vui.scss";
@@ -36,7 +37,8 @@ const components = {
     DatePicker,
     Menu,
     Select,
-    SelectGroup
+    SelectGroup,
+    Range
 };
 
 const install = function (Vue, options = {}) {

@@ -69,6 +69,10 @@
         font-weight: bold;
     }
 
+    .vui-p {
+        margin-bottom: 10px;
+    }
+
     .warper {
         width: 100%;
         min-width: 80%;
@@ -135,6 +139,7 @@
     .mr-b10 {
         margin-bottom: 10px;
     }
+
     pre {
         position: relative;
         word-wrap: break-word;

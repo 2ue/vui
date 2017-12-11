@@ -1,0 +1,42 @@
+$range-class: #{$prefix-cls}range;
+#{$range-class} {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 6px;
+    background: $border-color-little;
+    border-radius: 6px;
+    label {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background: $primary-color;
+        top: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all ease-in-out 0.2s;
+    }
+    span {
+        position: absolute;
+        top: -4px;
+        display: inline-block;
+        box-sizing: border-box;
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid $primary-color;
+        background: #fff;
+        &:hover {
+            @extend #{$prefix-cls}box-shadow;
+            transform: scale(1.1);
+        }
+    }
+    &-start {
+        left: -7px;
+    }
+    &-end {
+        right: -7px;
+    }
+}
