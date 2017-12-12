@@ -1,3 +1,4 @@
+$data-tips-class: #{$prefix-cls}data-tips;
 [data-tips] {
     position: relative;
     display: inline-block;
@@ -8,7 +9,8 @@
         -moz-transition: all ease-in-out 1s;
         transition: all ease-in-out 1s;
     }
-    &:hover {
+    &:hover,
+    &#{$data-tips-class}-hover {
         $left: 7px;
         $top: 10px;
         $dis: 5px;

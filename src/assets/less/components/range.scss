@@ -29,10 +29,10 @@ $range-class: #{$prefix-cls}range;
         border-radius: 50%;
         border: 2px solid $primary-color;
         background: #fff;
-        &:hover {
-            @extend #{$prefix-cls}box-shadow;
-            transform: scale(1.1);
-        }
+    }
+    &:not(#{$range-class}-disabled) span:hover {
+        @extend #{$prefix-cls}box-shadow;
+        transform: scale(1.1);
     }
     &-start {
         left: -7px;
@@ -43,5 +43,8 @@ $range-class: #{$prefix-cls}range;
 }
 
 #{$range-class}-disabled {
-    background: #f30;
+    cursor: not-allowed;
+    span {
+        border: 2px solid $border-color-main;
+    }
 }
