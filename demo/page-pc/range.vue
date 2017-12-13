@@ -8,7 +8,7 @@
             <v-range :sectionValue="[-20,80]" :value="[-10,40]"></v-range>
         </div>
         <div class="vui-p">
-            <v-range :sectionValue="[-30,199]" value="100"></v-range>
+            <v-range :sectionValue="[-30,199]" value="100" :range="true"></v-range>
         </div>
         <div class="vui-p">
             <v-range :sectionValue="[0,200]" value="300"></v-range>

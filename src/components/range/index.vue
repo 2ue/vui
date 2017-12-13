@@ -2,10 +2,8 @@
     <div class="vui-range" :class="{'vui-range-disabled': disabled}" @click.self="clickBar" ref="wrap">
         <input type="range" hidden>
         <label @click.self="clickBar" :style="{width: selfPonits[1] - selfPonits[0] + 'px',left:selfPonits[0] + 'px'}">
-            <span v-if="showStartPoint" class="vui-range-start" :class="classes" ref="satrtPoint" :data-tips="showDataTips!=='none' ? selfValue[0] : ''"
-                @mouseup.stop="mouseup" @mousedown.stop="mousedown" @mousemove.stop="mousemove"></span>
-            <span class="vui-range-end" :class="classes" ref="endPoint" :data-tips="selfValue[1]" @mouseup.stop="mouseup" @mousedown.stop="mousedown"
-                @mousemove.stop="mousemove"></span>
+            <span v-if="selfShowStartPoint" class="vui-range-start" :class="classes" ref="satrtPoint" :data-tips="showDataTips!=='none' ? selfValue[0] : ''"></span>
+            <span class="vui-range-end" :class="classes" ref="endPoint" :data-tips="selfValue[1]"></span>
         </label>
     </div>
 </template>
@@ -24,17 +22,25 @@
         },
         created() {
             this.selfValue = this.getValue();
+            console.log('selfSize==>', this.selfSize)
         },
         computed: {
+            selfWidth() {
+                return isNaN(parseFloat(this.width)) ? 300 : parseFloat(this.width);
+            },
             selfSize() {
-                let res = Math.abs((this.selfPonits[1] - this.selfPonits[0]) / (this.selfSectionValue[1] - this.selfSectionValue[0]));
-                return Math.round(res * 100) / 100;
+                let res = Math.abs((this.selfSectionValue[1] - this.selfSectionValue[0]) / this.selfWidth);
+                //为了最大程度的保证精度，保留6位小数
+                return Math.round(res * 1000000) / 1000000;
             },
             selfPonits() {
                 return this.valChangePoint();
             },
-            showStartPoint() {
-                return isNaN(this.value);
+            selfSectionPonits() {
+                return [Math.ceil(this.selfValue[0] / this.selfSize), Math.round(this.selfValue[1] / this.selfSize)]
+            },
+            selfShowStartPoint() {
+                return isNaN(this.value) || this.range;
             },
             classes() {
                 return this.showDataTips === 'always' ? 'vui-data-tips-hover' : '';
@@ -64,13 +70,13 @@
             showDataTips: {
                 type: String,
                 default: 'hover'
-            }
+            },
+            range: Boolean
         },
         methods: {
             //重新组装传递的选中值
             getValue() {
                 let value = this.value, isNumber = !isNaN(value), sectionValue = this.selfSectionValue;
-                console.log('sectionValue==>', sectionValue)
                 if (isNumber) {
                     if (value < sectionValue[0] || value > sectionValue[1]) {
                         value = [0, 0];
@@ -87,47 +93,29 @@
                 if (this.disabled) return;
                 let clickPointDis = event.offsetX, points = this.selfPonits, t = (points[1] - points[0]) / 2;
                 if (event.target !== this.$refs.startPoint) clickPointDis = points[0] + clickPointDis;
-                if (!this.showStartPoint || clickPointDis - points[0] > t) {
-                    if (clickPointDis > this.width - 7) clickPointDis = this.width - 7;
+                if (!this.selfShowStartPoint || clickPointDis - points[0] > t) {
+                    if (clickPointDis > this.selfWidth - 7) clickPointDis = this.selfWidth - 7;
                     this.pointChangeVal(clickPointDis, 1)
                 } else {
                     if (clickPointDis < -7) clickPointDis = -7;
                     this.pointChangeVal(clickPointDis, 0)
                 }
             },
-            mousedown(event) {
-                this.startDragEvent = event
-            },
-            mouseup(event) {
-                if (!this.startDragEvent || !this.endDragEvent || this.disabled) return;
-                let clickPointDis = this.endDragEvent.clientX - this.startDragEvent.clientX, points = this.selfPonits, index = event.target === this.$refs.satrtPoint ? 0 : 1;
-                console.log(index)
-                console.log(clickPointDis)
-                this.pointChangeVal(points[index] + clickPointDis, index);
-                this.startDragEvent = null, this.endDragEvent = null;
-            },
-            mousemove(event) {
-                // console.log('event mousemove==>', event)
-                this.endDragEvent = event
-            },
             //将DOM的位置点化成区间值
             pointChangeVal(point, index) {
                 const sectionVal = this.selfSectionValue;
-                console.log('selfValue 0ld==>', [...this.selfValue])
                 if (!point || point === this.selfPonits[index]) return;
-                let p = Math.round(point * (sectionVal[1] - sectionVal[0]) / this.width + sectionVal[0]);
+                let p = Math.round(point * this.selfSize + sectionVal[0]);
                 if (p < sectionVal[0]) p = sectionVal[0];
                 if (p > sectionVal[1]) p = sectionVal[1];
-                console.log('this.selfValue==>', this.selfValue)
                 this.selfValue.splice(index, 1, p);
-                console.log('selfValue new==>', [...this.selfValue])
             },
             //将区间值转换成DOM的位置点
             valChangePoint(v) {
-                const sectionVal = this.selfSectionValue, value = this.selfValue, distance = sectionVal[1] - sectionVal[0], size = this.width;
-                let startPoint = ((value[0] - sectionVal[0]) * size / distance), endPoint = ((value[1] - sectionVal[0]) * size / distance);
+                const sectionVal = this.selfSectionValue, value = this.selfValue, size = this.selfSize, width = this.width;
+                let startPoint = ((value[0] - sectionVal[0]) / size), endPoint = ((value[1] - sectionVal[0]) / size);
                 if (startPoint < -7) startPoint = -7;
-                if (endPoint > size - 7) endPoint = size - 7;
+                if (endPoint > width - 7) endPoint = width - 7;
                 return [startPoint, endPoint];
             }
         }
