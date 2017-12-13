@@ -136,6 +136,10 @@
         color: #fff;
     }
 
+    .mr-b5 {
+        margin-bottom: 5px;
+    }
+
     .mr-b10 {
         margin-bottom: 10px;
     }

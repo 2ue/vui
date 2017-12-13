@@ -1,5 +1,5 @@
 <template>
-    <div class="vui-range" :class="{'vui-range-disabled': disabled}" @click.self="clickBar" ref="wrap">
+    <div class="vui-range" :style="styles" :class="{'vui-range-disabled': disabled}" @click.self="clickBar" ref="wrap">
         <input type="range" hidden>
         <label @click.self="clickBar" :style="{width: selfPonits[1] - selfPonits[0] + 'px',left:selfPonits[0] + 'px'}">
             <span v-if="selfShowStartPoint" class="vui-range-start" :class="classes" ref="satrtPoint" :data-tips="showDataTips!=='none' ? selfValue[0] : ''"></span>
@@ -22,7 +22,6 @@
         },
         created() {
             this.selfValue = this.getValue();
-            console.log('selfSize==>', this.selfSize)
         },
         computed: {
             selfWidth() {
@@ -40,20 +39,20 @@
                 return [Math.ceil(this.selfValue[0] / this.selfSize), Math.round(this.selfValue[1] / this.selfSize)]
             },
             selfShowStartPoint() {
-                return isNaN(this.value) || this.range;
+                return (typeof this.value !== 'undefined' && isNaN(this.value)) || this.range;
             },
             classes() {
                 return this.showDataTips === 'always' ? 'vui-data-tips-hover' : '';
+            },
+            styles: function () {
+                const val = this.width, validatorRes = /^[0-9]+(px|em|rem|)$/.test(val);
+                let width = !validatorRes ? '' : isNaN(val) ? val : `${val}px`;
+                return { width }
             }
         },
         props: {
-            step: {
-                type: Number,
-                default: 3,
-            },
             value: {
-                type: [Number, Array, String],
-                default: 0
+                type: [Number, Array, String]
             },
             sectionValue: {
                 type: [Array],
@@ -76,17 +75,23 @@
         methods: {
             //重新组装传递的选中值
             getValue() {
-                let value = this.value, isNumber = !isNaN(value), sectionValue = this.selfSectionValue;
-                if (isNumber) {
-                    if (value < sectionValue[0] || value > sectionValue[1]) {
-                        value = [0, 0];
-                    } else {
-                        value = [sectionValue[0], +value];
-                    }
-                } else {
+                let value = this.value, sectionValue = this.selfSectionValue;
+                if (typeof value === 'undefined') {
+                    value = [sectionValue[0], sectionValue[0]];
+                } else if (isNaN(value)) {
                     if (value[0] < sectionValue[0]) value[0] = sectionValue[0];
                     if (value[1] > sectionValue[1]) value[1] = sectionValue[1];
-                }
+                } else {
+                    if (this.range) {
+                        value = [sectionValue[0], value];
+                    } else {
+                        if (value < sectionValue[0] || value > sectionValue[1]) {
+                            value = [0, 0];
+                        } else {
+                            value = [sectionValue[0], +value];
+                        }
+                    }
+                };
                 return value;
             },
             clickBar(event) {

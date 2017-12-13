@@ -51,7 +51,8 @@
             },
             styles: function () {
                 const val = this.width, validatorRes = /^[0-9]+(px|em|rem|)$/.test(val);
-                return !validatorRes ? '' : isNaN(val) ? `width:${val}` : `width:${val}px`;
+                let width = !validatorRes ? '' : isNaN(val) ? val : `${val}px`;
+                return { width }
             }
         },
         methods: {
