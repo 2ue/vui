@@ -11,6 +11,12 @@
         <v-radio :checked="false">checked：false</v-radio>
         <v-radio :checked="true">checked：true</v-radio>
         <br>
+        <p class="mr-b10">测试disbaled属性: 接收boolean值，所有非boolean值将会在组件内部使用!转换,会自动禁用各种事件</p>
+        <v-radio>checked：false</v-radio>
+        <v-radio :disabled="true">checked：true</v-radio>
+        <v-radio :checked="true">checked：true</v-radio>
+        <v-radio :checked="true" :disabled="true">checked：true</v-radio>
+        <br>
         <p class="mr-b10">测试name属性</p>
         <v-radio name="radio11">radio11</v-radio>
         <v-radio name="radio22">radio22</v-radio>
@@ -21,6 +27,9 @@
         <p class="vui-page-title">复选框-群组</p>
         <p class="mr-b10">测试size和name属性： 作为一个群组，他们的size和name应该是相同的</p>
         <v-radio-group :groupData="radioData" :checkedData="checkedDatas" size="middle" name="group-radio1"></v-radio-group>
+        <br>
+        <p class="mr-b10">测试disabled属性： 为true将会禁用整个群组的组件，禁用单个组件建议自己使用单组件循环，后期后期考虑加上此功能</p>
+        <v-radio-group :groupData="radioData" :checkedData="checkedDatas" disabled="true" name="group-radio9"></v-radio-group>
         <br>
         <p class="mr-b10">测试groupData： 必须参数，其中text为必须字段</p>
         <pre><code data-language="javascript">{{radioData}}</code></pre>

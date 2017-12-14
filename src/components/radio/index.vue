@@ -1,7 +1,7 @@
 <template>
-    <label :class="sizeClass[size]" :index="index">
-        <input v-if="selfChecked" type="radio" checked @click="click" :name="name" :value="value">
-        <input v-else type="radio" @click="click" :name="name" :value="value">
+    <label :class="classes" :index="index">
+        <input v-if="selfChecked" type="radio" checked :disabled="disabled" @click="click" :name="name" :value="value">
+        <input v-else type="radio" @click="click" :disabled="disabled" :name="name" :value="value">
         <span class="vui-radio"></span>
         <slot></slot>
     </label>
@@ -32,10 +32,21 @@
                 type: String
             },
             value: [String, Number],
-            index: [String, Number]
+            index: [String, Number],
+            disabled: {
+                default: undefined
+            }
+        },
+        computed: {
+            classes() {
+                let classes = this.sizeClass[this.size];
+                if (this.disabled) classes += ' vui-radio-disabled';
+                return classes;
+            }
         },
         methods: {
             click: function (event) {
+                if (!this.disabled) return;
                 this.$emit('onClick', event, this.value, this.index);
             }
         }

@@ -1,6 +1,7 @@
 <template>
     <div class="vui-radio-group">
-        <radio v-for="(item, index) in selfGroupData" :key="index" :index="index" :size="item.size" :name="name" :checked="item.selfChecked" :value="getVal(item,index)" @onClick="onClick">{{item.text}}</radio>
+        <radio v-for="(item, index) in selfGroupData" :disabled="disabled" :key="index" :index="index" :size="item.size" :name="name" :checked="item.selfChecked"
+            :value="getVal(item,index)" @onClick="onClick">{{item.text}}</radio>
     </div>
 </template>
 
@@ -39,6 +40,9 @@
             checkedKey: {
                 type: String,
                 default: 'index'
+            },
+            disabled: {
+                default: undefined
             }
         },
         methods: {

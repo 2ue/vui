@@ -65,10 +65,17 @@ $border-width: 3px;
             transform: scale(0);
         }
     }
-    [type=radio] {
-        &:checked~#{$radio-class}:after {
-            opacity: 1;
-            transform: scale(1);
+    [type=radio]:checked~#{$radio-class}:after {
+        opacity: 1;
+        transform: scale(1);
+    }
+    &#{$radio-class}-disabled {
+        cursor: not-allowed;
+        #{$radio-class} {
+            background-color: $border-color-little;
+            &:after {
+                background-color: grayscale($primary-color);
+            }
         }
     }
     @include radio-size();
@@ -105,13 +112,19 @@ $border-width: 3px;
             transition: all .2s ease-in-out;
         }
     }
-    [type=checkbox] {
-        &:checked~#{$checkbox-class} {
-            border-color: $primary-color;
-            background-color: $primary-color;
-            &:after {
-                transform: rotate(45deg) scale(1);
-            }
+    [type=checkbox]:checked~#{$checkbox-class} {
+        border-color: $primary-color;
+        background-color: $primary-color;
+        &:after {
+            transform: rotate(45deg) scale(1);
+        }
+    }
+    &#{$checkbox-class}-disabled {
+        cursor: not-allowed;
+        #{$checkbox-class},
+        [type=checkbox]:checked~#{$checkbox-class} {
+            background-color: $border-color-little;
+            border: 1px solid $border-color-less;
         }
     }
     @include checkbox-size();

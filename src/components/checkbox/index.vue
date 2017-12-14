@@ -1,6 +1,6 @@
 <template>
-    <label :class="sizeClass[size]" :index="index">
-        <input type="checkbox" v-model="selfChecked" @click="click" :name="name" :value="value">
+    <label :class="classes" :index="index">
+        <input type="checkbox" v-model="selfChecked" :disabled="disabled" @click="click" :name="name" :value="value">
         <span class="vui-checkbox"></span>
         <slot></slot>
     </label>
@@ -31,10 +31,21 @@
                 type: String
             },
             value: [String, Number],
-            index: [String, Number]
+            index: [String, Number],
+            disabled: {
+                default: undefined
+            }
+        },
+        computed: {
+            classes() {
+                let classes = this.sizeClass[this.size];
+                if (this.disabled) classes += ' vui-checkbox-disabled';
+                return classes;
+            }
         },
         methods: {
             click: function (event) {
+                if (!this.disabled) return;
                 this.$emit('onClick', event, this.selfChecked, this.value, this.index);
             }
         }

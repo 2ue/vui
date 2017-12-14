@@ -11,6 +11,12 @@
         <v-checkbox :checked="false">checked：false</v-checkbox>
         <v-checkbox :checked="true">checked：true</v-checkbox>
         <br>
+        <p class="mr-b10">测试disbaled属性: 接收boolean值，所有非boolean值将会在组件内部使用!转换,会自动禁用各种事件</p>
+        <v-checkbox>checked：false</v-checkbox>
+        <v-checkbox :disabled="true">checked：true</v-checkbox>
+        <v-checkbox :checked="true">checked：true</v-checkbox>
+        <v-checkbox :checked="true" :disabled="true">checked：true</v-checkbox>
+        <br>
         <p class="mr-b10">测试name属性</p>
         <v-checkbox name="checkbox1">checkbox1</v-checkbox>
         <v-checkbox name="checkbox2">checkbox2</v-checkbox>
@@ -21,6 +27,9 @@
         <p class="vui-page-title">复选框-群组</p>
         <p class="mr-b10">测试size和name属性： 作为一个群组，他们的size和name应该是相同的</p>
         <v-checkbox-group :groupData="checkboxData" :checkedData="checkedDatas" size="middle" name="group-checkbox"></v-checkbox-group>
+        <br>
+        <p class="mr-b10">测试disabled属性： 为true将会禁用整个群组的组件，禁用单个组件建议自己使用单组件循环，后期后期考虑加上此功能</p>
+        <v-checkbox-group :groupData="checkboxData" :checkedData="checkedDatas" disabled="true" name="group-checkbox"></v-checkbox-group>
         <br>
         <p class="mr-b10">测试groupData： 必须参数,其中text为必须字段</p>
         <pre><code data-language="javascript">{{checkboxData}}</code></pre>
