@@ -8,6 +8,7 @@ $button-class: #{$prefix-cls}button;
     box-sizing: border-box;
     color: $font-color-main;
     margin: 2px 0;
+    transition: all ease-in-out 0.3s;
     &#{$button-class}-small {
         padding: 0 10px;
         height: 30px;

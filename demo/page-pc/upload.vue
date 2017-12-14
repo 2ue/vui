@@ -1,6 +1,8 @@
 <template>
     <div>
-        <v-upload></v-upload>
+        <v-upload width="150" multiple="true1" :format="['xls','doc']" size="3kb"></v-upload>
+        <br>
+        <v-upload width="150px" multiple="multiple" accept="image/*"></v-upload>
     </div>
 </template>
 
