@@ -15,6 +15,7 @@ import DatePicker from "../page-pc/date-picker";
 import Menu from "../page-pc/menu";
 import Select from "../page-pc/select";
 import Range from "../page-pc/range";
+import Upload from "../page-pc/upload";
 
 export default [
     { path: "/", component: Index, name: "Index", cname: '首页' },
@@ -30,5 +31,6 @@ export default [
     { path: "/datePicker", component: DatePicker, name: "DatePicker", cname: '日历' },
     { path: "/menu", component: Menu, name: "Menu", cname: '多级菜单' },
     { path: "/select", component: Select, name: "Select", cname: '选择器' },
-    { path: "/range", component: Range, name: "Range", cname: '滑动选择&进度条' }
+    { path: "/range", component: Range, name: "Range", cname: '滑动选择' },
+    { path: "/upload", component: Upload, name: "Upload", cname: '上传' }
 ];
