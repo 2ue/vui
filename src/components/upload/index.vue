@@ -1,5 +1,7 @@
 <template>
-    <div>upload</div>
+    <div class="vui-upload-warp">
+        <input type="file">
+    </div>
 </template>
 
 <script>
