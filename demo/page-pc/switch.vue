@@ -3,27 +3,24 @@
         <p class="vui-page-title">测试check属性：接受布尔，数值，字符串，会按规则转化</p>
         <v-switch>checked为false</v-switch>
         <v-switch checked="true">checked为true</v-switch>
+        <br>
 
+        <p class="mr-b10">测试disbaled属性: 接收boolean值，所有非boolean值将会在组件内部使用!转换,会自动禁用各种事件</p>
+        <v-switch>checked：false</v-switch>
+        <v-switch :disabled="true">checked：true</v-switch>
+        <v-switch :checked="true">checked：true</v-switch>
+        <v-switch :checked="true" :disabled="true">checked：true</v-switch>
+        <br>
         <p class="vui-page-title">测试其他属性：name和value等</p>
         <v-switch name="test">name为test</v-switch>
         <v-switch value="2">name为2</v-switch>
+        <br>
 
-        <p class="vui-page-title">事件绑定：change事件，disabled不设置或者设置为false（包括undefined，0等隐性false）时不会禁用change事件</p>
+        <p class="vui-page-title">事件绑定：change事件</p>
         <v-switch @change="onChange">未设置disabled</v-switch>
         <br>
-        <v-switch disabled="false" @change="onChange">disabled为字符串false</v-switch>
+        <v-switch :disabled="true" @change="onChange">disabled为true</v-switch>
         <br>
-        <v-switch :disabled="false" @change="onChange">disabled为布尔值false</v-switch>
-        <br>
-        <v-switch :disabled="0" @change="onChange">disabled为数值0</v-switch>
-        <br>
-        <v-switch disabled @change="onChange">disabled未定义任何值</v-switch>
-        <br>
-        <v-switch disabled="true" @change="onChange">disabled为字符串true</v-switch>
-        <br>
-        <v-switch :disabled="true" @change="onChange">disabled为布尔值true</v-switch>
-        <br>
-        <v-switch disabled="disbaled" @change="onChange">disabled为其他字符串或数字</v-switch>
     </div>
 </template>
 

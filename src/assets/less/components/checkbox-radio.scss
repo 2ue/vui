@@ -48,7 +48,7 @@ $border-width: 3px;
         vertical-align: middle;
         top: 0;
         left: 0;
-        background-color: #fff;
+        background: #fff;
         border: 1px solid $border-color-less;
         transition: all .2s ease-in-out;
         border-radius: 50%;
@@ -59,7 +59,7 @@ $border-width: 3px;
             border-radius: 50%;
             border-top: 0;
             border-left: 0;
-            background-color: $primary-color;
+            background: $primary-color;
             opacity: 0;
             transition: all .2s ease-in-out;
             transform: scale(0);
@@ -69,12 +69,13 @@ $border-width: 3px;
         opacity: 1;
         transform: scale(1);
     }
+    //禁用
     &#{$radio-class}-disabled {
         cursor: not-allowed;
         #{$radio-class} {
-            background-color: $border-color-little;
+            background: $border-color-little;
             &:after {
-                background-color: grayscale($primary-color);
+                background: grayscale($primary-color);
             }
         }
     }
@@ -99,8 +100,8 @@ $border-width: 3px;
         left: 0;
         border: 1px solid $border-color-less;
         border-radius: 2px;
-        background-color: #fff;
-        transition: border-color .2s ease-in-out, background-color .2s ease-in-out;
+        background: #fff;
+        transition: border-color .2s ease-in-out, background .2s ease-in-out;
         &:after {
             content: "";
             position: absolute;
@@ -114,16 +115,17 @@ $border-width: 3px;
     }
     [type=checkbox]:checked~#{$checkbox-class} {
         border-color: $primary-color;
-        background-color: $primary-color;
+        background: $primary-color;
         &:after {
             transform: rotate(45deg) scale(1);
         }
     }
+    //禁用
     &#{$checkbox-class}-disabled {
         cursor: not-allowed;
         #{$checkbox-class},
         [type=checkbox]:checked~#{$checkbox-class} {
-            background-color: $border-color-little;
+            background: $border-color-little;
             border: 1px solid $border-color-less;
         }
     }
@@ -135,6 +137,7 @@ $border-width: 3px;
 #{$switch-class}-warp {
     margin-right: 5px;
     user-select: none;
+    cursor: pointer;
     #{$switch-class}-text {
         user-select: none;
         color: #666;
@@ -148,18 +151,22 @@ $border-width: 3px;
         &:before {
             content: ' ';
             position: absolute;
+            box-sizing:border-box;
             left: 0;
             top: 0;
             z-index: 1;
             width: 32px;
             height: 16px;
             border-radius: 12px;
-            background: $border-color-main;
+            // background: $border-color-main;
+            background: $border-color-little;
+            border: 1px solid $border-color-less;
             transition: background ease-in-out 0.3s;
         }
         &:after {
             content: ' ';
             position: absolute;
+            box-sizing:border-box;
             left: 3px;
             top: 2px;
             z-index: 2;
@@ -177,6 +184,16 @@ $border-width: 3px;
         }
         &:checked~#{$switch-class}:after {
             left: 17px;
+        }
+    }
+    //禁用
+    &#{$switch-class}-disabled {
+        cursor: not-allowed;
+        #{$switch-class}:before{
+            background: $border-color-less;
+        }
+        [type=checkbox]:checked~#{$switch-class}:before {
+            background: grayscale($primary-color);
         }
     }
 }

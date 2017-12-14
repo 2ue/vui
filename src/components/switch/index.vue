@@ -1,6 +1,6 @@
 <template>
-    <label class="vui-switch-warp" :index="index">
-        <input type="checkbox" v-model="ownChecked" :disabled="ownDisabled" @change="change" :name="name" :value="value">
+    <label class="vui-switch-warp" :class="{'vui-switch-disabled': disabled}" :index="index">
+        <input type="checkbox" v-model="selfChecked" :disabled="disabled" @change="change" :name="name" :value="value">
         <span class="vui-switch vui-dib-vt"></span>
         <span class="vui-dib-vt">
             <slot>{{text}}</slot>
@@ -18,13 +18,7 @@
                     middle: 'vui-switch-middle',
                     larger: 'vui-switch-larger'
                 },
-                ownChecked: !!this.checked
-            }
-        },
-        computed: {
-            ownDisabled: function () {
-                const disabled = this.disabled;
-                return disabled === '' ? true : !disabled || disabled === 'false' ? false : !!disabled;
+                selfChecked: !!this.checked
             }
         },
         props: {
@@ -34,19 +28,21 @@
             },
             text: [String, Number],
             checked: {
-                type: [String, Number, Boolean],
+                default: undefined
+            },
+            disabled: {
                 default: undefined
             },
             name: {
                 type: [String, Number],
             },
             value: [String, Number],
-            index: [String, Number],
-            disabled: [String, Number, Boolean]
+            index: [String, Number]
         },
         methods: {
             change: function (event) {
-                this.$emit('change', event, this.ownChecked, this.value, this.index);
+                if(!this.disabled) return;
+                this.$emit('change', event, this.selfChecked, this.value, this.index);
             }
         }
     }
