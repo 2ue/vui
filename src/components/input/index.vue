@@ -1,5 +1,5 @@
 <template>
-    <input class="vui-input" type="text" ref="vInput" v-model="selfVal" :disabled="disabled" :style="{ width: widthSize }" :readonly="readonly"
+    <input class="vui-input" type="text" ref="vInput" v-model="selfVal" :disabled="disabled" :style="{ width: selfWidth }" :readonly="readonly"
         @input="eventInput" @focus="eventFocus" @blur="eventBlur">
 </template>
 
@@ -12,7 +12,7 @@
             }
         },
         computed: {
-            widthSize: function () {
+            selfWidth: function () {
                 let width = this.width;
                 if (this.$util.isNumber(width)) width = width + 'px';
                 return width;

@@ -1,5 +1,5 @@
 <template>
-    <button class="vui-button" :class="className" :style="{ width:widthSize }" @click="click">
+    <button class="vui-button" :class="className" :style="{ width:selfWidth }" @click="click">
         <slot>{{ text }}</slot>
     </button>
 </template>
@@ -23,7 +23,7 @@
             }
         },
         computed: {
-            widthSize: function () {
+            selfWidth: function () {
                 let width = this.width;
                 if (this.$util.isNumber(width)) width = width + 'px';
                 return width;
