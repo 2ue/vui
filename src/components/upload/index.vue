@@ -21,11 +21,11 @@
             selfSize() {
                 const size = this.size;
                 if (!size) return undefined;
-                const matchVal = size.toString().match(/^([\d]+)(M|m|K|k|KB|kb)*$/);
+                const matchVal = size.toString().match(/^([\d]+)(M|m|MB|mb|K|k|KB|kb)*$/);
                 if (!matchVal) {
                     return undefined;
                 } else {
-                    return matchVal[1] * (!matchVal[2] || ['m', 'M'].indexOf(matchVal[2]) >= 0 ? 1024 : ['k', 'K', 'kb', 'KB'].indexOf(matchVal[2]) >= 0 ? 1 : 0);
+                    return matchVal[1] * (!matchVal[2] || ['m', 'M', 'mb', 'MB'].indexOf(matchVal[2]) >= 0 ? 1024 : ['k', 'K', 'kb', 'KB'].indexOf(matchVal[2]) >= 0 ? 1 : 0);
                 }
 
             }
@@ -69,6 +69,15 @@
             onChange(e) {
                 const files = e.target.files;
                 if (!files) return;
+                let sizeFiles = this.checkSize(files), typeFiles = this.checkType(files);
+                if (sizeFiles.length > 0) {
+                    this.$alert('文件格式大小超出了限制: ' + this.size);
+                    return false;
+                }
+                if (typeFiles.length > 0) {
+                    this.$alert('文件格式超出了限制: ' + this.format.join(','));
+                    return false;
+                }
                 this.srcArr = this.getImgURL(files);
                 this.uploadFiles(files);
                 e.target.value = null;
@@ -85,14 +94,12 @@
             //返回超出大小限制的文件
             checkSize(files) {
                 return [...files].filter((file) => {
-                    console.log(file.size, this.selfSize)
                     return !!this.selfSize && this.selfSize < file.size;
                 })
             },
             //返回格式限制之外的文件
             checkType(files) {
                 return [...files].filter((file) => {
-                    console.log("file.name.split('.')[1]==>", this.format.indexOf(file.name.split('.')[1]))
                     return this.format.indexOf(file.name.split('.')[1]) === -1;
                 })
             }
