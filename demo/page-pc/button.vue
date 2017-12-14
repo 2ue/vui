@@ -41,7 +41,8 @@
         methods: {
             clickEvent: function (event) {
                 console.log('被点击了');
-                this.$loading.show()
+                this.$loading.show('Loading 两秒后关闭！');
+                this.$loading.close(2000);
             }
         }
     }

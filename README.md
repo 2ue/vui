@@ -75,3 +75,7 @@ a ui framework  build with vue for pc。
 > 定义一套变量，希望在任何地方都能使用
 
 在vue-loader里面添加配置规则就可以了
+
+## 如何不渲染一个HTML标签的属性
+
+在vue渲染HTML标签属性（假设渲染a属性）时，属性值为undefined或者null不会被渲染出来（包括a都不会在标签上显示），如果为空字符串就会被渲染成a=""

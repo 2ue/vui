@@ -6,11 +6,14 @@
             <v-range :sectionValue="[-20,199]"></v-range>
         </div>
         <div class="vui-p">
-            <p>range属性：是否开启两个选择点，只对value属性是数字时生效，</p>
-            <p>value属性：选择的值，可以是数字、数组和空，超过边界值时，自动等于边界值</p>
-            <p>value为空，则默认为sectionValue[0];</p>
+            <p>range属性：是否开启两个选择点，只对value属性是数字时生效，value为数组时将忽略此属性，自动开启两个选择点</p>
+            <p>value属性：选择的值，可以为空、数字、数组（为数组时，超过边界值，自动等于边界值）</p>
+            <p>value为空或者位数字不在sectionValue范围内，则默认为sectionValue[0];</p>
             <p>
                 <v-range :sectionValue="[-20,80]"></v-range>
+            </p>
+            <p>
+                <v-range :sectionValue="[-20,80]" value="200"></v-range>
             </p>
             <p>value为数字时默认只有一个选择点，可以设置range属性为true开启两个选择点,value则会变为[sectionValue[0],value]</p>
             <p>
@@ -30,15 +33,15 @@
             <v-range :sectionValue="[0,300]" value="100" :disabled="true"></v-range>
         </div>
         <div class="vui-p">
-            <p>showDataTips属性：是否显示data-tips；支持none，always和hover，分别一直不显示，总是显示，鼠标悬浮时显示，默认hover</p>
+            <p>showDataTips属性：是否显示data-tips；支持none，always和hover，分别一直不显示，总是显示，鼠标悬浮时显示，默认none</p>
             <p>
-                <v-range :sectionValue="[0,200]" value="300"></v-range>
+                <v-range :sectionValue="[0,200]" value="30"></v-range>
             </p>
             <p>
-                <v-range :sectionValue="[0,200]" value="300" showDataTips="always"></v-range>
+                <v-range :sectionValue="[0,200]" value="100" showDataTips="always"></v-range>
             </p>
             <p>
-                <v-range :sectionValue="[0,200]" value="150" showDataTips="none"></v-range>
+                <v-range :sectionValue="[0,200]" value="150" showDataTips="hover"></v-range>
             </p>
         </div>
     </div>

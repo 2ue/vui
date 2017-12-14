@@ -2,8 +2,8 @@
     <div class="vui-range" :style="styles" :class="{'vui-range-disabled': disabled}" @click.self="clickBar" ref="wrap">
         <input type="range" hidden>
         <label @click.self="clickBar" :style="{width: selfPonits[1] - selfPonits[0] + 'px',left:selfPonits[0] + 'px'}">
-            <span v-if="selfShowStartPoint" class="vui-range-start" :class="classes" ref="satrtPoint" :data-tips="showDataTips!=='none' ? selfValue[0] : ''"></span>
-            <span class="vui-range-end" :class="classes" ref="endPoint" :data-tips="selfValue[1]"></span>
+            <span v-if="selfShowStartPoint" class="vui-range-start" :class="classes" ref="satrtPoint" :data-tips="showDataTips!=='none' ? selfValue[0] : null"></span>
+            <span class="vui-range-end" :class="classes" ref="endPoint" :data-tips="showDataTips!=='none' ? selfValue[1] : null"></span>
         </label>
     </div>
 </template>
@@ -52,11 +52,21 @@
         },
         props: {
             value: {
-                type: [Number, Array, String]
+                type: [Number, Array, String],
+                validator: function (value) {
+                    const res = typeof value === 'object' ? value[1] > value[0] : true;
+                    if (!res) console.error('属性value区间值，必须最小值在前，最大值在后');
+                    return res;
+                }
             },
             sectionValue: {
                 type: [Array],
-                default: () => [0, 100]
+                default: () => [0, 100],
+                validator: function (value) {
+                    const res = value[1] > value[0];
+                    if (!res) console.error('属性sectionValue区间值，必须最小值在前，最大值在后');
+                    return res;
+                }
             },
             disabled: {
                 type: Boolean,
@@ -68,7 +78,7 @@
             },
             showDataTips: {
                 type: String,
-                default: 'hover'
+                default: 'none'
             },
             range: Boolean
         },
@@ -86,7 +96,7 @@
                         value = [sectionValue[0], value];
                     } else {
                         if (value < sectionValue[0] || value > sectionValue[1]) {
-                            value = [0, 0];
+                            value = [sectionValue[0], sectionValue[0]];
                         } else {
                             value = [sectionValue[0], +value];
                         }

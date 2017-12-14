@@ -1,8 +1,8 @@
 /*
  * @Author: 2ue
  * @Date: 2017-11-09 09:43:58
- * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2017-12-07 10:05:26
+ * @Last Modified by: 2ue
+ * @Last Modified time: 2017-12-14 09:49:48
  */
 
 const DATE = new Date();
@@ -58,7 +58,6 @@ export default {
             rule: 'ms{1,2}',
             value: date.getMilliseconds()
         }];
-        console.log('addada==>', fmt)
 
         _rules.forEach((_r) => {
             const rule = _r.rule, val = _r.value;
@@ -67,7 +66,7 @@ export default {
                 return (fLen !== 2 || rLen >= fLen) ? val : ['00', val].join('').substr(rLen);
             });
         });
-        console.log(fmt);
+
         return fmt;
     },
     //修正年月
@@ -125,7 +124,6 @@ export default {
                 weekDay: WEEKTABLE.common.cn[weekDayFlag]
             })
         };
-        // console.log('dayArrays==>', { ...dayArrays })
         return dayArrays;
     }
 }
