@@ -4,7 +4,8 @@
             <div class="vui-modal-header">
                 <p class="vui-modal-title vui-clear">
                     {{title}}
-                    <span class="vui-right vui-modal-close" @click="close">x</span>
+                    <!-- <span class="vui-right vui-modal-close" @click="close">x</span> -->
+                    <v-icon class="vui-modal-close" type="close" size="small" @click="close(i)"></v-icon>
                 </p>
             </div>
             <div class="vui-modal-body vui-modal-content" v-if="!content">

@@ -28,18 +28,14 @@ $loading-class: #{$prefix-cls}loading;
             text-align: left;
         }
         #{$modal-class}-close {
-            text-align: center;
-            display: inline-block;
-            vertical-align: top;
             float: right;
             cursor: pointer;
-            width: $title-height;
-            font-size: 18px;
-            color: $font-color-main;
-            transition: all ease-in-out 0.2s;
+            text-align: center;
+            line-height: 40px;
+            width: 40px;
             &:hover {
                 color: $font-color-dark;
-                transform: scale(1.2)
+                font-size: 20px;
             }
         }
     }
