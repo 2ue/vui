@@ -7,3 +7,9 @@ publicPath表示打包文件中引用文件的路径前缀，如果你的图片�
 ## 参考动画效果
 
 [案例](http://www.yyyweb.com/350.html)
+
+## zeeTree组件
+
+- 支持编辑修改，拖拽等
+
+## 轮播

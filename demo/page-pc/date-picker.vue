@@ -87,6 +87,7 @@
     table {
         background: $border-color-little;
         width: 60%;
+        min-width: 400px;
     }
 
     th,

@@ -4,6 +4,7 @@
         <p class="vui-page-title">测试multiple属性：是否多选</p>
         <v-upload width="150" :multiple="true"></v-upload>
         <br>
+
         <p class="vui-page-title">测试disabled属性：是否禁用</p>
         <v-upload width="150" :disabled="true"></v-upload>
         <br>

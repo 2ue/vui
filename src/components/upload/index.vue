@@ -89,11 +89,11 @@
                 this.fileList = this.getFIlesInfo(files);
                 //图片预览
                 this.srcArr = this.getImgURL(files);
-                this.uploadFiles(files);
+                this.uploadFiles([...this.fileList]);
                 e.target.value = null;
             },
             uploadFiles(files) {
-                // console.log('files==>', files);
+                this.$emit('uploadFiles', files);
             },
             //返回超出大小限制的文件
             checkSize(files) {
