@@ -75,9 +75,10 @@
                     return false;
                 }
                 if (typeFiles.length > 0) {
-                    this.$alert('文件格式超出了限制: ' + this.format.join(','));
+                    this.$alert('文件格式不支持，仅支持: ' + this.format.join(','));
                     return false;
-                }
+                };
+                //增加图片预览
                 this.srcArr = this.getImgURL(files);
                 this.uploadFiles(files);
                 e.target.value = null;
