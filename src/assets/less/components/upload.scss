@@ -1,9 +1,32 @@
-$range-class: #{$prefix-cls}upload;
-#{$range-class}-warp {
+$upload-class: #{$prefix-cls}upload;
+#{$upload-class}-warp {
     display: inline-block;
     box-sizing: border-box;
     position: relative;
     input[type=file] {
         display: none;
+    }
+    #{$upload-class}-files-box {
+        margin-top: 10px;
+    }
+    #{$upload-class}-files {
+        display: inline-block;
+        background: $border-color-less;
+        padding: 3px 8px;
+        border-radius: $border-radius-modal;
+        color: $font-color-dark;
+        font-size: 12px;
+        margin: 5px 5px 5px 0;
+        transition: all ease-in-out 0.3s;
+        &:hover {
+            box-shadow: 0 0 1px 1px rgba(27, 43, 219, 0.1);
+        }
+        i {
+            vertical-align: middle;
+        }
+    }
+    #{$upload-class}-remove-file {
+        cursor: pointer;
+        margin-left: 5px;
     }
 }

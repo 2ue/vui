@@ -1,5 +1,5 @@
 <template>
-    <i class="vui-icon-font" :style="{'font-size': fontVal, color: color }" :class="classes"></i>
+    <i class="vui-icon-font" :style="{'font-size': fontVal, color: color }" :class="classes" @click="click"></i>
 </template>
 
 <script>
@@ -45,6 +45,9 @@
             }
         },
         methods: {
+            click(event) {
+                this.$emit('click', event);
+            }
         }
     }
 
