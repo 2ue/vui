@@ -1,13 +1,13 @@
 <template>
-    <div class="vui-menu">
-        <menu-items :menuData="selfMenuData" :showOne="showOne" :mapTable="mapTable" @click="click"></menu-items>
+    <div class="vui-tree-menu">
+        <tree-menu-items :menuData="selfMenuData" :mapTable="mapTable" @click="click"></tree-menu-items>
     </div>
 </template>
 
 <script>
-    import MenuItems from "./items.vue";
+    import TreeMenuItems from "./items.vue";
     export default {
-        name: "vMenu",
+        name: "vTreeMenu",
         data() {
             return {
                 selfMenuData: [],
@@ -16,11 +16,10 @@
         },
         props: {
             menuData: Array,
-            showOne: Boolean,
             mapTable: Object
         },
         components: {
-            MenuItems
+            TreeMenuItems
         },
         created() {
             const items = !this.menuData || this.menuData.length === 0 ? [] : [...this.menuData];

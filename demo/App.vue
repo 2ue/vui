@@ -3,7 +3,7 @@
         <v-header></v-header>
         <div class="warper-content clear">
             <div class="menu">
-                <v-menu class="menu-list" :menuData="RouterList" :showOne="true" :mapTable="mapTable"></v-menu>
+                <v-menu class="menu-list" :menuData="RouterList" @click="click" :showOne="true" :mapTable="mapTable"></v-menu>
             </div>
             <div class="main">
                 <router-view></router-view>
@@ -35,6 +35,10 @@
             VFooter
         },
         methods: {
+            click(items) {
+                console.log('sss', items);
+                this.$router.push(items.path);
+            }
         }
     }
 

@@ -13,6 +13,7 @@ import Radio from "../page-pc/radio";
 import Switch from "../page-pc/switch";
 import DatePicker from "../page-pc/date-picker";
 import Menu from "../page-pc/menu";
+import TreeMenu from "../page-pc/tree-menu";
 import Select from "../page-pc/select";
 import Range from "../page-pc/range";
 import Upload from "../page-pc/upload";
@@ -31,6 +32,7 @@ export default [
     { path: "/switch", component: Switch, name: "Switch", cname: '开关' },
     { path: "/datePicker", component: DatePicker, name: "DatePicker", cname: '日历' },
     { path: "/menu", component: Menu, name: "Menu", cname: '多级菜单' },
+    { path: "/tree-menu", component: TreeMenu, name: "TreeMenu", cname: '菜单树' },
     { path: "/select", component: Select, name: "Select", cname: '选择器' },
     { path: "/range", component: Range, name: "Range", cname: '滑动选择' },
     { path: "/upload", component: Upload, name: "Upload", cname: '上传' },

@@ -1,4 +1,5 @@
 $menu-class: #{$prefix-cls}menu;
+$tree-menu-class: #{$prefix-cls}tree-menu;
 #{$menu-class}>ul {
     border: 1px solid $border-color-less;
     border-bottom: none;
@@ -15,10 +16,13 @@ $menu-class: #{$prefix-cls}menu;
     #{$menu-class}-custom {
         padding: 8px 10px;
     }
-    a {
+    span {
         display: block;
         padding: 8px 10px;
         transition: all ease-in-out 0.2s;
+    }
+    i {
+        margin-right: 5px;
     }
     li {
         border-bottom: 1px solid $border-color-little;
@@ -31,20 +35,27 @@ $menu-class: #{$prefix-cls}menu;
         &#{$menu-class}-actived>p {
             background: $primary-color;
             color: #fff;
+            i {
+                color: #fff;
+            }
         }
     }
 }
 
-#{$menu-class}-items-enter-active {
+#{$menu-class}-items-enter-active,
+#{$tree-menu-class}-items-enter-active {
     transition: all .3s ease-in-out;
 }
 
-#{$menu-class}-items-leave-active {
+#{$menu-class}-items-leave-active,
+#{$tree-menu-class}-items-leave-active {
     transition: all .3s ease-in-out;
 }
 
 #{$menu-class}-items-enter,
-#{$menu-class}-items-leave-to {
+#{$tree-menu-class}-items-enter,
+#{$menu-class}-items-leave-to,
+#{$tree-menu-class}-items-leave-to {
     transform: translateX(5px);
     opacity: 0;
 }

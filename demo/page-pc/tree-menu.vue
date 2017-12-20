@@ -1,13 +1,13 @@
 <template>
     <div>
-        <v-menu :menuData="menuData" :mapTable="mapTable"></v-menu>
+        <v-tree-menu :menuData="menuData" :showOne="true" :mapTable="mapTable"></v-tree-menu>
     </div>
 </template>
 
 <script>
     import menuData from "../../data/menu.json";
     export default {
-        name: 'menu',
+        name: 'tree-menu',
         data() {
             return {
                 menuData: [...menuData.items],

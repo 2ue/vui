@@ -17,6 +17,7 @@ import RadioGroup from "./components/radio/group.vue";
 import Switch from "./components/switch/index.vue";
 import DatePicker from "./components/date-picker/index.vue";
 import Menu from "./components/menu/index.vue";
+import TreeMenu from "./components/tree-menu/index.vue";
 import Select from "./components/select/index.vue";
 import SelectGroup from "./components/select/group.vue";
 import Range from "./components/range/index.vue";
@@ -37,6 +38,7 @@ const components = {
     Switch,
     DatePicker,
     Menu,
+    TreeMenu,
     Select,
     SelectGroup,
     Range,
