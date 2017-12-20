@@ -2,10 +2,11 @@
     <transition name="vui-tree-menu-items">
         <ul class="vui-tree-menu-items f-disselected">
             <li class="vui-tree-menu-item" v-for="(item,index) in selfMenuData" :class="getActivedClass(item)">
-                <p @click="showChildren(index)" :style="getStyleObject(item)">
-                    <v-icon v-if="item._hasChildren" :type="iconType[item._showChildren ? 1 : 0]" size="16"></v-icon>
+                <span @click="showChildren(index)" :style="getStyleObject(item)">
+                    <v-icon v-if="item._hasChildren" :type="iconType[item._showChildren ? 1 : 0]" size="14"></v-icon>
+                    <v-checkbox :name="name" @onClick.self.stop="checked(index)"></v-checkbox>
                     {{ item[slefMapTable.name] }}
-                </p>
+                </span>
                 <menu-item v-if="item._showChildren && item._hasChildren" :menuData="item.children" :mapTable="slefMapTable" @click="click"></menu-item>
             </li>
         </ul>
@@ -25,7 +26,8 @@
             return {
                 selfMenuData: [...this.menuData],
                 slefMapTable: { ...mapTableDefault, ...this.mapTable },
-                iconType: ['add', 'minus']
+                iconType: ['add', 'minus'],
+                name: this.$util.gId()
             };
         },
         props: {
@@ -66,6 +68,10 @@
             },
             click(items) {
                 this.$emit('click', { ...items });
+            },
+            checked(index) {
+                console.log('index==>', index)
+                this.$emit('checked', { ...this.selfMenuData[index] });
             }
         }
     };

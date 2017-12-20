@@ -1,7 +1,7 @@
 <template>
     <label :class="classes" :index="index">
-        <input v-if="selfChecked" type="radio" checked :disabled="disabled" @click="click" :name="name" :value="value">
-        <input v-else type="radio" @click="click" :disabled="disabled" :name="name" :value="value">
+        <input v-if="selfChecked" type="radio" checked :disabled="disabled" @click.stop="click" :name="name" :value="value">
+        <input v-else type="radio" @click="click" :disabled="disabled" :name="selfName" :value="value">
         <span class="vui-radio"></span>
         <slot></slot>
     </label>
@@ -17,7 +17,8 @@
                     middle: 'vui-radio-warp vui-radio-warp-middle',
                     larger: 'vui-radio-warp vui-radio-warp-larger'
                 },
-                selfChecked: !!this.checked
+                selfChecked: !!this.checked,
+                selfName: this.name || this.$util.gId()
             }
         },
         props: {
@@ -46,7 +47,7 @@
         },
         methods: {
             click: function (event) {
-                if (!this.disabled) return;
+                if (!!this.disabled) return;
                 this.$emit('onClick', event, this.value, this.index);
             }
         }

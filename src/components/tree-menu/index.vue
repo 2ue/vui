@@ -1,6 +1,6 @@
 <template>
     <div class="vui-tree-menu">
-        <tree-menu-items :menuData="selfMenuData" :mapTable="mapTable" @click="click"></tree-menu-items>
+        <tree-menu-items :menuData="selfMenuData" :mapTable="mapTable" @click="click" @checked="checked"></tree-menu-items>
     </div>
 </template>
 
@@ -43,6 +43,10 @@
         methods: {
             click(items) {
                 this.$emit('click', { ...items });
+            },
+            checked(items) {
+                console.log('yyyyyy==>', { ...items })
+                this.$emit('checked', { ...items });
             }
         }
     };

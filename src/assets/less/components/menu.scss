@@ -42,6 +42,7 @@ $tree-menu-class: #{$prefix-cls}tree-menu;
     }
 }
 
+//动画
 #{$menu-class}-items-enter-active,
 #{$tree-menu-class}-items-enter-active {
     transition: all .3s ease-in-out;
@@ -58,4 +59,9 @@ $tree-menu-class: #{$prefix-cls}tree-menu;
 #{$tree-menu-class}-items-leave-to {
     transform: translateX(5px);
     opacity: 0;
+}
+
+//tree-menu
+#{$tree-menu-class} {
+    // background: #f30;
 }

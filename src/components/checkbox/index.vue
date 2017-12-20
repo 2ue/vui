@@ -1,6 +1,6 @@
 <template>
     <label :class="classes" :index="index">
-        <input type="checkbox" v-model="selfChecked" :disabled="disabled" @click="click" :name="name" :value="value">
+        <input type="checkbox" v-model="selfChecked" :disabled="disabled" @click.stop.self="click" :name="selfName" :value="value">
         <span class="vui-checkbox"></span>
         <slot></slot>
     </label>
@@ -16,7 +16,8 @@
                     middle: 'vui-checkbox-warp vui-checkbox-warp-middle',
                     larger: 'vui-checkbox-warp vui-checkbox-warp-larger'
                 },
-                selfChecked: !!this.checked
+                selfChecked: !!this.checked,
+                selfName: this.name || this.$util.gId()
             }
         },
         props: {
@@ -45,7 +46,7 @@
         },
         methods: {
             click: function (event) {
-                if (!this.disabled) return;
+                if (!!this.disabled) return;
                 this.$emit('onClick', event, this.selfChecked, this.value, this.index);
             }
         }
