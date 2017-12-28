@@ -13,6 +13,7 @@
 
     import DatePickerPanel from "./date-picker-panel.vue"
     import datePikcer from '@utils/date-picker.js'
+    import calendar from '@utils/calendar.js'
 
     export default {
         name: 'vDatePicker',
@@ -58,6 +59,9 @@
             changeDate(val) {
                 this.selfSelectedDate = val;
                 this.updatePanelStatus(false, 10);
+                var kk = val.split(/-|\//);
+                console.log(calendar.solar2lunar(kk[0], kk[1], kk[2]))
+                console.log(calendar.lunar2solar(kk[0] - 1, kk[1], kk[2]))
                 this.$emit('changeDate', val)
             }
         }
