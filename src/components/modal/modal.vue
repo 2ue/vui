@@ -34,7 +34,8 @@
         data() {
             return {
                 ...OPTIONS_DEFALUT,
-                selfOoptions: typeof this.options === 'object' ? { ...this.options } : this.options
+                // selfOoptions: typeof this.options === 'object' ? { ...this.options } : this.options
+                selfOoptions: {}
             }
         },
         watch: {
@@ -53,18 +54,18 @@
                 },
                 deep: true
             },
-            options: {
-                handler(options) {
-                    this.selfOoptions = typeof options === 'object' ? { ...options } : options;
-                },
-                deep: true
-            }
+            // options: {
+            //     handler(options) {
+            //         this.selfOoptions = typeof options === 'object' ? { ...options } : options;
+            //     },
+            //     deep: true
+            // }
         },
-        props: {
-            options: {
-                type: [Object, Number, String]
-            }
-        },
+        // props: {
+        //     options: {
+        //         type: [Object, Number, String]
+        //     }
+        // },
         methods: {
             show: function (_OPTIONS) {
                 if (!!_OPTIONS) this.selfOoptions = typeof _OPTIONS === 'object' ? { ..._OPTIONS, showModal: true } : { content: _OPTIONS, showModal: true };

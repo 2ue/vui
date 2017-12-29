@@ -2,14 +2,10 @@ import Alert from "../modal/modal.js";
 
 let instance;
 
-const install = (Vue, _OPTIONS) => {
-    function getInstance(o) {
-        o = o || Alert.created(Vue, _OPTIONS || {});
-        return o;
-    }
+const install = (Vue) => {
     const show = (text, t) => {
-        instance = Alert.created(Vue, _OPTIONS || {});
         const options = { footer: false, content: text };
+        instance = instance || Alert.created(Vue);
         instance.show(options);
         if (t) {
             setTimeout(() => {
@@ -17,8 +13,6 @@ const install = (Vue, _OPTIONS) => {
             }, t);
         }
     };
-
-    //挂在一些全局方法
     Vue.prototype.$alert = show;
 };
 export default { install };

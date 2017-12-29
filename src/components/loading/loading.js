@@ -1,17 +1,11 @@
 import Loading from "./loading.vue";
 
-Loading.created = (Vue, properties) => {
-    const _props = properties || {};
-
+Loading.created = (Vue) => {
     const instance = new Vue({
-        data: _props,
-        render(h) {
-            return h(Loading, { props: _props });
-        }
-    });
+        render: h => h(Loading)
+    }).$mount();
 
-    const component = instance.$mount();
-    document.body.appendChild(component.$el);
+    document.body.appendChild(instance.$el);
     return instance.$children[0];
 };
 

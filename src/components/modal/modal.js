@@ -1,13 +1,8 @@
 import Modal from "./modal.vue";
 
 Modal.created = (Vue, properties) => {
-    const _props = properties || {};
-
     const instance = new Vue({
-        data: _props,
-        render(h) {
-            return h(Modal, { props: _props });
-        }
+        render: h => h(Modal)
     });
 
     const component = instance.$mount();

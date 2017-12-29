@@ -1,5 +1,5 @@
 <template>
-    <div class="vui-modal-shade" v-if="showLoading" @click.self="close">
+    <div class="vui-modal-shade" v-if="showLoading">
         <div class="vui-loading-progress">
             <div v-if="!loadingHtml">
                 <p>{{ loadingText }}</p>
@@ -28,13 +28,10 @@
         },
         watch: {
             showLoading: function (val) {
-                this.setStyle(val);
+                document.getElementsByTagName('body')[0].style.overflow = val ? 'hidden' : 'auto';
             }
         },
         methods: {
-            setStyle: function (hidden) {
-                document.getElementsByTagName('body')[0].style.overflow = hidden ? 'hidden' : 'auto';
-            },
             show: function (options) {
                 if (!!options) {
                     let _html, _text;
