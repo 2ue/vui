@@ -11,6 +11,10 @@
         <v-switch :checked="true">checked：true</v-switch>
         <v-switch :checked="true" :disabled="true">checked：true</v-switch>
         <br>
+        <p class="vui-page-title">测试size属性</p>
+        <v-switch size="middle"></v-switch>
+        <v-switch size="larger"></v-switch>
+        <br>
         <p class="vui-page-title">测试其他属性：name和value等</p>
         <v-switch name="test">name为test</v-switch>
         <v-switch value="2">name为2</v-switch>

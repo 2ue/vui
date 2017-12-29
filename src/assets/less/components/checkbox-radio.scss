@@ -5,6 +5,9 @@ $switch-class: #{$prefix-cls}switch;
 $default-size: 14px;
 $middle-size: 16px;
 $larger-size: 20px;
+$switch-default-size: 20px;
+$switch-middle-size: 24px;
+$switch-larger-size: 28px;
 $border-width: 3px;
 //radio不同的尺寸样式
 @mixin radio-size($type: small, $size: $default-size) {
@@ -36,6 +39,28 @@ $border-width: 3px;
     }
 }
 
+//switch不同的尺寸样式
+@mixin switch-size($type: small, $size: $switch-default-size) {
+    &-#{$type} #{$switch-class} {
+        height: $size;
+        padding-left: $size * 1.6 + 10;
+        &:before {
+            width: $size * 1.6;
+            height: $size;
+            border-radius: $size / 2;
+        }
+        &:after {
+            width: $size;
+            height: $size;
+        }
+    }
+    &-#{$type} [type=checkbox] {
+        &:checked~#{$switch-class}:after {
+            left: $size * 0.6 + 1;
+        }
+    }
+}
+
 #{$radio-class}-warp {
     position: relative;
     display: inline-block;
@@ -49,7 +74,7 @@ $border-width: 3px;
         top: 0;
         left: 0;
         background: #fff;
-        border: 1px solid $border-color-less;
+        border: 1px solid $primary-color;
         transition: all .2s ease-in-out;
         border-radius: 50%;
         &:after {
@@ -68,12 +93,12 @@ $border-width: 3px;
     [type=radio]:checked~#{$radio-class}:after {
         opacity: 1;
         transform: scale(1);
-    }
-    //禁用
+    } //禁用
     &#{$radio-class}-disabled {
         cursor: not-allowed;
         #{$radio-class} {
             background: $border-color-little;
+            border-color: $border-color-less;
             &:after {
                 background: grayscale($primary-color);
             }
@@ -98,7 +123,7 @@ $border-width: 3px;
         height: 14px;
         top: 0;
         left: 0;
-        border: 1px solid $border-color-less;
+        border: 1px solid $primary-color;
         border-radius: 2px;
         background: #fff;
         transition: border-color .2s ease-in-out, background .2s ease-in-out;
@@ -119,14 +144,13 @@ $border-width: 3px;
         &:after {
             transform: rotate(45deg) scale(1);
         }
-    }
-    //禁用
+    } //禁用
     &#{$checkbox-class}-disabled {
         cursor: not-allowed;
         #{$checkbox-class},
         [type=checkbox]:checked~#{$checkbox-class} {
             background: $border-color-little;
-            border: 1px solid $border-color-less;
+            border-color: $border-color-less;
         }
     }
     @include checkbox-size();
@@ -140,60 +164,53 @@ $border-width: 3px;
     cursor: pointer;
     #{$switch-class}-text {
         user-select: none;
-        color: #666;
         font-size: 14px;
     }
     #{$switch-class} {
         position: relative;
-        height: 20px;
-        padding-left: 42px;
         vertical-align: middle;
+        user-select: none;
         &:before {
             content: ' ';
             position: absolute;
-            box-sizing:border-box;
+            box-sizing: border-box;
             left: 0;
             top: 0;
             z-index: 1;
-            width: 32px;
-            height: 16px;
-            border-radius: 12px;
-            // background: $border-color-main;
-            background: $border-color-little;
-            border: 1px solid $border-color-less;
-            transition: background ease-in-out 0.3s;
+            border: 1px solid darken($border-color-less, 0.8);
+            transition: all ease-in-out 0.3s;
         }
         &:after {
             content: ' ';
             position: absolute;
-            box-sizing:border-box;
-            left: 3px;
-            top: 2px;
+            box-sizing: border-box;
+            left: 0;
+            top: 0;
             z-index: 2;
-            width: 12px;
-            height: 12px;
             border-radius: 50%;
             background: #fff;
-            box-shadow: 0 0 2px 2px rgba(112, 115, 148, 0.4);
-            transition: left ease-in-out 0.3s;
+            border: 1px solid $border-color-less;
+            transition: all ease-in-out 0.3s;
         }
     }
     [type=checkbox] {
         &:checked~#{$switch-class}:before {
             background: $primary-color;
+            border-color: $primary-color;
         }
-        &:checked~#{$switch-class}:after {
-            left: 17px;
-        }
-    }
-    //禁用
+    } //禁用
     &#{$switch-class}-disabled {
         cursor: not-allowed;
-        #{$switch-class}:before{
+        #{$switch-class}:before {
             background: $border-color-less;
+            border-color: darken($border-color-less, 1.5);
         }
         [type=checkbox]:checked~#{$switch-class}:before {
             background: grayscale($primary-color);
+            border-color: grayscale($primary-color);
         }
     }
+    @include switch-size();
+    @include switch-size($type: middle, $size: $switch-middle-size);
+    @include switch-size($type: larger, $size: $switch-larger-size);
 }
