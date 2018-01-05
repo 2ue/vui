@@ -9,7 +9,8 @@
         "cheerio": "^1.0.0-rc.2",
         "iconv-lite": "^0.4.19",
         "request": "^2.83.0",
-        "superagent": "^3.8.2"
+        "superagent": "^3.8.2",
+        "mockjs": "^1.0.1-beta3"
     },
     "devDependencies": {}
 }
