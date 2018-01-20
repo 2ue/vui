@@ -14,3 +14,6 @@ yarn-error.log*
 .history
 .project
 .vscode
+
+date-year/
+date-year1/

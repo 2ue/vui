@@ -17,7 +17,6 @@ import TreeMenu from "../page-pc/tree-menu";
 import Select from "../page-pc/select";
 import Range from "../page-pc/range";
 import Upload from "../page-pc/upload";
-import Test from "../page-pc/test";
 
 export default [
     { path: "/", component: Index, name: "Index", cname: '首页' },
@@ -25,16 +24,15 @@ export default [
     { path: "/button", component: Button, name: "Button", cname: '按钮' },
     { path: "/icon", component: Icon, name: "Icon", cname: '字体图标' },
     { path: "/input", component: Input, name: "Input", cname: '输入框' },
-    { path: "/dataTips", component: DataTips, name: "DataTips", cname: '模拟原生title提示' },
+    { path: "/data-tips", component: DataTips, name: "DataTips", cname: '模拟原生title提示' },
     { path: "/modal", component: Modal, name: "Modal", cname: '弹窗系列' },
     { path: "/chexkbox", component: Chexkbox, name: "Chexkbox", cname: '复选框' },
     { path: "/radio", component: Radio, name: "Radio", cname: '单选框' },
     { path: "/switch", component: Switch, name: "Switch", cname: '开关' },
-    { path: "/datePicker", component: DatePicker, name: "DatePicker", cname: '日历' },
+    { path: "/date-picker", component: DatePicker, name: "DatePicker", cname: '日历' },
     { path: "/menu", component: Menu, name: "Menu", cname: '多级菜单' },
     { path: "/tree-menu", component: TreeMenu, name: "TreeMenu", cname: '菜单树' },
     { path: "/select", component: Select, name: "Select", cname: '选择器' },
     { path: "/range", component: Range, name: "Range", cname: '滑动选择' },
-    { path: "/upload", component: Upload, name: "Upload", cname: '上传' },
-    { path: "/Test", component: Test, name: "Test", cname: 'Test' }
+    { path: "/upload", component: Upload, name: "Upload", cname: '上传' }
 ];
