@@ -8,7 +8,7 @@ import Icon from "../page-pc/icon";
 import Input from "../page-pc/input";
 import DataTips from "../page-pc/data-tips";
 import Modal from "../page-pc/modal";
-import Chexkbox from "../page-pc/checkbox";
+import Checkbox from "../page-pc/checkbox";
 import Radio from "../page-pc/radio";
 import Switch from "../page-pc/switch";
 import DatePicker from "../page-pc/date-picker";
@@ -26,7 +26,7 @@ export default [
     { path: "/input", component: Input, name: "Input", cname: '输入框' },
     { path: "/data-tips", component: DataTips, name: "DataTips", cname: '模拟原生title提示' },
     { path: "/modal", component: Modal, name: "Modal", cname: '弹窗系列' },
-    { path: "/chexkbox", component: Chexkbox, name: "Chexkbox", cname: '复选框' },
+    { path: "/checkbox", component: Checkbox, name: "Checkbox", cname: '复选框' },
     { path: "/radio", component: Radio, name: "Radio", cname: '单选框' },
     { path: "/switch", component: Switch, name: "Switch", cname: '开关' },
     { path: "/date-picker", component: DatePicker, name: "DatePicker", cname: '日历' },
