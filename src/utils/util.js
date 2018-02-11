@@ -44,10 +44,22 @@ export default {
      * @function: 生成唯一ID
      * @returns: String
      */
+    // gId: () => {
+    //     function r() {
+    //         return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    //     }
+    //     return (`${gStr() + r()}-${r()}-${r()}-${r()}-${r() + r() + r()}`);
+    // }
     gId: () => {
-        function r() {
-            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-        }
-        return (`${r() + r()}-${r()}-${r()}-${r()}-${r() + r() + r()}`);
-    }
+        const r = this.gStr;
+        return (`${r(4) + r(4)}-${r(4)}-${r(4)}-${r(4)}-${r(4) + r(4) + r(4)}`);
+    },
+
+    /**
+     * @function: 生成随机字符串
+     * @returns: String
+     */
+    gStr: (len) => {
+        return Math.random().toString(36).substr(2, len || undefined);
+    },
 };
