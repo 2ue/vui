@@ -1,22 +1,22 @@
 /**
  * Created by J.2ue on 2017/9/16.
  */
-import Index from "../page-pc/index";
-import Styles from "../page-pc/styles";
-import Button from "../page-pc/button";
-import Icon from "../page-pc/icon";
-import Input from "../page-pc/input";
-import DataTips from "../page-pc/data-tips";
-import Modal from "../page-pc/modal";
-import Checkbox from "../page-pc/checkbox";
-import Radio from "../page-pc/radio";
-import Switch from "../page-pc/switch";
-import DatePicker from "../page-pc/date-picker";
-import Menu from "../page-pc/menu";
-import TreeMenu from "../page-pc/tree-menu";
-import Select from "../page-pc/select";
-import Range from "../page-pc/range";
-import Upload from "../page-pc/upload";
+import Index from "../views/index";
+import Styles from "../views/styles";
+import Button from "../views/button";
+import Icon from "../views/icon";
+import Input from "../views/input";
+import DataTips from "../views/data-tips";
+import Modal from "../views/modal";
+import Checkbox from "../views/checkbox";
+import Radio from "../views/radio";
+import Switch from "../views/switch";
+import DatePicker from "../views/date-picker";
+import Menu from "../views/menu";
+import TreeMenu from "../views/tree-menu";
+import Select from "../views/select";
+import Range from "../views/range";
+import Upload from "../views/upload";
 
 export default [
     { path: "/", component: Index, name: "Index", cname: '首页' },
