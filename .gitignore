@@ -17,3 +17,4 @@ yarn-error.log*
 
 date-year/
 date-year1/
+*package-lock.json
