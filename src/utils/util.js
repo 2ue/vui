@@ -5,6 +5,8 @@
  * @Last Modified time: 2017-12-21 09:00:57
  */
 
+//使用箭头函数之后，内部的this会穿透
+
 export default {
     /**
     * @function： 获取数据类型
@@ -41,6 +43,14 @@ export default {
     },
 
     /**
+     * @function: 生成随机字符串
+     * @returns: String
+     */
+    gStr: (len) => {
+        return Math.random().toString(36).substr(2, len || undefined);
+    },
+
+    /**
      * @function: 生成唯一ID
      * @returns: String
      */
@@ -50,16 +60,8 @@ export default {
     //     }
     //     return (`${gStr() + r()}-${r()}-${r()}-${r()}-${r() + r() + r()}`);
     // }
-    gId: () => {
+    gId: function(){
         const r = this.gStr;
         return (`${r(4) + r(4)}-${r(4)}-${r(4)}-${r(4)}-${r(4) + r(4) + r(4)}`);
-    },
-
-    /**
-     * @function: 生成随机字符串
-     * @returns: String
-     */
-    gStr: (len) => {
-        return Math.random().toString(36).substr(2, len || undefined);
-    },
+    }
 };
