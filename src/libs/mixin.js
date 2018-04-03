@@ -39,6 +39,31 @@ export default {
                 if (!!error) return newStr;
             }
             return newStr;
+        },
+        $_deep_clone: (data) => {
+            return (function clone(param) {
+                var buf
+                if (param instanceof Array) {
+                    buf = []  // 创建一个空的数组
+                    var i = param.length
+                    while (i--) {
+                        buf[i] = clone(param[i])
+                    }
+                    return buf
+                } else if (param instanceof Object){
+                    buf = {}  // 创建一个空对象
+                    for (var k in param) {  // 为这个对象添加新的属性
+                        buf[k] = clone(param[k])
+                    }
+                    return buf
+                }else{
+                    return param
+                }
+                return buf
+            })(data)
+        },
+       $_deepClone: (obj, type) => {
+            return Object.assign(type || {}, Object.create(Object.getPrototypeOf(obj)), obj);
         }
     }
 }
