@@ -7,7 +7,7 @@ a ui framework  build with vue for pc。
 
 主要是为深入学习vue
 
-# css变量命名规则
+# css变量命名规则 
 ## 通用规则
 
 - 所有命名都应添加前缀`vui`，以避免命名冲突
