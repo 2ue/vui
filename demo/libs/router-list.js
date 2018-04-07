@@ -17,6 +17,7 @@ import TreeMenu from "../views/tree-menu";
 import Select from "../views/select";
 import Range from "../views/range";
 import Upload from "../views/upload";
+import ImageCli from "../views/imagecli";
 
 export default [
     { path: "/", component: Index, name: "Index", cname: '首页' },
@@ -34,5 +35,6 @@ export default [
     { path: "/tree-menu", component: TreeMenu, name: "TreeMenu", cname: '菜单树' },
     { path: "/select", component: Select, name: "Select", cname: '选择器' },
     { path: "/range", component: Range, name: "Range", cname: '滑动选择' },
-    { path: "/upload", component: Upload, name: "Upload", cname: '上传' }
+    { path: "/upload", component: Upload, name: "Upload", cname: '上传' },
+    { path: "/imagecli", component: ImageCli, name: "ImageCli", cname: '裁剪' }
 ];

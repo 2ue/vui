@@ -22,6 +22,7 @@ import Select from "./components/select/index.vue";
 import SelectGroup from "./components/select/group.vue";
 import Range from "./components/range/index.vue";
 import Upload from "./components/upload/index.vue";
+import ImageCli from "./components/imagecli/index.vue";
 
 //import css
 import "../src/assets/less/vui.scss";
@@ -42,7 +43,8 @@ const components = {
     Select,
     SelectGroup,
     Range,
-    Upload
+    Upload,
+    ImageCli
 };
 
 const install = function (Vue, options = {}) {
