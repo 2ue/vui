@@ -7,7 +7,9 @@ import router from "./libs/router";
 //import vui
 import Vui from "../src";
 
-Vue.use(Vui);
+Vue.use(Vui, {
+    proxyTableTarget: process.env.NODE_ENV === 'production' ? undefined : '/api'
+});
 Vue.config.productionTip = false;
 
 new Vue({

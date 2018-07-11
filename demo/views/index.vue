@@ -15,6 +15,10 @@
             按照推官方荐规范：
             <a href="https://cn.vuejs.org/v2/style-guide" target="_blank">style-guides</a>
         </div>
+        <h1 class="h1-title">风格指南</h1>
+        <div class="h1-content">
+            <v-button type="ghost" @click="login"></v-button>
+        </div>
     </div>
 </template>
 
@@ -22,9 +26,37 @@
     export default {
         name: 'index',
         data() {
-            return {}
+            return {
+                token: undefined
+            }
+        },
+        watch: {
+            token() {
+                this.getInfo()
+            }
         },
         methods: {
+            login() {
+                this.$https({
+                    url: '/api/login/user',
+                    method: 'post',
+                    crossDomain: false,
+                    params: { loginName: 'admin', pswd: '111111' }
+                }).then(res => {
+                    console.log(res, res.status === 200)
+                    if (res.status === 200) this.token = res.data.userId
+                })
+            },
+            getInfo() {
+                const { token } = this
+                this.$https({
+                    url: '/login/userInfo',
+                    method: 'get',
+                    params: { token }
+                }).then(res => {
+                    console.log(res)
+                })
+            }
         }
     }
 

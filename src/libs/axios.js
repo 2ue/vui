@@ -31,18 +31,22 @@ const install = (Vue, _OPTIONS = {}) => {
     instance.interceptors.request.use(
         function (config) {
             toShowLoading();
+            const { method, loading, data, url, proxyTableTarget, crossDomain } = config
             //change to toUpperCase
-            config.method = config.method.toUpperCase();
+            config.method = method.toUpperCase();
             //showLoading
-            showLoading = typeof config.loading === "undefined" || !!config.loading;
+            showLoading = typeof loading === "undefined" || !!loading;
             //fixed method and data/params
             //'PUT', 'POST', 和 'PATCH'方法时不允许存在params会报错???
             //非'PUT', 'POST', 和 'PATCH'方法时，如果data不为空会请求两次
-            if (config.method == "GET") {
-                config.params = { ...config.data };
+            if (method == "GET") {
+                config.params = { ...data };
                 config.data = undefined;
             }
-
+            console.log(proxyTableTarget)
+            if ((typeof crossDomain === 'undefined' || crossDomain || /^http[s]{0, 1}:\/\//.test(url)) && proxyTableTarget) {
+                config.url = `${proxyTableTarget}${url}`
+            }
             return config;
         },
         function (error) {

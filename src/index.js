@@ -52,9 +52,10 @@ const install = function (Vue, options = {}) {
     Object.keys(components).forEach(key => {
         Vue.component(components[key].name, components[key]);
     });
+    const { proxyTableTarget } = options
 
     //regsiter methods
-    Vue.use(Axios);
+    Vue.use(Axios, { proxyTableTarget });
     Vue.use(Loading);
     Vue.use(Alert);
     Vue.prototype.$util = Util;

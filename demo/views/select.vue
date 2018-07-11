@@ -9,7 +9,7 @@
         </p>
         <p>width属性设置宽度</p>
         <p class="mr-b10">
-            <v-select :selectOptions="demoData1" width="120"></v-select>
+            <v-select :selectOptions="demoData1" width="360"></v-select>
         </p>
         <p>disabled属性设置</p>
         <p class="mr-b10">
