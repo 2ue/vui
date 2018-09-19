@@ -45,7 +45,7 @@
                 return this.showDataTips === 'always' ? 'vui-data-tips-hover' : '';
             },
             styles: function () {
-                const val = this.width, validatorRes = /^[0-9]+(px|em|rem|)$/.test(val);
+                const val = this.width, validatorRes = /^\d\.+[0-9]+(px|em|rem|)$/.test(val);
                 let width = !validatorRes ? '' : isNaN(val) ? val : `${val}px`;
                 return { width }
             }

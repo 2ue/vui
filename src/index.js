@@ -48,13 +48,13 @@ const components = {
 };
 
 const install = function (Vue, options = {}) {
-    //regsiter componnets
+    //register componnets
     Object.keys(components).forEach(key => {
         Vue.component(components[key].name, components[key]);
     });
     const { proxyTableTarget } = options
 
-    //regsiter methods
+    //register methods
     Vue.use(Axios, { proxyTableTarget });
     Vue.use(Loading);
     Vue.use(Alert);
@@ -62,7 +62,7 @@ const install = function (Vue, options = {}) {
     Vue.prototype.$prefixCls = 'vui-'
 };
 
-//mount Vue to gobol when use it through script tag
+//mount Vue to global when use it through script tag
 if (typeof window !== "undefined" && window.Vue) {
     install(window.Vue);
 }
