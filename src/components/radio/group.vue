@@ -1,13 +1,13 @@
 <template>
     <div class="vui-radio-group">
-        <radio v-for="(item, index) in selfGroupData" :disabled="disabled" :key="index" :index="index" :size="item.size" :name="name" :checked="item.selfChecked"
-            :value="getVal(item,index)" @onClick="onClick">{{item.text}}</radio>
+        <v-radio v-for="(item, index) in selfGroupData" :disabled="disabled" :key="index" :index="index" :size="item.size" :name="name" :checked="item.selfChecked"
+            :value="getVal(item,index)" @onClick="onClick">{{item.text}}</v-radio>
     </div>
 </template>
 
 <script>
 
-    import Radio from './index';
+    import VRadio from './index';
     export default {
         name: 'vRadioGroup',
         data() {
@@ -16,7 +16,7 @@
             }
         },
         components: {
-            Radio
+            VRadio
         },
         props: {
             //radio组的数据

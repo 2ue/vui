@@ -1,14 +1,14 @@
 <template>
     <div class="vui-checkbox-group">
         <slot></slot>
-        <checkbox v-for="(item, index) in selfGroupData" :disabled="disabled" :key="index" :index="index" :size="size" :name="name" :checked="item.selfChecked"
-            :value="getVal(item,index)" @onClick="singleClick">{{item.text}}</checkbox>
+        <v-checkbox v-for="(item, index) in selfGroupData" :disabled="disabled" :key="index" :index="index" :size="size" :name="name" :checked="item.selfChecked"
+            :value="getVal(item,index)" @onClick="singleClick">{{item.text}}</v-checkbox>
     </div>
 </template>
 
 <script>
 
-    import Checkbox from './index';
+    import VCheckbox from './index';
     export default {
         name: 'vCheckboxGroup',
         data() {
@@ -18,7 +18,7 @@
             }
         },
         components: {
-            Checkbox
+            VCheckbox
         },
         watch: {
             selfGroupData: {

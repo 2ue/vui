@@ -13,7 +13,7 @@
         <br>
         <p class="mr-b10">测试disbaled属性: 接收boolean值，所有非boolean值将会在组件内部使用!转换,会自动禁用各种事件</p>
         <v-radio>checked：false</v-radio>
-        <v-radio :disabled="true">checked：true</v-radio>
+        <v-radio :disabled="true">checked：false</v-radio><br>
         <v-radio :checked="true">checked：true</v-radio>
         <v-radio :checked="true" :disabled="true">checked：true</v-radio>
         <br>

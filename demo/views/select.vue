@@ -74,11 +74,11 @@
                 demoData1: [...selectData.item],
                 demoData2: [...selectData.items],
                 selectedOptions1: {},
-                selectedOptions2: ['潘艳', 'Daniel Martin', '473147'],
+                selectedOptions2: ['潘艳111111111111111111111111111111111111111111111', 'Daniel Martin', '473147'],
                 selectedOptions3: [],
-                selectedVal: ['潘艳', 'Daniel Martin', '473147'],
-                selectedValError1: ['潘艳1', 'Daniel Martin1', '473147'],
-                selectedValError2: ['潘艳', 'Daniel Martin1', '473147'],
+                selectedVal: ['潘艳111111111111111111111111111111111111111111111', 'Daniel Martin', '473147'],
+                selectedValError1: ['潘艳111111111111111111111111111111111111111111111', 'Daniel Martin1', '473147'],
+                selectedValError2: ['潘艳111111111111111111111111111111111111111111111', 'Daniel Martin1', '473147'],
             }
         },
         methods: {

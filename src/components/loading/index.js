@@ -10,7 +10,7 @@ const install = (Vue) => {
             instance.show(options);
         },
         close(t) {
-            instance.close(t);
+            if (instance) instance.close(t);
         }
     };
 

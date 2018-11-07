@@ -24,6 +24,7 @@
                 loadingText: 'Loading',
                 loadingHtml: '',
                 showLoading: false,
+                timer: null
             }
         },
         watch: {
@@ -33,6 +34,7 @@
         },
         methods: {
             show: function (options) {
+                this.timer && clearTimeout(this.timer)
                 if (!!options) {
                     let _html, _text;
                     if (typeof options != 'object') {
@@ -45,11 +47,14 @@
                     } else {
                         if (_text) this.loadingText = !_text ? this.loadingText : _text;
                     }
+                    if (options.time) {
+                        this.close(options.time)
+                    }
                 };
                 this.showLoading = true;
             },
             close: function (t) {
-                setTimeout(() => {
+                this.timer = setTimeout(() => {
                     this.showLoading = false;
                 }, !t ? 0 : t)
             }

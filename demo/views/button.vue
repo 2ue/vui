@@ -42,7 +42,11 @@
             clickEvent: function (event) {
                 console.log('被点击了');
                 this.$loading.show('Loading 两秒后关闭！');
-                this.$loading.close(2000);
+                this.$loading.show({
+                    text: 'Loading 两秒后关闭333！'
+                });
+                // this.$router.push('/input')
+                // this.$loading.close(2000);
             }
         }
     }
