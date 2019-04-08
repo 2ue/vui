@@ -57,5 +57,23 @@
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    #{$prefix-cls}input {
+        box-sizing: border-box;
+        width: 200px;
+        height: 30px;
+        border: 1px solid $border-color-main;
+        border-radius: $border-radius;
+        box-sizing: border-box;
+        padding: 0 10px;
+        margin: 2px 0;
+        color: #666;
+    &:disabled {
+         background: $border-color-little;
+         cursor: not-allowed;
+     }
+    &:read-only {
+         background: $border-color-little;
+     }
+    }
 </style>
