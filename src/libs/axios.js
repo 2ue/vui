@@ -6,12 +6,12 @@ const install = (Vue, _OPTIONS = {}) => {
     let loadingInstance,
         showLoading = true;
 
-    function getloadingInstance(o) {
+    function getLoadingInstance(o) {
         o = o || Loading.created(Vue);
         return o;
     }
 
-    function tocloseLoading() {
+    function toCloseLoading() {
         if (showLoading) {
             setTimeout(function () {
                 loadingInstance.close();
@@ -21,7 +21,7 @@ const install = (Vue, _OPTIONS = {}) => {
 
     function toShowLoading() {
         if (showLoading) {
-            loadingInstance = getloadingInstance(loadingInstance);
+            loadingInstance = getLoadingInstance(loadingInstance);
             loadingInstance.show();
         }
     }
@@ -29,7 +29,7 @@ const install = (Vue, _OPTIONS = {}) => {
     //doc https://www.kancloud.cn/yunye/axios/234845
     //interceptors request
     instance.interceptors.request.use(
-        function (config) {
+        (config) => {
             toShowLoading();
             const { method, loading, data, url, proxyTableTarget, crossDomain } = config
             //change to toUpperCase
@@ -49,15 +49,15 @@ const install = (Vue, _OPTIONS = {}) => {
             }
             return config;
         },
-        function (error) {
-            tocloseLoading();
+        (error) => {
+            toCloseLoading();
             return Promise.reject(error);
         }
     );
 
     //interceptors response
     instance.interceptors.response.use(
-        function (response) {
+        (response) => {
             const result = {
                 status: response.status,
                 data: ''
@@ -65,11 +65,11 @@ const install = (Vue, _OPTIONS = {}) => {
             if (response.status === 200) {
                 result.data = response.data;
             }
-            tocloseLoading();
+            toCloseLoading();
             return result;
         },
-        function (error) {
-            tocloseLoading();
+        (error) => {
+            toCloseLoading();
             return Promise.reject(error.response.data);
         }
     );

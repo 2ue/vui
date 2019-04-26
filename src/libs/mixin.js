@@ -13,7 +13,7 @@ export default {
             if (!props || !target) return undefined;
             return props.reduce((pre, nxt) => (typeof pre === 'undefined' || typeof pre[nxt] === 'undefined' ? undefined : pre[nxt]), target);
         },
-        $_decodeStr: (str, type) => {//type: html, html2
+        $_decodeStr: (str, type) => {// type: html, html2
             function htmlDecode(str) {
                 let e = document.createElement('div'), _html = '';
                 e.innerHTML = str;
