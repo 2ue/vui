@@ -23,6 +23,7 @@
 
 <script>
     export default {
+        name: 'tagTextarea',
         data() {
             return {
                 tags: [],
@@ -90,7 +91,7 @@
         transition: all ease-in-out 0.3s;
         &:focus, &:hover{
             outline: 0;
-            border-color: $color-primary;
+            border-color: $primary-color;
         }
     }
     .tag-textarea-container {

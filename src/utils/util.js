@@ -14,6 +14,7 @@ export default {
     * @returns: String 返回类型
     * */
     tryType: para => {
+        console.log('para==>', para)
         const type = typeof para;
         if (type === "number" && isNaN(para)) return "NaN";
         if (type !== "object") return type;
