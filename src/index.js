@@ -23,6 +23,7 @@ import SelectGroup from "./components/select/group.vue";
 import Range from "./components/range/index.vue";
 import Upload from "./components/upload/index.vue";
 import ImageCli from "./components/imagecli/index.vue";
+import TagTextarea from "./components/tag-textarea/index.vue";
 
 //import css
 import "../src/assets/less/vui.scss";
@@ -44,7 +45,8 @@ const components = {
     SelectGroup,
     Range,
     Upload,
-    ImageCli
+    ImageCli,
+    TagTextarea
 };
 
 const install = function (Vue, options = {}) {
@@ -63,7 +65,7 @@ const install = function (Vue, options = {}) {
 };
 
 //mount Vue to global when use it through script tag
-if (typeof window !== "undefined" && window.Vue) {
+if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
 
